@@ -20,4 +20,8 @@
     <ProjectReference Include="..\MedicaERPMVC.Domain\MedicaERPMVC.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 </Project>

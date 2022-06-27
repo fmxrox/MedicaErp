@@ -23,15 +23,15 @@ namespace Infrastructure.MedicaERPMVC.Repositories
             _medicaErpDbContext.SaveChanges();
             return visit.Id;
         }
-        public async Task<IQueryable<Visit>> GetVisitsByTypeId(int typeId)
+        public  IQueryable<Visit> GetVisitsByTypeId(int typeId)
         {
-            var visits =  _medicaErpDbContext.Visits.Where(x => x.VisitTypeId == typeId);
+            var visits = _medicaErpDbContext.Visits.Where(x => x.VisitTypeId == typeId);
             return visits;
         }
         public async Task<Visit> GetVisitById(string name)
         {
-            var visit =  await _medicaErpDbContext.Visits.FindAsync(name);
-            if (visit == null) throw new Exception("Visit not found");    
+            var visit = await _medicaErpDbContext.Visits.FindAsync(name);
+            if (visit == null) throw new Exception("Visit not found");
             return visit;
         }
         public void DeleteVisit(int idVisit)
