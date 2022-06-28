@@ -10,6 +10,10 @@ namespace Infrastructure.MedicaERPMVC.Repositories
     public class VisitRepository
     {// todo GetVisitByDoctorId or Something, po nr pesel
      //edit visit, update exception, Async wszędzie
+     // po pesel whehe visit inprogress- something like that
+     //Edit async
+     //RESX- tłumaczenie
+
 
         private readonly MedicaErpDbContext _medicaErpDbContext;
         public VisitRepository(MedicaErpDbContext medicaErpDbContext)
@@ -36,7 +40,7 @@ namespace Infrastructure.MedicaERPMVC.Repositories
         }
         public void DeleteVisit(int idVisit)
         {
-            // po pesel whehe visit inprogress- something like that
+            
             var visit = _medicaErpDbContext.Visits.Find(idVisit);
             if (visit != null)
             {

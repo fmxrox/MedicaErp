@@ -7,6 +7,8 @@ namespace MedicaERPMVC.Domain.Model
     public class User : IdentityUser
     {
         [Required]
+        public int Id { get; set; }
+       
         [MaxLength(30)]
         [MinLength(1)]
         public string FirstName { get; set; }
@@ -31,12 +33,12 @@ namespace MedicaERPMVC.Domain.Model
         //PatientID i DoctorID 
         public string? Pesel { get; set; }
         public int? ClinicId { get; set; }
-        public virtual Clinic Clinic{get;set;}
+        public virtual Clinic Clinic { get; set; }
 
-        public  UserContactInformation UserContactInformation { get; set; }
+        public UserContactInformation UserContactInformation { get; set; }
 
-        public List<Visit> DoctorsVisits { get; set; } = new List<Visit>();
+        //public List<Visit> DoctorsVisits { get; set; }
 
-        public List<Visit> PatientVisits { get; set; } = new List<Visit>();
+        //public List<Visit> PatientVisits { get; set; }
     }
 }

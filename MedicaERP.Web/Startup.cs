@@ -1,20 +1,12 @@
 using Infrastructure.MedicaERPMVC;
-using MedicaERP.Web.Data;
-using MedicaERPMVC.Domain;
 using MedicaERPMVC.Domain.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MedicaERP.Web
 {
@@ -33,15 +25,16 @@ namespace MedicaERP.Web
             services.AddDbContext<MedicaErpDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddIdentity<User, IdentityRole>(options =>
-            {
-                options.Password.RequireDigit = true;
-                options.Password.RequireLowercase = false;
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireUppercase = false;
-            })
-                   .AddEntityFrameworkStores<MedicaErpDbContext>()
-                   .AddDefaultTokenProviders();
+            services.AddDefaultIdentity<IdentityUser>().AddRoles<IdentityRole>().AddEntityFrameworkStores<MedicaErpDbContext>();
+            //services.AddIdentity<User, IdentityRole>(options =>
+            //{
+            //    options.Password.RequireDigit = true;
+            //    options.Password.RequireLowercase = false;
+            //    options.Password.RequireNonAlphanumeric = false;
+            //    options.Password.RequireUppercase = false;
+            //})
+                   //.AddEntityFrameworkStores<MedicaErpDbContext>()
+                   //.AddDefaultTokenProviders();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
@@ -49,6 +42,7 @@ namespace MedicaERP.Web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

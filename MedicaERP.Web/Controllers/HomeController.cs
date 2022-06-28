@@ -11,6 +11,12 @@ namespace MedicaERP.Web.Controllers
 {
     public class HomeController : Controller
     {
+        //Pierwsza walidacja i przekazanie żadania do innej warstwy 
+        // widok dla akcji
+        //tabela z pacjentami
+        // filtrowanie pacjentow
+        //kryteria filtrow
+        //
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -28,22 +34,22 @@ namespace MedicaERP.Web.Controllers
         {
             return View();
         }
-        public IActionResult actionMoje()
-        {
-            return View();
-        }
-        public IActionResult Moj()
-        {
-            List<string> items = new List<string>();
-            items.Add("Adam");
-            items.Add("sada");
-            return View(items);
-        }
+        //public IActionResult actionMoje()
+        //{
+        //    return View();
+        //}
+        //    public IActionResult Moj()
+        //    {
+        //        //List<string> items = new List<string>();
+        //        //items.Add("Adam");
+        //        //items.Add("sada");
+        //        //return View(items);
+        //    }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        //    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        //    public IActionResult Error()
+        //    {
+        //        //return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        //    }
     }
 }

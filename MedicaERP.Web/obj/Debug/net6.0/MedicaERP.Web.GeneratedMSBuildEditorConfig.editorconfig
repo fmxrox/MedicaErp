@@ -11,7 +11,7 @@ build_property.RootNamespace = MedicaERP.Web
 build_property.ProjectDir = D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERP.Web\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERP.Web
 build_property._RazorSourceGeneratorDebug = 
 
