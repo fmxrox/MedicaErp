@@ -11,12 +11,6 @@ namespace MedicaERP.Web.Controllers
 {
     public class HomeController : Controller
     {
-        //Pierwsza walidacja i przekazanie żadania do innej warstwy 
-        // widok dla akcji
-        //tabela z pacjentami
-        // filtrowanie pacjentow
-        //kryteria filtrow
-        //
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)

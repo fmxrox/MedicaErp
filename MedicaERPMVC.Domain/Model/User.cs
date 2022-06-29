@@ -5,9 +5,7 @@ using System.ComponentModel.DataAnnotations;
 namespace MedicaERPMVC.Domain.Model
 {
     public class User : IdentityUser
-    {
-        [Required]
-        public int Id { get; set; }
+    { 
        
         [MaxLength(30)]
         [MinLength(1)]
@@ -37,8 +35,8 @@ namespace MedicaERPMVC.Domain.Model
 
         public UserContactInformation UserContactInformation { get; set; }
 
-        //public List<Visit> DoctorsVisits { get; set; }
+        public virtual ICollection<Visit> DoctorsVisits { get; set; }
 
-        //public List<Visit> PatientVisits { get; set; }
+        public virtual  ICollection<Visit> PatientVisits { get; set; }
     }
 }
