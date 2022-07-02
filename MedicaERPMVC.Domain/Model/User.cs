@@ -28,9 +28,7 @@ namespace MedicaERPMVC.Domain.Model
 
         public SpecialitzationOfDoctor? SpecialitzationOfDoctor { get; set; }
 
-        //PatientID i DoctorID 
         public string? Pesel { get; set; }
-        public int? ClinicId { get; set; }
         public virtual Clinic Clinic { get; set; }
 
         public UserContactInformation UserContactInformation { get; set; }

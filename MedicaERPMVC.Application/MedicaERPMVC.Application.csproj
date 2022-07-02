@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="ViewModels\" />
+    <Folder Include="ViewModels\Admin\" />
+    <Folder Include="ViewModels\Doctor\" />
   </ItemGroup>
 
   <ItemGroup>
