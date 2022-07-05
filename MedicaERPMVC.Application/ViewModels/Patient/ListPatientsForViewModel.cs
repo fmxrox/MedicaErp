@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MedicaERPMVC.Application.ViewModels.Patient
 {
-    public class ListPatientsForViewModel
+    public class ListPatientsForListViewModel
     {
         public List<PatientForListViewModel> Patients { get; set; }
         public int Count { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.MedicaERPMVC.Repositories.Admin
 {
-    internal interface IAdminService
+    internal interface IAdminRepository
     {
         //dodawanie medCent, edycja pracowników, crud medCent, crud employees
 

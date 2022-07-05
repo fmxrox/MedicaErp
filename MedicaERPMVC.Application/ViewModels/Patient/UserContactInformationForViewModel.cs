@@ -8,5 +8,7 @@ namespace MedicaERPMVC.Application.ViewModels.Patient
 {
     public class UserContactInformationForViewModel
     {
+        public string? Adress { get; set; }
+        public string? PhoneNumber { get; set; }
     }
 }

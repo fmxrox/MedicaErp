@@ -5,8 +5,8 @@ using System.ComponentModel.DataAnnotations;
 namespace MedicaERPMVC.Domain.Model
 {
     public class User : IdentityUser
-    { 
-       
+    {
+        public int ID { get; set; }
         [MaxLength(30)]
         [MinLength(1)]
         public string FirstName { get; set; }
@@ -24,6 +24,8 @@ namespace MedicaERPMVC.Domain.Model
 
         public RoleOfUser RoleOfUser { get; set; }
 
+        public bool isActivate { get; set; }
+        public byte[] OwnPicture { get; set; }
         public int? SpecialitzationOfDoctorId { get; set; }
 
         public SpecialitzationOfDoctor? SpecialitzationOfDoctor { get; set; }
@@ -31,7 +33,7 @@ namespace MedicaERPMVC.Domain.Model
         public string? Pesel { get; set; }
         public virtual Clinic Clinic { get; set; }
 
-        public UserContactInformation UserContactInformation { get; set; }
+        public UserContactInformation? UserContactInformation { get; set; }
 
         public virtual ICollection<Visit> DoctorsVisits { get; set; }
 

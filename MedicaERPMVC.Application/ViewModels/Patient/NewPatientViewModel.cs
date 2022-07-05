@@ -15,6 +15,5 @@ namespace MedicaERPMVC.Application.ViewModels.Patient
         public string Adress { get; set; }
         public string Sex { get; set; }
         public string Pesel { get; set; }
-        public string Pesel { get; set; }
     }
 }

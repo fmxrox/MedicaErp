@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicaERPMVC.Application.ViewModels.Patient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,11 @@ namespace MedicaERPMVC.Application.Interfaces
 {
    public interface IPatientService
     {
+        ListPatientsForListViewModel GetAllPatientsForList();
+        int AddPatient(NewPatientViewModel newPatientViewModel);
+        bool EditPatient(int patientId);
+        PatientDetailsViewModel GetPaitentById(int PatientId);
+
+        PatientDetailsViewModel GetPatientDetails(int PatientId);
     }
 }
