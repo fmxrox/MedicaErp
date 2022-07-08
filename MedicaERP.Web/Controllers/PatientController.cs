@@ -17,37 +17,37 @@ namespace MedicaERP.Web.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
-        {
-            var model = patientService.GetAllPatientsForList();
-            return View(model);
-        }
-        [HttpGet]
-        public IActionResult AddPatient()
-        {
-            return View();
-        }
-        [HttpPost]
-        public IActionResult AddPatient(PatientModel modelPatient)
-        {
-            var idPatient = patientService.AddPatient(modelPatient);
-            return View();// po wypelnieniu
-        }
-        [HttpGet]
-        public IActionResult AddAdress(int patientId)
-        {
-            return View();
-        }
-        [HttpPost]
-        public IActionResult AddAdress(AdressModel modelPatientAdress)
-        {
-            var idPatient = patientService.AddAdress(modelPatientAdress);
-            return View();// po wypelnieniu
-        }
+        //public IActionResult Index()
+        //{
+        //    var model = patientService.GetAllPatientsForList();
+        //    return View(model);
+        //}
+        //[HttpGet]
+        //public IActionResult AddPatient()
+        //{
+        //    return View();
+        //}
+        //[HttpPost]
+        //public IActionResult AddPatient(PatientModel modelPatient)
+        //{
+        //    var idPatient = patientService.AddPatient(modelPatient);
+        //    return View();// po wypelnieniu
+        //}
+        //[HttpGet]
+        //public IActionResult AddAdress(int patientId)
+        //{
+        //    return View();
+        //}
+        //[HttpPost]
+        //public IActionResult AddAdress(AdressModel modelPatientAdress)
+        //{
+        //    var idPatient = patientService.AddAdress(modelPatientAdress);
+        //    return View();// po wypelnieniu
+        //}
 
-        public IActionResult ViewPatient(int patientId)
-        {
-            var idPatient = patientService.GetPaitentById(patientId);
-        }
+        //public IActionResult ViewPatient(int patientId)
+        //{
+        //    var idPatient = patientService.GetPaitentById(patientId);
+        //}
     }
 }

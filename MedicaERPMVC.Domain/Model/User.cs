@@ -6,14 +6,8 @@ namespace MedicaERPMVC.Domain.Model
 {
     public class User : IdentityUser
     {
-        public int ID { get; set; }
-        [MaxLength(30)]
-        [MinLength(1)]
+        public int Id { get; set; }
         public string FirstName { get; set; }
-
-        [Required]
-        [MinLength(2)]
-        [MaxLength(35)]
         public string LastName { get; set; }
 
         public DateTime DateOfBirth { get; set; }
@@ -29,14 +23,9 @@ namespace MedicaERPMVC.Domain.Model
         public int? SpecialitzationOfDoctorId { get; set; }
 
         public SpecialitzationOfDoctor? SpecialitzationOfDoctor { get; set; }
-
         public string? Pesel { get; set; }
         public virtual Clinic Clinic { get; set; }
-
         public UserContactInformation? UserContactInformation { get; set; }
-
-        public virtual ICollection<Visit> DoctorsVisits { get; set; }
-
         public virtual  ICollection<Visit> PatientVisits { get; set; }
     }
 }

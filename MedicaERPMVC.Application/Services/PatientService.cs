@@ -1,4 +1,6 @@
-﻿using MedicaERPMVC.Application.Interfaces;
+﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using MedicaERPMVC.Application.Interfaces;
 using MedicaERPMVC.Application.ViewModels.Patient;
 using MedicaERPMVC.Domain.Interface;
 using System;
@@ -14,6 +16,12 @@ namespace MedicaERPMVC.Application.Services
         //wszystkie polaczena caly kod odp za reagowanie na zadania uzytkownika
         //w repozytorium oczekujemy konkretnego przedmiotu(ty tylko check czy null)
         private readonly IPatientRepository _patientRepository;
+        private readonly IMapper _mapper;
+        public PatientService(IPatientRepository patientRepository, IMapper mapper)
+        {
+            _patientRepository = patientRepository;
+            _mapper = mapper;
+        }
         public int AddPatient(NewPatientViewModel newPatientViewModel)
         {
             throw new NotImplementedException();
@@ -26,23 +34,15 @@ namespace MedicaERPMVC.Application.Services
 
         public ListPatientsForListViewModel GetAllPatientsForList()
         {
-            var patients = _patientRepository.GetAllPatients();
-            ListPatientsForListViewModel result = new ListPatientsForListViewModel();
-            result.Patients = new List<PatientForListViewModel>();
-            foreach (var pat in patients)
+            var patients = _patientRepository.GetAllPatients()// PROJECT DO IQeryable do pojedynczyc <Map>
+                .ProjectTo<PatientForListViewModel>(_mapper.ConfigurationProvider).ToList();
+
+            var patientsForListViewModel = new ListPatientsForListViewModel()
             {
-                var patientViewModel = new PatientForListViewModel()
-                {
-                    Id = pat.ID,
-                    Name = pat.UserName,
-                    Pesel = pat.Pesel,
-                    DateOfBirth = pat.DateOfBirth,
-                    Sex = pat.Sex
-                };
-                result.Patients.Add(patientViewModel);
-            }
-            result.Count = result.Patients.Count;
-            return result;
+                Patients = patients,
+                Count = patients.Count()
+            };
+            return patientsForListViewModel;
         }
 
         public PatientDetailsViewModel GetPaitentById(int PatientId)
@@ -53,18 +53,8 @@ namespace MedicaERPMVC.Application.Services
         public PatientDetailsViewModel GetPatientDetails(int PatientId)
         { 
             var patient = _patientRepository.GetPatient(PatientId);
-            var patientViewModel = new PatientDetailsViewModel();
-            patientViewModel.Id = patient.ID;
-            patientViewModel.FullName = patient.FirstName + " " + patient.LastName;
-            patientViewModel.Pesel = patient.Pesel;
-            var contactInformation = patient.UserContactInformation;
-            patientViewModel.UserContactInformation = new UserContactInformationForViewModel
-            {
-                Adress = contactInformation.Adress,
-                PhoneNumber = contactInformation.PhoneNumber
-
-            };
-            return patientViewModel;
+            var patientDetailsViewModel = _mapper.Map<PatientDetailsViewModel>(patient);
+            return patientDetailsViewModel;
         }
     }
 }

@@ -1,4 +1,6 @@
 using Infrastructure.MedicaERPMVC;
+using Infrastructure.MedicaERPMVC.Repositories.User;
+using MedicaERPMVC.Domain.Interface;
 using MedicaERPMVC.Domain.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -7,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Reflection;
 
 namespace MedicaERP.Web
 {
@@ -33,8 +36,10 @@ namespace MedicaERP.Web
             //    options.Password.RequireNonAlphanumeric = false;
             //    options.Password.RequireUppercase = false;
             //})
-                   //.AddEntityFrameworkStores<MedicaErpDbContext>()
-                   //.AddDefaultTokenProviders();
+            //.AddEntityFrameworkStores<MedicaErpDbContext>()
+            //.AddDefaultTokenProviders();
+            services.AddTransient<IPatientRepository, PatientRepository>();
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddControllersWithViews();
             services.AddRazorPages();
         }

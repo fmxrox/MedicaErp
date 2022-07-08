@@ -27,9 +27,9 @@ namespace Infrastructure.MedicaERPMVC
         protected override void OnModelCreating(ModelBuilder builder)
         {
 
-            //builder.Entity<User>()
-            //    .HasOne(a => a.UserContactInformation).WithOne(b => b.User)
-            //    .HasForeignKey<UserContactInformation>(c => c.UserId);
+            builder.Entity<User>()
+                .HasOne(a => a.UserContactInformation).WithOne(b => b.User)
+                .HasForeignKey<UserContactInformation>(c => c.Id);
             base.OnModelCreating(builder);
         }
 

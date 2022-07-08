@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "N8nZYsgqlv5wdcc9GD1R8/U0gT84WcPt2KeA+M7OhOpvxLDd3BVKKgpUfPFEZV71moWfDRaJb1lWfn62/EPWRw==",
+  "dgSpecHash": "0ACQdfJPqULzVYsQFnpY5RL6QYCKMlIMK5ofSJSHB8FSFgVHraztPIMMOGb9aE5jIu3bLPAaeYUAXEmSdLjlNg==",
   "success": true,
   "projectFilePath": "D:\\INŻYNIERKA MÓJ PROJEKT\\MedicaERP\\MedicaERPMVC\\MedicaERP.Web\\MedicaERP.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Adam-Dom\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
+    "C:\\Users\\Adam-Dom\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\Adam-Dom\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Adam-Dom\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\Adam-Dom\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",

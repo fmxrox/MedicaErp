@@ -858,6 +858,7 @@ D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERP.Web\bin\Debug\net6.
 D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERP.Web\bin\Debug\net6.0\refs\System.Xml.XPath.XDocument.dll
 D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERP.Web\bin\Debug\net6.0\refs\WindowsBase.dll
 D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERP.Web\bin\Debug\net6.0\AutoMapper.dll
+D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERP.Web\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERP.Web\bin\Debug\net6.0\Humanizer.dll
 D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERP.Web\bin\Debug\net6.0\MessagePack.dll
 D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERP.Web\bin\Debug\net6.0\MessagePack.Annotations.dll

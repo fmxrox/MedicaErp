@@ -8,7 +8,7 @@ namespace MedicaERPMVC.Application.ViewModels.Patient
 {
     public class ListPatientsForListViewModel
     {
-        public List<PatientForListViewModel> Patients { get; set; }
+        public List<PatientForListViewModel>? Patients { get; set; }
         public int Count { get; set; }
     }
 }
