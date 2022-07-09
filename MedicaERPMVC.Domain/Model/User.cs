@@ -13,19 +13,19 @@ namespace MedicaERPMVC.Domain.Model
         public DateTime DateOfBirth { get; set; }
 
         public Sex Sex { get; set; }
-
-        public string Adnotations { get; set; }
-
+        
+        public string? Adnotations { get; set; }
+        public bool isPatient { get; set; }
         public RoleOfUser RoleOfUser { get; set; }
 
         public bool isActivate { get; set; }
-        public byte[] OwnPicture { get; set; }
+        public byte[]? OwnPicture { get; set; }
         public int? SpecialitzationOfDoctorId { get; set; }
 
         public SpecialitzationOfDoctor? SpecialitzationOfDoctor { get; set; }
         public string? Pesel { get; set; }
-        public virtual Clinic Clinic { get; set; }
+        public virtual Clinic? Clinic { get; set; }
         public UserContactInformation? UserContactInformation { get; set; }
-        public virtual  ICollection<Visit> PatientVisits { get; set; }
+        public virtual  ICollection<Visit>? PatientVisits { get; set; }
     }
 }

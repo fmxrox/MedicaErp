@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.MedicaERPMVC
 {
-    public class MedicaErpDbContext : IdentityDbContext
+    public class MedicaErpDbContext : IdentityDbContext<User>
     {
         public DbSet<Visit> Visits { get; set; }
         public DbSet<User> Users { get; set; }
@@ -19,7 +19,8 @@ namespace Infrastructure.MedicaERPMVC
         public DbSet<SpecialitzationOfDoctor> SpecializationOfDoctors { get; set; }
         public DbSet<UserContactInformation> UserContactInformation { get; set; }
         public DbSet<VisitType> VisitTypes { get; set; }
-        public MedicaErpDbContext(DbContextOptions options) : base(options)
+        public MedicaErpDbContext(DbContextOptions<MedicaErpDbContext> options)
+            : base(options)
         {
 
         }

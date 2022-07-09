@@ -29,15 +29,15 @@ namespace MedicaERP.Web
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>().AddRoles<IdentityRole>().AddEntityFrameworkStores<MedicaErpDbContext>();
-            //services.AddIdentity<User, IdentityRole>(options =>
-            //{
-            //    options.Password.RequireDigit = true;
-            //    options.Password.RequireLowercase = false;
-            //    options.Password.RequireNonAlphanumeric = false;
-            //    options.Password.RequireUppercase = false;
-            //})
-            //.AddEntityFrameworkStores<MedicaErpDbContext>()
-            //.AddDefaultTokenProviders();
+            services.AddIdentity<User, IdentityRole>(options =>
+            {
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+            })
+            .AddEntityFrameworkStores<MedicaErpDbContext>()
+            .AddDefaultTokenProviders();
             services.AddTransient<IPatientRepository, PatientRepository>();
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddControllersWithViews();

@@ -13,20 +13,16 @@ namespace MedicaERPMVC.Domain.Model
 
         public string Description { get; set; }
 
-        [Required]
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
-        [Required]
         public TimeSpan StartTime { get; set; }
 
-        [Required]
         public TimeSpan EndTime { get; set; }
 
         public int UserId { get; set; }
 
         public virtual User PatientName { get; set; }
-        public string ClinicId { get; set; }
 
         public virtual Clinic Clinic { get; set; }
 

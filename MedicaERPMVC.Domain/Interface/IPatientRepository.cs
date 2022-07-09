@@ -10,6 +10,6 @@ namespace MedicaERPMVC.Domain.Interface
     public interface IPatientRepository
     {
         IQueryable<User> GetAllPatients();
-        User GetPatient(int patientId);
+        User GetPatient(int id);
     }
 }

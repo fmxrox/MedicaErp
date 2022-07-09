@@ -18,12 +18,12 @@ namespace Infrastructure.MedicaERPMVC.Repositories.User
 
         public IQueryable<global::MedicaERPMVC.Domain.Model.User> GetAllPatients()
         {
-            throw new NotImplementedException();
+            return _medicaDbContext.Users.Where(p => p.isActivate && p.isPatient);
         }
 
-        public global::MedicaERPMVC.Domain.Model.User GetPatient(int patientId)
+        public global::MedicaERPMVC.Domain.Model.User GetPatient(int pesel)
         {
-            throw new NotImplementedException();
+            return _medicaDbContext.Users.FirstOrDefault(p => p.Id == pesel);
         }
     }
 }
