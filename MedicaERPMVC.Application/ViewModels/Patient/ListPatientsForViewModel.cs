@@ -10,5 +10,7 @@ namespace MedicaERPMVC.Application.ViewModels.Patient
     {
         public List<PatientForListViewModel>? Patients { get; set; }
         public int Count { get; set; }
+        public int ActualPage { get; set; }
+        public int PageSize { get; set; }
     }
 }

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MedicaERPMVC.Application.ViewModels.Patient
 {
-    public class PatientDetailsViewModel : IMapFrom<User>
+    public class PatientDetailsViewModel : IMapFrom<Domain.Model.Patient>
     {   //last visits
         //history
         public int Id { get; set; }
@@ -22,7 +22,7 @@ namespace MedicaERPMVC.Application.ViewModels.Patient
         public UserContactInformationForViewModel? UserContactInformation { get; set; }
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<User, PatientDetailsViewModel>()
+            profile.CreateMap<Domain.Model.Patient, PatientDetailsViewModel>()
                 .ForMember(d => d.Id, p => p.MapFrom(s => s.Id))
                 .ForMember(d => d.FullName, p=> p.MapFrom(s=> s.FirstName+" "+ s.LastName))
                 .ForMember(d => d.DateOfBirth, p => p.MapFrom(d => d.DateOfBirth))

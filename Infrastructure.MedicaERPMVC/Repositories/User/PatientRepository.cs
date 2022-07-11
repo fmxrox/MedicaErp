@@ -16,14 +16,14 @@ namespace Infrastructure.MedicaERPMVC.Repositories.User
             _medicaDbContext = medicaErpDbContext;
         }
 
-        public IQueryable<global::MedicaERPMVC.Domain.Model.User> GetAllPatients()
+        public IQueryable<global::MedicaERPMVC.Domain.Model.Patient> GetAllPatients()
         {
-            return _medicaDbContext.Users.Where(p => p.isActivate && p.isPatient);
+            return _medicaDbContext.Patients.Where(p => p.isActivate && p.isPatient);
         }
 
-        public global::MedicaERPMVC.Domain.Model.User GetPatient(int pesel)
+        public global::MedicaERPMVC.Domain.Model.Patient GetPatient(int pesel)
         {
-            return _medicaDbContext.Users.FirstOrDefault(p => p.Id == pesel);
+            return _medicaDbContext.Patients.FirstOrDefault(p => p.Id == pesel);
         }
     }
 }

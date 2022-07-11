@@ -19,10 +19,16 @@ namespace MedicaERP.Web.Controllers
             _logger = logger;
             _patientService = patientService;
         }
-
+        [HttpGet]
         public IActionResult Index()
         {
             var model = _patientService.GetAllPatientsForList();
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult Index()
+        {
+           
             return View(model);
         }
         [HttpGet]

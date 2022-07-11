@@ -1,5 +1,7 @@
 using Infrastructure.MedicaERPMVC;
 using Infrastructure.MedicaERPMVC.Repositories.User;
+using MedicaERPMVC.Application.Interfaces;
+using MedicaERPMVC.Application.Services;
 using MedicaERPMVC.Domain.Interface;
 using MedicaERPMVC.Domain.Model;
 using Microsoft.AspNetCore.Builder;
@@ -29,16 +31,18 @@ namespace MedicaERP.Web
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>().AddRoles<IdentityRole>().AddEntityFrameworkStores<MedicaErpDbContext>();
-            services.AddIdentity<User, IdentityRole>(options =>
-            {
-                options.Password.RequireDigit = true;
-                options.Password.RequireLowercase = false;
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireUppercase = false;
-            })
-            .AddEntityFrameworkStores<MedicaErpDbContext>()
-            .AddDefaultTokenProviders();
+            //services.AddIdentity<Patient, IdentityRole>(options =>
+            //{
+            //    options.Password.RequireDigit = true;
+            //    options.Password.RequireLowercase = false;
+            //    options.Password.RequireNonAlphanumeric = false;
+            //    options.Password.RequireUppercase = false;
+            //})
+            ////.AddEntityFrameworkStores<MedicaErpDbContext>()
+            //.AddDefaultTokenProviders();
             services.AddTransient<IPatientRepository, PatientRepository>();
+            services.AddTransient<IPatientService, PatientService>();
+
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddControllersWithViews();
             services.AddRazorPages();

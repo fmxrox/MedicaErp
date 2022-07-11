@@ -13,7 +13,7 @@ namespace MedicaERPMVC.Domain.Model
         public string Name { get; set; }
         public string? Adress { get; set; }
         public string? Description { get; set; }
-        public List<User> Doctors { get; set; } = new List<User>();
+        public List<Patient> Doctors { get; set; } = new List<Patient>();
      
     }
 }

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MedicaERPMVC.Domain.Model
 {
-    public class User : IdentityUser
+    public class Patient 
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
@@ -13,7 +13,7 @@ namespace MedicaERPMVC.Domain.Model
         public DateTime DateOfBirth { get; set; }
 
         public Sex Sex { get; set; }
-        
+        public string? PhoneNumber { get; set; }
         public string? Adnotations { get; set; }
         public bool isPatient { get; set; }
         public RoleOfUser RoleOfUser { get; set; }

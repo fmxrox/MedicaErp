@@ -32,9 +32,9 @@ namespace MedicaERPMVC.Application.Services
             throw new NotImplementedException();
         }
 
-        public ListPatientsForListViewModel GetAllPatientsForList()
+        public ListPatientsForListViewModel GetAllPatientsForList(int pageSize, int pageNumber, string stringToFind)
         {
-            var patients = _patientRepository.GetAllPatients()// PROJECT DO IQeryable do pojedynczyc <Map>
+            var patients = _patientRepository.GetAllPatients().Where(p=>p.LastName.StartsWith(stringToFind)||p.FirstName.StartsWith(stringToFind)||p.Pesel.StartsWith(stringToFind))// PROJECT DO IQeryable do pojedynczyc <Map>
                 .ProjectTo<PatientForListViewModel>(_mapper.ConfigurationProvider).ToList();
 
             var patientsForListViewModel = new ListPatientsForListViewModel()

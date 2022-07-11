@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.MedicaERPMVC
 {
-    public class MedicaErpDbContext : IdentityDbContext<User>
+    public class MedicaErpDbContext : DbContext
     {
         public DbSet<Visit> Visits { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<Patient> Patients { get; set; }
         public DbSet<Clinic> Clinics { get; set; }
         public DbSet<SpecialitzationOfDoctor> SpecializationOfDoctors { get; set; }
         public DbSet<UserContactInformation> UserContactInformation { get; set; }
@@ -28,10 +28,10 @@ namespace Infrastructure.MedicaERPMVC
         protected override void OnModelCreating(ModelBuilder builder)
         {
 
-            builder.Entity<User>()
-                .HasOne(a => a.UserContactInformation).WithOne(b => b.User)
-                .HasForeignKey<UserContactInformation>(c => c.Id);
-            base.OnModelCreating(builder);
+            //builder.Entity<Patient>()
+            //    .HasOne(a => a.UserContactInformation).WithOne(b => b.Patient)
+            //    .HasForeignKey<UserContactInformation>(c => c.Id);
+            //base.OnModelCreating(builder);
         }
 
     }
