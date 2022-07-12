@@ -34,13 +34,17 @@ namespace MedicaERPMVC.Application.Services
 
         public ListPatientsForListViewModel GetAllPatientsForList(int pageSize, int pageNumber, string stringToFind)
         {
-            var patients = _patientRepository.GetAllPatients().Where(p=>p.LastName.StartsWith(stringToFind)||p.FirstName.StartsWith(stringToFind)||p.Pesel.StartsWith(stringToFind))// PROJECT DO IQeryable do pojedynczyc <Map>
-                .ProjectTo<PatientForListViewModel>(_mapper.ConfigurationProvider).ToList();
+            var patients = _patientRepository.GetAllPatients().Where(p=>p.LastName.StartsWith(stringToFind))
+                .ProjectTo<PatientForListViewModel>(_mapper.ConfigurationProvider).ToList();/*||p.FirstName.StartsWith(stringToFind)|| p.Pesel.StartsWith(stringToFind))*/// PROJECT DO IQeryable do pojedynczyc <Map>
 
+            var patientsFinally = patients.Skip(pageSize*(pageNumber-1)).Take(pageSize).ToList();
             var patientsForListViewModel = new ListPatientsForListViewModel()
             {
                 Patients = patients,
-                Count = patients.Count()
+                Count = patients.Count(),
+                PageSize = pageSize,
+                ActualPage = pageNumber,
+                StringToSearch = stringToFind
             };
             return patientsForListViewModel;
         }

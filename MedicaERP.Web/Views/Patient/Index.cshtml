@@ -9,7 +9,13 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<form asp-action="Index" asp-controller="Patient" method="post">
+    <div class="row">
+        <input type="text" asp-for="StringToSearch" name="StringToSearch" id="StringToSearch"/>
+        <input type="submit" value="Wyszukaj"/>
+    </div>
+    <div class="row">
+    <table class="table">
     <thead>
         <tr>
             <th>
@@ -49,11 +55,46 @@
                 @Html.DisplayFor(modelItem => item.Pesel)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Edit", "Edit", new {  /*id=item.PrimaryKey*/  }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
-}
+        }
     </tbody>
 </table>
+</div>
+<div class="row">
+    <table>
+        <tr>
+                @for (int i = 1; i < Math.Ceiling((double)Model.Count / Model.PageSize); i++)
+                {
+                    <td>
+                        @if(i !=Model.ActualPage)
+                        {
+                            <a href="javascript:PageClick(@i)">@i</a>
+                        }
+                        else
+                        {
+                            <span>@i</span>
+                        }
+                    </td>
+                }
+            </tr>
+    </table>
+    <input type="hidden" name="numberOfPage" id=numberOfPage />
+    <input type="hidden" name="pageSize" id=pageSize value="2"/>
+
+</div>
+</form>
+
+@section Scripts
+{
+    <script type="text/javascript">
+    function(PagerClick(index))
+    {
+        document.getElementById("numberOfPage").value=index;
+        document.forms[0].submit();
+    }
+    </script>
+}

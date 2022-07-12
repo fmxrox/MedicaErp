@@ -12,5 +12,6 @@ namespace MedicaERPMVC.Application.ViewModels.Patient
         public int Count { get; set; }
         public int ActualPage { get; set; }
         public int PageSize { get; set; }
+        public string StringToSearch { get; set; }
     }
 }

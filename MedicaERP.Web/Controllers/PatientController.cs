@@ -22,13 +22,21 @@ namespace MedicaERP.Web.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var model = _patientService.GetAllPatientsForList();
+            var model = _patientService.GetAllPatientsForList(2, 1, "");
             return View(model);
         }
         [HttpPost]
-        public IActionResult Index()
+        public IActionResult Index(int pageSize,int? numberOfPage,string stringToSearch)
         {
-           
+            if (!numberOfPage.HasValue)
+            {
+                pageSize = 1;
+            }
+            if (stringToSearch==null)
+            {
+                stringToSearch = string.Empty;
+            }
+            var model = _patientService.GetAllPatientsForList(pageSize, numberOfPage.Value, stringToSearch);
             return View(model);
         }
         [HttpGet]
