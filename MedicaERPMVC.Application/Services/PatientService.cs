@@ -3,6 +3,7 @@ using AutoMapper.QueryableExtensions;
 using MedicaERPMVC.Application.Interfaces;
 using MedicaERPMVC.Application.ViewModels.Patient;
 using MedicaERPMVC.Domain.Interface;
+using MedicaERPMVC.Domain.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,9 @@ namespace MedicaERPMVC.Application.Services
         }
         public int AddPatient(NewPatientViewModel newPatientViewModel)
         {
-            throw new NotImplementedException();
+            var patient = _mapper.Map<Patient>(newPatientViewModel);
+            var id = _patientRepository.AddPatient(patient);
+            return id;
         }
 
         public bool EditPatient(int patientId)
@@ -34,7 +37,7 @@ namespace MedicaERPMVC.Application.Services
 
         public ListPatientsForListViewModel GetAllPatientsForList(int pageSize, int pageNumber, string stringToFind)
         {
-            var patients = _patientRepository.GetAllPatients().Where(p=>p.LastName.StartsWith(stringToFind))
+            var patients = _patientRepository.GetAllPatients().Where(p=>p.Pesel.StartsWith(stringToFind))
                 .ProjectTo<PatientForListViewModel>(_mapper.ConfigurationProvider).ToList();/*||p.FirstName.StartsWith(stringToFind)|| p.Pesel.StartsWith(stringToFind))*/// PROJECT DO IQeryable do pojedynczyc <Map>
 
             var patientsFinally = patients.Skip(pageSize*(pageNumber-1)).Take(pageSize).ToList();

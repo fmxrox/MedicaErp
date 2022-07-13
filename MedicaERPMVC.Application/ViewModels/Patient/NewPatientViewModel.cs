@@ -20,7 +20,7 @@ namespace MedicaERPMVC.Application.ViewModels.Patient
         public string Pesel { get; set; }
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Domain.Model.Patient, NewPatientViewModel>();
+            profile.CreateMap<NewPatientViewModel, Domain.Model.Patient>();
                 
 
         }

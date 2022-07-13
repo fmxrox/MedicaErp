@@ -41,18 +41,19 @@ namespace MedicaERP.Web.Controllers
         }
         [HttpGet]
         public IActionResult AddPatient()
-        {
-            return View();
+        {        
+            return View(new NewPatientViewModel());
         }
         [HttpPost]
         public IActionResult AddPatient(NewPatientViewModel modelPatient)
         {
             var idPatient = _patientService.AddPatient(modelPatient);
-            return View();// po wypelnieniu
+            return RedirectToAction("Index");// po wypelnieniu
         }
         [HttpGet]
         public IActionResult AddAdress(int patientId)
         {
+          
             return View();
         }
         [HttpPost]
