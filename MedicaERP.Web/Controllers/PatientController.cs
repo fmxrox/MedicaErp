@@ -44,12 +44,7 @@ namespace MedicaERP.Web.Controllers
         {        
             return View(new NewPatientViewModel());
         }
-        [HttpPost]
-        public IActionResult AddPatient(NewPatientViewModel modelPatient)
-        {
-            var idPatient = _patientService.AddPatient(modelPatient);
-            return RedirectToAction("Index");// po wypelnieniu
-        }
+          
         [HttpGet]
         public IActionResult AddAdress(int patientId)
         {
@@ -67,6 +62,29 @@ namespace MedicaERP.Web.Controllers
         {
             var idPatient = _patientService.GetPaitentById(patientId);
             return View();
+        }
+        
+        [HttpGet]
+        public IActionResult EditPatient(int id)
+        {
+            var patient = _patientService.GetPatientForEdit(id);
+            return View(patient);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult AddPatient(NewPatientViewModel modelPatient)
+        {
+            if (ModelState.IsValid)//Dodac data adnotations
+            {
+                _patientService.UpdatePatient(modelPatient);
+                return RedirectToAction("Index");// po wypelnieniu
+            }
+            return View(modelPatient);
+        }
+        public IActionResult Delete(int patientId)
+        {
+            _patientService.DeletePatient(patientId);
+           return RedirectToAction("Index");
         }
     }
 }

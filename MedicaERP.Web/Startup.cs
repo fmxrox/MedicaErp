@@ -1,7 +1,15 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using FluentValidation.Validators;
+using FluentValidation.Internal;
+using FluentValidation.Resources;
+using FluentValidation.Results;
+using FluentValidation.TestHelper;
 using Infrastructure.MedicaERPMVC;
 using Infrastructure.MedicaERPMVC.Repositories.User;
 using MedicaERPMVC.Application.Interfaces;
 using MedicaERPMVC.Application.Services;
+using MedicaERPMVC.Application.ViewModels.Patient;
 using MedicaERPMVC.Domain.Interface;
 using MedicaERPMVC.Domain.Model;
 using Microsoft.AspNetCore.Builder;
@@ -12,6 +20,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Reflection;
+using static MedicaERPMVC.Application.ViewModels.Patient.NewPatientViewModel;
 
 namespace MedicaERP.Web
 {
@@ -38,14 +47,15 @@ namespace MedicaERP.Web
             //    options.Password.RequireNonAlphanumeric = false;
             //    options.Password.RequireUppercase = false;
             //})
-            ////.AddEntityFrameworkStores<MedicaErpDbContext>()
+            //.AddEntityFrameworkStores<MedicaErpDbContext>()
             //.AddDefaultTokenProviders();
             services.AddTransient<IPatientRepository, PatientRepository>();
             services.AddTransient<IPatientService, PatientService>();
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
-            services.AddControllersWithViews();
+            //services.AddControllersWithViews().AddFluentValidation(/*fv => ffv.RunDefaultMvcValidationAfterFluentValidationExecutes = false*/);
             services.AddRazorPages();
+            services.AddTransient<IValidator<NewPatientViewModel>, NewCustomerValidation>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

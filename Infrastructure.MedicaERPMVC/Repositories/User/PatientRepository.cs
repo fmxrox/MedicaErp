@@ -24,14 +24,36 @@ namespace Infrastructure.MedicaERPMVC.Repositories.User
             return patient.Id;
         }
 
+        public void DeletePatient(int patientId)
+        {
+            var patientToDelete = _medicaDbContext.Patients.Find(patientId);
+            if (patientToDelete != null)
+            {
+                _medicaDbContext.Patients.Remove(patientToDelete);
+                _medicaDbContext.SaveChanges();
+            }
+        }
+            
+            
+
         public IQueryable<global::MedicaERPMVC.Domain.Model.Patient> GetAllPatients()
         {
             return _medicaDbContext.Patients.Where(p => p.isActivate && p.isPatient);
         }
 
-        public global::MedicaERPMVC.Domain.Model.Patient GetPatient(int pesel)
+        public Patient GetPatient(int id)
         {
-            return _medicaDbContext.Patients.FirstOrDefault(p => p.Id == pesel);
+            return _medicaDbContext.Patients.FirstOrDefault(p => p.Id == id);
+        }
+
+        public void UpdatePatient(Patient patient)
+        {
+           _medicaDbContext.Attach(patient);
+            _medicaDbContext.Entry(patient).Property("FirstName").IsModified=true;
+            _medicaDbContext.Entry(patient).Property("LastName").IsModified=true;
+            _medicaDbContext.Entry(patient).Property("Pesel").IsModified=true;        
+            _medicaDbContext.Entry(patient).Property("PhoneNumber").IsModified=true;        
+            _medicaDbContext.SaveChanges();
         }
     }
 }

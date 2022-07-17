@@ -13,7 +13,9 @@ namespace MedicaERPMVC.Application.Interfaces
         int AddPatient(NewPatientViewModel newPatientViewModel);
         bool EditPatient(int patientId);
         PatientDetailsViewModel GetPaitentById(int PatientId);
-
+        NewPatientViewModel GetPatientForEdit(int PatientId);
         PatientDetailsViewModel GetPatientDetails(int PatientId);
+        void UpdatePatient(NewPatientViewModel patientViewModel);
+        void DeletePatient(int patientId);
     }
 }

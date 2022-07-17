@@ -12,5 +12,7 @@ namespace MedicaERPMVC.Domain.Interface
         IQueryable<Patient> GetAllPatients();
         Patient GetPatient(int id);
         int AddPatient(Patient patient);
+        void UpdatePatient(Patient patient);
+        void DeletePatient(int patientId);
     }
 }

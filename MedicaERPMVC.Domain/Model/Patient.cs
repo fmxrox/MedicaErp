@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MedicaERPMVC.Domain.Model
 {
-    public class Patient 
+    public class Patient : IdentityUser
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
@@ -25,7 +25,7 @@ namespace MedicaERPMVC.Domain.Model
         public SpecialitzationOfDoctor? SpecialitzationOfDoctor { get; set; }
         public string? Pesel { get; set; }
         public virtual Clinic? Clinic { get; set; }
-        public UserContactInformation? UserContactInformation { get; set; }
+        //public UserContactInformation? UserContactInformation { get; set; }
         public virtual  ICollection<Visit>? PatientVisits { get; set; }
     }
 }
