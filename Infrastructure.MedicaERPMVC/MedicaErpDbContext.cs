@@ -1,5 +1,6 @@
 ﻿using MedicaERPMVC.Domain;
 using MedicaERPMVC.Domain.Model;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.MedicaERPMVC
 {
-    public class MedicaErpDbContext : IdentityDbContext<Patient>
+    public class MedicaErpDbContext : IdentityDbContext<IdentityUser>
     {
         public DbSet<Visit> Visits { get; set; }
         public DbSet<Patient> Patients { get; set; }

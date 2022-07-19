@@ -53,6 +53,8 @@ namespace MedicaERP.Web
             services.AddTransient<IPatientService, PatientService>();
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+   
+            services.AddControllersWithViews();
             //services.AddControllersWithViews().AddFluentValidation(/*fv => ffv.RunDefaultMvcValidationAfterFluentValidationExecutes = false*/);
             services.AddRazorPages();
             services.AddTransient<IValidator<NewPatientViewModel>, NewCustomerValidation>();
