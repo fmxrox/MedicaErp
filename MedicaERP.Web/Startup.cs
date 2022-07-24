@@ -39,7 +39,8 @@ namespace MedicaERP.Web
             services.AddDbContext<MedicaErpDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options=>options.SignIn.RequireConfirmedAccount=false).AddEntityFrameworkStores<MedicaErpDbContext>();
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddDefaultIdentity<IdentityUser>(options=>options.SignIn.RequireConfirmedAccount=false).AddRoles<IdentityRole>().AddEntityFrameworkStores<MedicaErpDbContext>();
             services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequireDigit = false;
@@ -48,11 +49,18 @@ namespace MedicaERP.Web
                 options.SignIn.RequireConfirmedEmail = false;
                 options.User.RequireUniqueEmail = true;
             });
-      
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("CanEditPatient", policy =>
+                {
+                    policy.RequireClaim("EditPatient");
+                    policy.RequireClaim("ShowPatient");
+                    policy.RequireRole("Admin");
+                });
+            });
             services.AddTransient<IPatientRepository, PatientRepository>();
             services.AddTransient<IPatientService, PatientService>();
 
-            services.AddAutoMapper(Assembly.GetExecutingAssembly());
    
             services.AddControllersWithViews();
             //services.AddControllersWithViews().AddFluentValidation(/*fv => ffv.RunDefaultMvcValidationAfterFluentValidationExecutes = false*/);

@@ -1,9 +1,11 @@
-﻿using MedicaERPMVC.Application.Interfaces;
+﻿using MedicaERP.Web.Filters;
+using MedicaERPMVC.Application.Interfaces;
 using MedicaERPMVC.Application.ViewModels.Patient;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 namespace MedicaERP.Web.Controllers
-{
+{   [Authorize]
     public class PatientController : Controller
     {        //Pierwsza walidacja i przekazanie żadania do innej warstwy 
              // widok dla akcji
@@ -19,6 +21,7 @@ namespace MedicaERP.Web.Controllers
             _logger = logger;
             _patientService = patientService;
         }
+        [CheckPermissions("Read")]
         [HttpGet]
         public IActionResult Index()
         {
@@ -39,12 +42,8 @@ namespace MedicaERP.Web.Controllers
             var model = _patientService.GetAllPatientsForList(pageSize, numberOfPage.Value, stringToSearch);
             return View(model);
         }
-        [HttpGet]
-        public IActionResult AddPatient()
-        {        
-            return View(new NewPatientViewModel());
-        }
-          
+
+ 
         [HttpGet]
         public IActionResult AddAdress(int patientId)
         {
@@ -65,10 +64,16 @@ namespace MedicaERP.Web.Controllers
         }
         
         [HttpGet]
+        [Authorize(Roles ="Admin")]
         public IActionResult EditPatient(int id)
         {
             var patient = _patientService.GetPatientForEdit(id);
             return View(patient);
+        }
+        [HttpGet]
+        public IActionResult AddPatient()
+        {
+            return View(new NewPatientViewModel());
         }
         [HttpPost]
         [ValidateAntiForgeryToken]

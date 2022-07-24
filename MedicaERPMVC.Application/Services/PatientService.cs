@@ -43,7 +43,7 @@ namespace MedicaERPMVC.Application.Services
 
         public ListPatientsForListViewModel GetAllPatientsForList(int pageSize, int pageNumber, string stringToFind)
         {
-            var patients = _patientRepository.GetAllPatients().Where(p=>p.Pesel.StartsWith(stringToFind))
+            var patients = _patientRepository.GetAllPatients()
                 .ProjectTo<PatientForListViewModel>(_mapper.ConfigurationProvider).ToList();/*||p.FirstName.StartsWith(stringToFind)|| p.Pesel.StartsWith(stringToFind))*/// PROJECT DO IQeryable do pojedynczyc <Map>
 
             var patientsFinally = patients.Skip(pageSize*(pageNumber-1)).Take(pageSize).ToList();
