@@ -26,7 +26,7 @@ namespace MedicaERPMVC.Application.Services
         public int AddPatient(NewPatientViewModel newPatientViewModel)
         {
            
-            var patient = _mapper.Map<Patient>(newPatientViewModel);
+            var patient = _mapper.Map<User>(newPatientViewModel);
             var id = _patientRepository.AddPatient(patient);
             return id;
         }
@@ -79,7 +79,7 @@ namespace MedicaERPMVC.Application.Services
 
         public void UpdatePatient(NewPatientViewModel patientViewModel)
         {
-           var patient = _mapper.Map<Patient>(patientViewModel);
+           var patient = _mapper.Map<User>(patientViewModel);
             _patientRepository.UpdatePatient(patient);     
         }
     }

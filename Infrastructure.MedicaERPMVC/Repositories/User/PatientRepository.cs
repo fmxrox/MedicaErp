@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.MedicaERPMVC.Repositories.User
 {
-    public class PatientRepository : IPatientRepository
+    public class PatientRepository /*: IPatientRepository*/
     {
         private readonly MedicaErpDbContext _medicaDbContext;
 
@@ -17,7 +17,7 @@ namespace Infrastructure.MedicaERPMVC.Repositories.User
             _medicaDbContext = medicaErpDbContext;
         }
 
-        public int AddPatient(Patient patient)
+        public string AddPatient(global::MedicaERPMVC.Domain.Model.User patient)
         {
           _medicaDbContext.Patients.Add(patient);
            _medicaDbContext.SaveChanges();
@@ -36,17 +36,17 @@ namespace Infrastructure.MedicaERPMVC.Repositories.User
             
             
 
-        public IQueryable<global::MedicaERPMVC.Domain.Model.Patient> GetAllPatients()
+        public IQueryable<global::MedicaERPMVC.Domain.Model.User> GetAllPatients()
         {
             return _medicaDbContext.Patients.Where(p => p.isActivate && p.isPatient);
         }
 
-        public Patient GetPatient(int id)
-        {
-            return _medicaDbContext.Patients.FirstOrDefault(p => p.Id == id);
-        }
+        //public global::MedicaERPMVC.Domain.Model.User GetPatient(int id)
+        //{
+        //    return _medicaDbContext.Patients.FirstOrDefault(p => p.Id == id);
+        //}
 
-        public void UpdatePatient(Patient patient)
+        public void UpdatePatient(global::MedicaERPMVC.Domain.Model.User patient)
         {
            _medicaDbContext.Attach(patient);
             _medicaDbContext.Entry(patient).Property("FirstName").IsModified=true;

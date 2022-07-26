@@ -16,6 +16,6 @@ namespace MedicaERPMVC.Domain
         //public string? Adress { get; set; }
 
         //public int UserId { get; set; }
-        //public Patient User { get; set; }
+        //public User User { get; set; }
     }
 }

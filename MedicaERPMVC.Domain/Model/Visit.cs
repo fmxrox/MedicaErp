@@ -19,15 +19,18 @@ namespace MedicaERPMVC.Domain.Model
         public TimeSpan StartTime { get; set; }
 
         public TimeSpan EndTime { get; set; }
+        [Required]
+        public string PatientId { get; set; }
 
-        public int UserId { get; set; }
-
-        public virtual Patient PatientName { get; set; }
-
-        public virtual Clinic Clinic { get; set; }
+        public  User Patient { get; set; }
+        [Required]
+        public string DoctorId { get; set; }
+        public  User Doctor { get; set; }
+        public int ClinicId { get; set; }
+        public Clinic Clinic { get; set; }
 
         public int VisitTypeId { get; set; }
-        public virtual VisitType VisitType { get; set; }
+        public  VisitType VisitType { get; set; }
         public bool? Confirmed { get; set; }
 
     }

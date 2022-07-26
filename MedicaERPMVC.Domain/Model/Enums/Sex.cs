@@ -8,7 +8,7 @@ namespace MedicaERPMVC.Domain.Model.Enums
 {
     public enum Sex
     {
-        Male=0,
-        Female
+        Female = 0,
+        Male
     }
 }
