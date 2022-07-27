@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.MedicaERPMVC.Repositories.User
 {
-    public class PatientRepository /*: IPatientRepository*/
+    public class PatientRepository : IPatientRepository
     {
         private readonly MedicaErpDbContext _medicaDbContext;
 
@@ -41,6 +41,11 @@ namespace Infrastructure.MedicaERPMVC.Repositories.User
             return _medicaDbContext.Patients.Where(p => p.isActivate && p.isPatient);
         }
 
+        public global::MedicaERPMVC.Domain.Model.User GetPatient(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         //public global::MedicaERPMVC.Domain.Model.User GetPatient(int id)
         //{
         //    return _medicaDbContext.Patients.FirstOrDefault(p => p.Id == id);
@@ -54,6 +59,11 @@ namespace Infrastructure.MedicaERPMVC.Repositories.User
             _medicaDbContext.Entry(patient).Property("Pesel").IsModified=true;        
             _medicaDbContext.Entry(patient).Property("PhoneNumber").IsModified=true;        
             _medicaDbContext.SaveChanges();
+        }
+
+        int IPatientRepository.AddPatient(global::MedicaERPMVC.Domain.Model.User patient)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -22,7 +22,7 @@ namespace MedicaERPMVC.Domain.Model
         public int ClinicId { get; set; }
         public  Clinic Clinic { get; set; }
         //public UserContactInformation? UserContactInformation { get; set; }
-        public ICollection<Visit> PatientVisits { get; set; }
-        public ICollection<Visit> DoctorVisits { get; set; } 
+        public IQueryable<Visit> PatientVisits { get; set; }
+        public IQueryable<Visit> DoctorVisits { get; set; } 
     }
 }
