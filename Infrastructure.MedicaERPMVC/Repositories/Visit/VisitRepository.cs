@@ -55,7 +55,7 @@ namespace Infrastructure.MedicaERPMVC.Repositories
         {
             var userToEdit = await this._medicaErpDbContext.Patients.FindAsync(userId);
             if (userToEdit == null)
-                throw new Exception("User not found");
+                throw new Exception("Patient not found");
             userToEdit.FirstName = name;
             userToEdit.LastName = lastName;
             if (pesel!=null)

@@ -1,13 +1,8 @@
 ﻿using MedicaERPMVC.Domain.Interface;
-using MedicaERPMVC.Domain.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.MedicaERPMVC.Repositories.User
 {
+    using global::MedicaERPMVC.Domain.Model;
     public class PatientRepository : IPatientRepository
     {
         private readonly MedicaErpDbContext _medicaDbContext;
@@ -17,7 +12,7 @@ namespace Infrastructure.MedicaERPMVC.Repositories.User
             _medicaDbContext = medicaErpDbContext;
         }
 
-        public string AddPatient(global::MedicaERPMVC.Domain.Model.User patient)
+        public string AddPatient(Patient patient)
         {
           _medicaDbContext.Patients.Add(patient);
            _medicaDbContext.SaveChanges();
@@ -33,25 +28,30 @@ namespace Infrastructure.MedicaERPMVC.Repositories.User
                 _medicaDbContext.SaveChanges();
             }
         }
-            
-            
 
-        public IQueryable<global::MedicaERPMVC.Domain.Model.User> GetAllPatients()
-        {
-            return _medicaDbContext.Patients.Where(p => p.isActivate && p.isPatient);
-        }
-
-        public global::MedicaERPMVC.Domain.Model.User GetPatient(int id)
+        public IQueryable<Patient> GetAllPatients()
         {
             throw new NotImplementedException();
         }
 
-        //public global::MedicaERPMVC.Domain.Model.User GetPatient(int id)
+
+
+        //public IQueryable<global::MedicaERPMVC.Domain.Model.Patient> GetAllPatients()
+        //{
+        //    return _medicaDbContext.Patients.Where(p => p.isActivate && p.isPatient);
+        //}
+
+        public Patient GetPatient(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        //public global::MedicaERPMVC.Domain.Model.Patient GetPatient(int id)
         //{
         //    return _medicaDbContext.Patients.FirstOrDefault(p => p.Id == id);
         //}
 
-        public void UpdatePatient(global::MedicaERPMVC.Domain.Model.User patient)
+        public void UpdatePatient(Patient patient)
         {
            _medicaDbContext.Attach(patient);
             _medicaDbContext.Entry(patient).Property("FirstName").IsModified=true;
@@ -61,9 +61,14 @@ namespace Infrastructure.MedicaERPMVC.Repositories.User
             _medicaDbContext.SaveChanges();
         }
 
-        int IPatientRepository.AddPatient(global::MedicaERPMVC.Domain.Model.User patient)
+        int IPatientRepository.AddPatient(Patient patient)
         {
             throw new NotImplementedException();
         }
+
+        //int IPatientRepository.AddPatient(global::MedicaERPMVC.Domain.Model.Patient patient)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

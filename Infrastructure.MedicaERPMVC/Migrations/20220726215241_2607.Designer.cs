@@ -340,7 +340,7 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("MedicaERPMVC.Domain.Model.User", b =>
+            modelBuilder.Entity("MedicaERPMVC.Domain.Model.Patient", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
@@ -387,7 +387,7 @@ namespace Infrastructure.MedicaERPMVC.Migrations
 
                     b.HasIndex("SpecializationId");
 
-                    b.HasDiscriminator().HasValue("User");
+                    b.HasDiscriminator().HasValue("Patient");
                 });
 
             modelBuilder.Entity("MedicaERPMVC.Domain.Model.Visit", b =>
@@ -398,13 +398,13 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MedicaERPMVC.Domain.Model.User", "Doctor")
+                    b.HasOne("MedicaERPMVC.Domain.Model.Patient", "Doctor")
                         .WithMany("DoctorVisits")
                         .HasForeignKey("DoctorId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("MedicaERPMVC.Domain.Model.User", "Patient")
+                    b.HasOne("MedicaERPMVC.Domain.Model.Patient", "Patient")
                         .WithMany("PatientVisits")
                         .HasForeignKey("PatientId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -476,7 +476,7 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("MedicaERPMVC.Domain.Model.User", b =>
+            modelBuilder.Entity("MedicaERPMVC.Domain.Model.Patient", b =>
                 {
                     b.HasOne("MedicaERPMVC.Domain.Model.Clinic", "Clinic")
                         .WithMany("Employees")
@@ -510,7 +510,7 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                     b.Navigation("Visits");
                 });
 
-            modelBuilder.Entity("MedicaERPMVC.Domain.Model.User", b =>
+            modelBuilder.Entity("MedicaERPMVC.Domain.Model.Patient", b =>
                 {
                     b.Navigation("DoctorVisits");
 

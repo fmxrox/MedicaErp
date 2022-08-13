@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.MedicaERPMVC.Migrations
 {
     [DbContext(typeof(MedicaErpDbContext))]
-    [Migration("20220722125232_227")]
-    partial class _227
+    [Migration("20220813205134_13082022")]
+    partial class _13082022
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -35,6 +35,12 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                     b.Property<string>("Adress")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("DateOfCreation")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateOfModification")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -54,6 +60,12 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("DateOfCreation")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateOfModification")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -85,17 +97,22 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("DoctorId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<TimeSpan>("EndTime")
                         .HasColumnType("time");
 
-                    b.Property<string>("PatientNameId")
+                    b.Property<bool?>("IsDone")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("PatientId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<TimeSpan>("StartTime")
                         .HasColumnType("time");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
 
                     b.Property<int>("VisitTypeId")
                         .HasColumnType("int");
@@ -104,7 +121,9 @@ namespace Infrastructure.MedicaERPMVC.Migrations
 
                     b.HasIndex("ClinicId");
 
-                    b.HasIndex("PatientNameId");
+                    b.HasIndex("DoctorId");
+
+                    b.HasIndex("PatientId");
 
                     b.HasIndex("VisitTypeId");
 
@@ -343,24 +362,33 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                     b.Property<string>("Adnotations")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ClinicId")
+                    b.Property<int>("ClinicId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime>("DateOfCreation")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateOfModification")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(65)
+                        .HasColumnType("nvarchar(65)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(65)
+                        .HasColumnType("nvarchar(65)");
 
                     b.Property<byte[]>("OwnPicture")
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Pesel")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("RoleOfUser")
@@ -369,18 +397,18 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                     b.Property<int>("Sex")
                         .HasColumnType("int");
 
-                    b.Property<int?>("SpecialitzationOfDoctorId")
+                    b.Property<int>("SpecializationId")
                         .HasColumnType("int");
 
                     b.Property<bool>("isActivate")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("isPatient")
+                    b.Property<bool>("isMedic")
                         .HasColumnType("bit");
 
                     b.HasIndex("ClinicId");
 
-                    b.HasIndex("SpecialitzationOfDoctorId");
+                    b.HasIndex("SpecializationId");
 
                     b.HasDiscriminator().HasValue("Patient");
                 });
@@ -393,9 +421,17 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MedicaERPMVC.Domain.Model.Patient", "PatientName")
+                    b.HasOne("MedicaERPMVC.Domain.Model.Patient", "Doctor")
+                        .WithMany("DoctorVisits")
+                        .HasForeignKey("DoctorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("MedicaERPMVC.Domain.Model.Patient", "Patient")
                         .WithMany("PatientVisits")
-                        .HasForeignKey("PatientNameId");
+                        .HasForeignKey("PatientId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.HasOne("MedicaERPMVC.Domain.Model.VisitType", "VisitType")
                         .WithMany("Visits")
@@ -405,7 +441,9 @@ namespace Infrastructure.MedicaERPMVC.Migrations
 
                     b.Navigation("Clinic");
 
-                    b.Navigation("PatientName");
+                    b.Navigation("Doctor");
+
+                    b.Navigation("Patient");
 
                     b.Navigation("VisitType");
                 });
@@ -464,12 +502,16 @@ namespace Infrastructure.MedicaERPMVC.Migrations
             modelBuilder.Entity("MedicaERPMVC.Domain.Model.Patient", b =>
                 {
                     b.HasOne("MedicaERPMVC.Domain.Model.Clinic", "Clinic")
-                        .WithMany("Doctors")
-                        .HasForeignKey("ClinicId");
+                        .WithMany("Employees")
+                        .HasForeignKey("ClinicId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("MedicaERPMVC.Domain.Model.SpecialitzationOfDoctor", "SpecialitzationOfDoctor")
                         .WithMany("Doctors")
-                        .HasForeignKey("SpecialitzationOfDoctorId");
+                        .HasForeignKey("SpecializationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Clinic");
 
@@ -478,7 +520,7 @@ namespace Infrastructure.MedicaERPMVC.Migrations
 
             modelBuilder.Entity("MedicaERPMVC.Domain.Model.Clinic", b =>
                 {
-                    b.Navigation("Doctors");
+                    b.Navigation("Employees");
                 });
 
             modelBuilder.Entity("MedicaERPMVC.Domain.Model.SpecialitzationOfDoctor", b =>
@@ -493,6 +535,8 @@ namespace Infrastructure.MedicaERPMVC.Migrations
 
             modelBuilder.Entity("MedicaERPMVC.Domain.Model.Patient", b =>
                 {
+                    b.Navigation("DoctorVisits");
+
                     b.Navigation("PatientVisits");
                 });
 #pragma warning restore 612, 618

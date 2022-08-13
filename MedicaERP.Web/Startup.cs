@@ -58,8 +58,8 @@ namespace MedicaERP.Web
                     policy.RequireRole("Admin");
                 });
             });
-            services.AddTransient<IPatientRepository, PatientRepository>();
-            services.AddTransient<IPatientService, PatientService>();
+            //services.AddTransient<IPatientRepository, PatientRepository>();
+            //services.AddTransient<IPatientService, PatientService>();
 
    
             services.AddControllersWithViews();
