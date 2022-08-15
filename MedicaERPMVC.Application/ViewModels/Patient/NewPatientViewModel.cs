@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace MedicaERPMVC.Application.ViewModels.Patient
 {
-    public class NewPatientViewModel : IMapFrom<Domain.Model.Patient>
+    public class NewPatientViewModel : IMapFrom<Domain.Model.User>
     {
         public int Id { get; set; }
         [Required]
@@ -25,7 +25,7 @@ namespace MedicaERPMVC.Application.ViewModels.Patient
        
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<NewPatientViewModel, Domain.Model.Patient>().ReverseMap();      
+            profile.CreateMap<NewPatientViewModel, Domain.Model.User>().ReverseMap();      
         }
 
         public class NewCustomerValidation : AbstractValidator<NewPatientViewModel>

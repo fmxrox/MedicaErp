@@ -12,7 +12,7 @@ namespace Infrastructure.MedicaERPMVC.Repositories.User
             _medicaDbContext = medicaErpDbContext;
         }
 
-        public string AddPatient(Patient patient)
+        public string AddPatient(User patient)
         {
           _medicaDbContext.Patients.Add(patient);
            _medicaDbContext.SaveChanges();
@@ -29,7 +29,7 @@ namespace Infrastructure.MedicaERPMVC.Repositories.User
             }
         }
 
-        public IQueryable<Patient> GetAllPatients()
+        public IQueryable<User> GetAllPatients()
         {
             throw new NotImplementedException();
         }
@@ -41,7 +41,7 @@ namespace Infrastructure.MedicaERPMVC.Repositories.User
         //    return _medicaDbContext.Patients.Where(p => p.isActivate && p.isPatient);
         //}
 
-        public Patient GetPatient(int id)
+        public User GetPatient(int id)
         {
             throw new NotImplementedException();
         }
@@ -51,7 +51,7 @@ namespace Infrastructure.MedicaERPMVC.Repositories.User
         //    return _medicaDbContext.Patients.FirstOrDefault(p => p.Id == id);
         //}
 
-        public void UpdatePatient(Patient patient)
+        public void UpdatePatient(User patient)
         {
            _medicaDbContext.Attach(patient);
             _medicaDbContext.Entry(patient).Property("FirstName").IsModified=true;
@@ -61,7 +61,7 @@ namespace Infrastructure.MedicaERPMVC.Repositories.User
             _medicaDbContext.SaveChanges();
         }
 
-        int IPatientRepository.AddPatient(Patient patient)
+        int IPatientRepository.AddPatient(User patient)
         {
             throw new NotImplementedException();
         }

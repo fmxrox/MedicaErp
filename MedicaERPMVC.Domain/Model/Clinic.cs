@@ -15,7 +15,7 @@ namespace MedicaERPMVC.Domain.Model
         public string Name { get; set; }
         public string? Adress { get; set; }
         public string? Description { get; set; }
-        public List<Patient> Employees { get; set; } = new List<Patient>();
+        public List<User> Employees { get; set; } = new List<User>();
         public DateTime DateOfCreation { get; set; }
         public DateTime? DateOfModification { get ; set; }
     }

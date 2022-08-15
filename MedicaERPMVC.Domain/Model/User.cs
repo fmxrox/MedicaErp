@@ -7,7 +7,7 @@ using MedicaERPMVC.Domain.Model.Info;
 namespace MedicaERPMVC.Domain.Model
 {
     using static DataConstProperty;
-    public class Patient : IdentityUser, IDetailsInfoModel
+    public class User : IdentityUser, IDetailsInfoModel
     {   [Required]
         [MinLength(MinRequiredName)]
         [MaxLength(MaxRequiredName)]

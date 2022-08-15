@@ -8,7 +8,7 @@ namespace Infrastructure.MedicaERPMVC
     public class MedicaErpDbContext : IdentityDbContext<IdentityUser>
     {
         public DbSet<Visit> Visits { get; set; }
-        public DbSet<Patient> Patients { get; set; }
+        public DbSet<User> Patients { get; set; }
         public DbSet<Clinic> Clinics { get; set; }
         public DbSet<SpecialitzationOfDoctor> SpecializationOfDoctors { get; set; }
         //public DbSet<UserContactInformation> UserContactInformation { get; set; }

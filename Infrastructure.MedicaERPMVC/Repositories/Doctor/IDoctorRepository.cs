@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.MedicaERPMVC.Repositories.Doctor
 {
-    internal interface IDoctor
+    internal interface IDoctorService
     {
         //czy dodowac IDoctor czy usero ograniczyć i rozszerzac jednoczesnie
         // tzn na konkraktach to zrobic

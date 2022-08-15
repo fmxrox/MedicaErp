@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Interface\Admin\" />
+    <Folder Include="Interfaces\Admin\" />
   </ItemGroup>
 
 </Project>
