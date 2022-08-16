@@ -3,6 +3,7 @@ using AutoMapper.QueryableExtensions;
 using MedicaERPMVC.Application.Interfaces;
 using MedicaERPMVC.Application.ViewModels.Patient;
 using MedicaERPMVC.Domain.Interface;
+using MedicaERPMVC.Domain.Interfaces;
 using MedicaERPMVC.Domain.Model;
 using System;
 using System.Collections.Generic;
@@ -23,15 +24,15 @@ namespace MedicaERPMVC.Application.Services
             _patientRepository = patientRepository;
             _mapper = mapper;
         }
-        public int AddPatient(NewPatientViewModel newPatientViewModel)
+        public string AddPatient(NewPatientViewModel newPatientViewModel)
         {
            
-            var patient = _mapper.Map<User>(newPatientViewModel);
+            var patient = _mapper.Map<UserOfClinic>(newPatientViewModel);
             var id = _patientRepository.AddPatient(patient);
             return id;
         }
 
-        public void DeletePatient(int patientId)
+        public void DeletePatient(string patientId)
         {
             _patientRepository.DeletePatient(patientId);
         }
@@ -58,19 +59,19 @@ namespace MedicaERPMVC.Application.Services
             return patientsForListViewModel;
         }
 
-        public PatientDetailsViewModel GetPaitentById(int PatientId)
+        public PatientDetailsViewModel GetPaitentById(string PatientId)
         {
             throw new NotImplementedException();
         }
 
-        public PatientDetailsViewModel GetPatientDetails(int PatientId)
+        public PatientDetailsViewModel GetPatientDetails(string PatientId)
         { 
             var patient = _patientRepository.GetPatient(PatientId);
             var patientDetailsViewModel = _mapper.Map<PatientDetailsViewModel>(patient);
             return patientDetailsViewModel;
         }
 
-        public NewPatientViewModel GetPatientForEdit(int PatientId)
+        public NewPatientViewModel GetPatientForEdit(string PatientId)
         {
             var patient = _patientRepository.GetPatient(PatientId);
             var patientsViewModel = _mapper.Map<NewPatientViewModel>(patient);
@@ -79,7 +80,7 @@ namespace MedicaERPMVC.Application.Services
 
         public void UpdatePatient(NewPatientViewModel patientViewModel)
         {
-           var patient = _mapper.Map<User>(patientViewModel);
+           var patient = _mapper.Map<UserOfClinic>(patientViewModel);
             _patientRepository.UpdatePatient(patient);     
         }
     }

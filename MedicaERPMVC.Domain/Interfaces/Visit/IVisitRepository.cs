@@ -14,5 +14,9 @@ namespace MedicaERPMVC.Domain.Interface
         int AddVisit(Visit visit);
         void UpdateVisit(Visit visit);
         void DeletePatient(int visitId);
+        IQueryable<Visit> GetVisitForToday(int id);
+        IQueryable<Visit> GetUpcommingVisit(string userId);
+        IQueryable<Visit> FindVisits(string searchString);
+
     }
 }

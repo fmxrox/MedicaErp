@@ -1,8 +1,10 @@
 ﻿using MedicaERPMVC.Domain.Interface;
+using MedicaERPMVC.Domain.Interfaces;
+using MedicaERPMVC.Domain.Model;
 
 namespace Infrastructure.MedicaERPMVC.Repositories.User
 {
-    using global::MedicaERPMVC.Domain.Model;
+    
     public class PatientRepository : IPatientRepository
     {
         private readonly MedicaErpDbContext _medicaDbContext;
@@ -12,46 +14,37 @@ namespace Infrastructure.MedicaERPMVC.Repositories.User
             _medicaDbContext = medicaErpDbContext;
         }
 
-        public string AddPatient(User patient)
+        public string AddPatient(UserOfClinic patient)
         {
-          _medicaDbContext.Patients.Add(patient);
+          _medicaDbContext.UserOfClinic.Add(patient);
            _medicaDbContext.SaveChanges();
             return patient.Id;
         }
 
-        public void DeletePatient(int patientId)
+        public void DeletePatient(string patientId)
         {
-            var patientToDelete = _medicaDbContext.Patients.Find(patientId);
+            var patientToDelete = _medicaDbContext.UserOfClinic.Find(patientId);
             if (patientToDelete != null)
             {
-                _medicaDbContext.Patients.Remove(patientToDelete);
+                _medicaDbContext.UserOfClinic.Remove(patientToDelete);
                 _medicaDbContext.SaveChanges();
             }
         }
 
-        public IQueryable<User> GetAllPatients()
+        public IQueryable<UserOfClinic> GetAllPatients()
         {
-            throw new NotImplementedException();
+            return _medicaDbContext.UserOfClinic.Where(x => x.IsPatient);
         }
 
-
-
-        //public IQueryable<global::MedicaERPMVC.Domain.Model.Patient> GetAllPatients()
-        //{
-        //    return _medicaDbContext.Patients.Where(p => p.isActivate && p.isPatient);
-        //}
-
-        public User GetPatient(int id)
+        public UserOfClinic GetPatient(string id)
         {
-            throw new NotImplementedException();
+            var patientToFind = _medicaDbContext.UserOfClinic.Find(id);
+            if (patientToFind == null)
+                throw new Exception("User not found");
+             return patientToFind;
         }
 
-        //public global::MedicaERPMVC.Domain.Model.Patient GetPatient(int id)
-        //{
-        //    return _medicaDbContext.Patients.FirstOrDefault(p => p.Id == id);
-        //}
-
-        public void UpdatePatient(User patient)
+        public void UpdatePatient(UserOfClinic patient)
         {
            _medicaDbContext.Attach(patient);
             _medicaDbContext.Entry(patient).Property("FirstName").IsModified=true;
@@ -60,15 +53,5 @@ namespace Infrastructure.MedicaERPMVC.Repositories.User
             _medicaDbContext.Entry(patient).Property("PhoneNumber").IsModified=true;        
             _medicaDbContext.SaveChanges();
         }
-
-        int IPatientRepository.AddPatient(User patient)
-        {
-            throw new NotImplementedException();
-        }
-
-        //int IPatientRepository.AddPatient(global::MedicaERPMVC.Domain.Model.Patient patient)
-        //{
-        //    throw new NotImplementedException();
-        //}
     }
 }

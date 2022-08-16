@@ -5,14 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MedicaERPMVC.Domain.Interface
+namespace MedicaERPMVC.Domain.Interfaces
 {
     public interface IPatientRepository
     {
-        IQueryable<User> GetAllPatients();
-        User GetPatient(int id);
-        int AddPatient(User patient);
-        void UpdatePatient(User patient);
-        void DeletePatient(int patientId);
+        IQueryable<UserOfClinic> GetAllPatients();
+        UserOfClinic GetPatient(string id);
+        string AddPatient(UserOfClinic patient);
+        void UpdatePatient(UserOfClinic patient);
+        void DeletePatient(string patientId);
     }
 }

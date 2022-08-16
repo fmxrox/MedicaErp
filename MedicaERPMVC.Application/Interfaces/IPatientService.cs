@@ -10,12 +10,12 @@ namespace MedicaERPMVC.Application.Interfaces
    public interface IPatientService
     {
         ListPatientsForListViewModel GetAllPatientsForList(int pageSize, int pageNumber, string stringToFind);
-        int AddPatient(NewPatientViewModel newPatientViewModel);
+        string AddPatient(NewPatientViewModel newPatientViewModel);
         bool EditPatient(int patientId);
-        PatientDetailsViewModel GetPaitentById(int PatientId);
-        NewPatientViewModel GetPatientForEdit(int PatientId);
-        PatientDetailsViewModel GetPatientDetails(int PatientId);
+        PatientDetailsViewModel GetPaitentById(string PatientId);
+        NewPatientViewModel GetPatientForEdit(string PatientId);
+        PatientDetailsViewModel GetPatientDetails(string PatientId);
         void UpdatePatient(NewPatientViewModel patientViewModel);
-        void DeletePatient(int patientId);
+        void DeletePatient(string patientId);
     }
 }
