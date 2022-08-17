@@ -10,3 +10,17 @@ D:\Moje Najnowsze projekty\MedicaERP\MedicaERPMVC\MedicaERPMVC.Domain\obj\Debug\
 D:\Moje Najnowsze projekty\MedicaERP\MedicaERPMVC\MedicaERPMVC.Domain\obj\Debug\net6.0\refint\MedicaERPMVC.Domain.dll
 D:\Moje Najnowsze projekty\MedicaERP\MedicaERPMVC\MedicaERPMVC.Domain\obj\Debug\net6.0\MedicaERPMVC.Domain.pdb
 D:\Moje Najnowsze projekty\MedicaERP\MedicaERPMVC\MedicaERPMVC.Domain\obj\Debug\net6.0\ref\MedicaERPMVC.Domain.dll
+D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Domain\bin\Debug\net6.0\MedicaERPMVC.Domain.deps.json
+D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Domain\bin\Debug\net6.0\MedicaERPMVC.Domain.runtimeconfig.json
+D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Domain\bin\Debug\net6.0\MedicaERPMVC.Domain.dll
+D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Domain\bin\Debug\net6.0\MedicaERPMVC.Domain.pdb
+D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Domain\obj\Debug\net6.0\MedicaERPMVC.Domain.csproj.AssemblyReference.cache
+D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Domain\obj\Debug\net6.0\MedicaERPMVC.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Domain\obj\Debug\net6.0\MedicaERPMVC.Domain.AssemblyInfoInputs.cache
+D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Domain\obj\Debug\net6.0\MedicaERPMVC.Domain.AssemblyInfo.cs
+D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Domain\obj\Debug\net6.0\MedicaERPMVC.Domain.csproj.CoreCompileInputs.cache
+D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Domain\obj\Debug\net6.0\MedicaERPMVC.Domain.dll
+D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Domain\obj\Debug\net6.0\refint\MedicaERPMVC.Domain.dll
+D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Domain\obj\Debug\net6.0\MedicaERPMVC.Domain.pdb
+D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Domain\obj\Debug\net6.0\MedicaERPMVC.Domain.genruntimeconfig.cache
+D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Domain\obj\Debug\net6.0\ref\MedicaERPMVC.Domain.dll

@@ -57,7 +57,7 @@ namespace MedicaERP.Web.Controllers
             return View();// po wypelnieniu
         }
 
-        public IActionResult ViewPatient(int patientId)
+        public IActionResult ViewPatient(string patientId)
         {
             var idPatient = _patientService.GetPaitentById(patientId);
             return View();
@@ -65,7 +65,7 @@ namespace MedicaERP.Web.Controllers
         
         [HttpGet]
         [Authorize(Roles ="Admin")]
-        public IActionResult EditPatient(int id)
+        public IActionResult EditPatient(string id)
         {
             var patient = _patientService.GetPatientForEdit(id);
             return View(patient);
@@ -86,7 +86,7 @@ namespace MedicaERP.Web.Controllers
             }
             return View(modelPatient);
         }
-        public IActionResult Delete(int patientId)
+        public IActionResult Delete(string patientId)
         {
             _patientService.DeletePatient(patientId);
            return RedirectToAction("Index");

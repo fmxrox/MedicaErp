@@ -1,18 +1,16 @@
-﻿using MedicaERPMVC.Domain.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MedicaERPMVC.Domain.Interface;
+using MedicaERPMVC.Domain.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.MedicaERPMVC.Repositories
 {
-    public class VisitRepository
+    public class VisitRepository : IVisitRepository
     {// todo GetVisitByDoctorId or Something, po nr pesel
      //edit visit, update exception, Async wszędzie
      // po pesel whehe visit inprogress- something like that
      //Edit async
      //RESX- tłumaczenie
+     //FIND VISITS
 
 
         private readonly MedicaErpDbContext _medicaErpDbContext;
@@ -27,7 +25,7 @@ namespace Infrastructure.MedicaERPMVC.Repositories
             _medicaErpDbContext.SaveChanges();
             return visit.Id;
         }
-        public  IQueryable<Visit> GetVisitsByTypeId(int typeId)
+        public IQueryable<Visit> GetVisitsByTypeId(int typeId)
         {
             var visits = _medicaErpDbContext.Visits.Where(x => x.VisitTypeId == typeId);
             return visits;
@@ -40,7 +38,7 @@ namespace Infrastructure.MedicaERPMVC.Repositories
         }
         public void DeleteVisit(int idVisit)
         {
-            
+
             var visit = _medicaErpDbContext.Visits.Find(idVisit);
             if (visit != null)
             {
@@ -51,16 +49,36 @@ namespace Infrastructure.MedicaERPMVC.Repositories
         public async Task VisitEditAsync(int userId,
             string name,
             string lastName,
-            string? pesel)
+            string? pesel,
+            UserOfClinic Patient,
+            Clinic Clinic,
+            string description,
+            bool isDone
+            )
         {
-            var userToEdit = await this._medicaErpDbContext.UserOfClinic.FindAsync(userId);
-            if (userToEdit == null)
+            var visitToEdit = await this._medicaErpDbContext.Visits.FindAsync(userId);
+            if (visitToEdit == null)
                 throw new Exception("Patient not found");
-            userToEdit.FirstName = name;
-            userToEdit.LastName = lastName;
-            if (pesel!=null)
-                userToEdit.Pesel = pesel;
+            visitToEdit.Patient = Patient;
+            visitToEdit.Clinic = Clinic;
+            visitToEdit.Description = description;
+            visitToEdit.IsDone = isDone;
             _medicaErpDbContext.SaveChanges();
+        }
+
+        public async Task<IEnumerable<Visit>> GetVisitsToDo(string doctorId)
+        {
+            var presentDay = DateTime.Now.Date;
+            var visits = await _medicaErpDbContext.Visits
+                .Where(x => x.DoctorId == doctorId && x.Date.Date >= presentDay
+            && x.IsDone == false)
+                .ToListAsync();
+            return visits;
+        }
+        public async Task<IEnumerable<Visit>> GetAllVisits()
+        {
+            return await _medicaErpDbContext.Visits
+                .ToListAsync();
         }
 
     }
