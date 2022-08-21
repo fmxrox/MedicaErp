@@ -13,38 +13,38 @@ public class DoctorRepository : IDoctorRepository
     {
         _medicaErpDbContext = medicaErpDbContext;
     }
-    public int AddDoctor(UserOfClinic doctor)
+    public int AddDoctor(Doctor doctor)
     {
-      _medicaErpDbContext.UserOfClinic.Add(doctor);
+      _medicaErpDbContext.Doctors.Add(doctor);
         _medicaErpDbContext.SaveChanges();
         return 1;
     }
 
     public void DeleteDoctor(string patientId)
     {
-        var doctorToDelete = _medicaErpDbContext.UserOfClinic.Find(patientId);
+        var doctorToDelete = _medicaErpDbContext.Doctors.Find(patientId);
         if (doctorToDelete != null)
         {
-            _medicaErpDbContext.UserOfClinic.Remove(doctorToDelete);
+            _medicaErpDbContext.Doctors.Remove(doctorToDelete);
             _medicaErpDbContext.SaveChanges();
         }
     }
 
-    public IQueryable<UserOfClinic> GetAllDoctors()
+    public IQueryable<Doctor> GetAllDoctors()
     {
-        var doctors = _medicaErpDbContext.UserOfClinic.Where(x => x.isDoctor);
+        var doctors = _medicaErpDbContext.Doctors.Where(x => x.isDoctor);
         return doctors;      
     }
 
-    public UserOfClinic GetDoctor(string id)
+    public Doctor GetDoctor(string id)
     {
-        var doctorToFind = _medicaErpDbContext.UserOfClinic.Find(id);
+        var doctorToFind = _medicaErpDbContext.Doctors.Find(id);
         if (doctorToFind == null)
             throw new Exception("User not found");
         return doctorToFind;
     }
 
-    public void UpdateDoctor(UserOfClinic doctor)
+    public void UpdateDoctor(Doctor doctor)
     {
         _medicaErpDbContext.Attach(doctor);
         _medicaErpDbContext.Entry(doctor).Property("FirstName").IsModified = true;
