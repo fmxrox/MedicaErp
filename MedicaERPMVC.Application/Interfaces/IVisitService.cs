@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MedicaERPMVC.Application.Services.Visit
 {
-    public class IVisitService
+    public interface IVisitService
     {
-        //zmienic nzwy ITD
+      
         //Task<T> GetByIdAsync<T>(string id);
 
         //Task<IEnumerable<T>> GetAllAsync<T>();

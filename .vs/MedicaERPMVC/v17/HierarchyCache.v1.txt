@@ -9,18 +9,22 @@ i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\m
 i:{00000000-0000-0000-0000-000000000000}:Application
 ++MedicaERPMVC.Application
 i:{92aedbdb-e891-41d4-bb5b-b3a5a36803dc}:MedicaERPMVC.Application
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.application\bin\debug\net6.0\medicaerpmvc.application.dll
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.application\medicaerpmvc.application.csproj
 ++Dependencies
-i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:>712
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:>710
-i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:>771
-i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:>711
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:>2260
+i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:>1063
+i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:>969
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:>1531
+i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:>1532
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:>2279
 ++Interfaces
 i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.application\interfaces\
 i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\interfaces\
+++IDoctorService.cs
+i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.application\interfaces\idoctorservice.cs
 ++IPatientService.cs
 i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.application\interfaces\ipatientservice.cs
+++IVisitService.cs
+i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.application\interfaces\ivisitservice.cs
 ++Mapping
 i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.application\mapping\
 ++IMapFrom.cs
@@ -29,120 +33,28 @@ i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:d:\inżynierka mój projekt\medicaerp\m
 i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.application\mapping\mappingprofile.cs
 ++Services
 i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.application\services\
+++Visit
+i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.application\services\visit\
+i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\interfaces\visit\
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\repositories\visit\
+++VisitRepository.cs
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\repositories\visit\visitrepository.cs
 ++PatientService.cs
 i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.application\services\patientservice.cs
 ++ViewModels
 i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.application\viewmodels\
-++Analyzers
-i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:analyzers
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:analyzers
-i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:analyzers
-i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:analyzers
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:analyzers
-++Frameworks
-i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:frameworks
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:frameworks
-i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:frameworks
-i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:frameworks
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:frameworks
-++Packages
-i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:packages
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:packages
-i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:packages
-i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:packages
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:packages
-++Projects
-i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:projects
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:projects
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:projects
 ++Admin
 i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.application\viewmodels\admin\
 i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\repositories\admin\
-i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\interfaces\admin\
 ++Doctor
 i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.application\viewmodels\doctor\
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\repositories\doctor\
 i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\interfaces\doctor\
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\repositories\doctor\
 ++Patient
 i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.application\viewmodels\patient\
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\repositories\patient\
 i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\interfaces\patient\
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\repositories\patient\
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\patient\
-++Microsoft.AspNetCore.App.Analyzers
-i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.2\analyzers\dotnet\cs\microsoft.aspnetcore.app.analyzers.dll
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.2\analyzers\dotnet\cs\microsoft.aspnetcore.app.analyzers.dll
-++Microsoft.AspNetCore.App.CodeFixes
-i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.2\analyzers\dotnet\cs\microsoft.aspnetcore.app.codefixes.dll
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.2\analyzers\dotnet\cs\microsoft.aspnetcore.app.codefixes.dll
-++Microsoft.CodeAnalysis.CSharp.NetAnalyzers
-i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:c:\program files\dotnet\sdk\6.0.200\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:c:\program files\dotnet\sdk\6.0.200\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
-i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:c:\program files\dotnet\sdk\6.0.200\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
-i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:c:\program files\dotnet\sdk\6.0.200\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:c:\program files\dotnet\sdk\6.0.200\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
-++Microsoft.CodeAnalysis.NetAnalyzers
-i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:c:\program files\dotnet\sdk\6.0.200\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:c:\program files\dotnet\sdk\6.0.200\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
-i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:c:\program files\dotnet\sdk\6.0.200\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
-i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:c:\program files\dotnet\sdk\6.0.200\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:c:\program files\dotnet\sdk\6.0.200\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
-++Microsoft.EntityFrameworkCore.Analyzers
-i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:c:\users\adam-dom\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.6\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:c:\users\adam-dom\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.6\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
-i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:c:\users\adam-dom\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.6\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
-i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:c:\users\adam-dom\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.6\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:c:\users\adam-dom\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.7\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
-++Microsoft.Extensions.Logging.Generators
-i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.2\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:c:\users\adam-dom\.nuget\packages\microsoft.extensions.logging.abstractions\6.0.0\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
-i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:c:\users\adam-dom\.nuget\packages\microsoft.extensions.logging.abstractions\6.0.0\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
-i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:c:\users\adam-dom\.nuget\packages\microsoft.extensions.logging.abstractions\6.0.0\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.2\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
-++System.Text.Json.SourceGeneration
-i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.2\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.2\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
-i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.2\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
-i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.2\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.2\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
-++Microsoft.NETCore.App
-i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.application\microsoft.netcore.app
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\microsoft.netcore.app
-i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\microsoft.netcore.app
-i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.test\microsoft.netcore.app
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\microsoft.netcore.app
-++AutoMapper (11.0.1)
-i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:>2331
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:>2346
-i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:>2361
-i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:>2310
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:>2288
-++AutoMapper.Extensions.Microsoft.DependencyInjection (11.0.0)
-i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:>2327
-++FluentValidation (11.1.0)
-i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:>2329
-++FluentValidation.AspNetCore (11.1.2)
-i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:>2328
-++FluentValidation.DependencyInjectionExtensions (11.1.0)
-i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:>2325
-++Microsoft.AspNetCore.Identity.EntityFrameworkCore (6.0.6)
-i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:>2330
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:>2345
-i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:>2360
-i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:>2309
-++Microsoft.EntityFrameworkCore.SqlServer (6.0.6)
-i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:>2326
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:>2344
-i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:>2359
-i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:>2307
-++Microsoft.EntityFrameworkCore.Tools (6.0.6)
-i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:>2332
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:>2347
-i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:>2362
-i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:>2311
-++MedicaERPMVC.Domain
-i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\bin\debug\net6.0\medicaerpmvc.domain.dll
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\bin\debug\net6.0\medicaerpmvc.domain.dll
-i:{14c1258f-b6ac-42d5-8f6c-c16ac4fc753a}:MedicaERPMVC.Domain
 ++ListPatientsForViewModel.cs
 i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.application\viewmodels\patient\listpatientsforviewmodel.cs
 ++NewPatientViewModel.cs
@@ -153,58 +65,115 @@ i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:d:\inżynierka mój projekt\medicaerp\m
 i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.application\viewmodels\patient\patientforlistviewmodel.cs
 ++UserContactInformationForViewModel.cs
 i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.application\viewmodels\patient\usercontactinformationforviewmodel.cs
-++Infrastructure
-i:{00000000-0000-0000-0000-000000000000}:Infrastructure
-++Infrastructure.MedicaERPMVC
-i:{ff42f7e0-5693-4cc7-aa3d-1cae961d634b}:Infrastructure.MedicaERPMVC
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\bin\debug\net6.0\infrastructure.medicaerpmvc.dll
-++Migrations
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\migrations\
-++20220709205238_adamnjan.cs
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\migrations\20220709205238_adamnjan.cs
-++20220711191615_11-07.cs
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\migrations\20220711191615_11-07.cs
-++20220722125232_227.cs
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\migrations\20220722125232_227.cs
-++20220726215241_2607.cs
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\migrations\20220726215241_2607.cs
-++20220813205134_13082022.cs
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\migrations\20220813205134_13082022.cs
-++MedicaErpDbContextModelSnapshot.cs
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\migrations\medicaerpdbcontextmodelsnapshot.cs
-++Models
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\models\
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\models\
-++Repositories
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\repositories\
-++IAdminRepository.cs
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\repositories\admin\iadminrepository.cs
-++IDoctorRepository.cs
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\repositories\doctor\idoctorrepository.cs
-i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\interfaces\doctor\idoctorrepository.cs
-++MedicalCenter
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\repositories\medicalcenter\
-++PatientRepository.cs
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\repositories\patient\patientrepository.cs
-++Visit
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\repositories\visit\
-i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\interfaces\visit\
-++VisitRepository.cs
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\repositories\visit\visitrepository.cs
-++MedicaErpDbContext.cs
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\medicaerpdbcontext.cs
-++20220709205238_adamnjan.Designer.cs
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\migrations\20220709205238_adamnjan.designer.cs
-++20220711191615_11-07.Designer.cs
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\migrations\20220711191615_11-07.designer.cs
-++20220722125232_227.Designer.cs
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\migrations\20220722125232_227.designer.cs
-++20220726215241_2607.Designer.cs
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\migrations\20220726215241_2607.designer.cs
-++20220813205134_13082022.Designer.cs
-i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\migrations\20220813205134_13082022.designer.cs
+++Visits
+i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.application\viewmodels\visits\
+++ListVisitsViewModel.cs
+i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.application\viewmodels\visits\listvisitsviewmodel.cs
+++NewVisitViewModel.cs
+i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.application\viewmodels\visits\newvisitviewmodel.cs
+++VisitViewModel.cs
+i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.application\viewmodels\visits\visitviewmodel.cs
+++Analyzers
+i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:analyzers
+i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:analyzers
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:analyzers
+i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:analyzers
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:analyzers
+++Frameworks
+i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:frameworks
+i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:frameworks
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:frameworks
+i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:frameworks
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:frameworks
+++Packages
+i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:packages
+i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:packages
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:packages
+i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:packages
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:packages
+++Projects
+i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:projects
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:projects
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:projects
+++Microsoft.AspNetCore.App.Analyzers
+i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.2\analyzers\dotnet\cs\microsoft.aspnetcore.app.analyzers.dll
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.2\analyzers\dotnet\cs\microsoft.aspnetcore.app.analyzers.dll
+++Microsoft.AspNetCore.App.CodeFixes
+i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.2\analyzers\dotnet\cs\microsoft.aspnetcore.app.codefixes.dll
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.2\analyzers\dotnet\cs\microsoft.aspnetcore.app.codefixes.dll
+++Microsoft.CodeAnalysis.CSharp.NetAnalyzers
+i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:c:\program files\dotnet\sdk\6.0.200\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:c:\program files\dotnet\sdk\6.0.200\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:c:\program files\dotnet\sdk\6.0.200\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:c:\program files\dotnet\sdk\6.0.200\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:c:\program files\dotnet\sdk\6.0.200\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+++Microsoft.CodeAnalysis.NetAnalyzers
+i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:c:\program files\dotnet\sdk\6.0.200\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:c:\program files\dotnet\sdk\6.0.200\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:c:\program files\dotnet\sdk\6.0.200\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:c:\program files\dotnet\sdk\6.0.200\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:c:\program files\dotnet\sdk\6.0.200\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+++Microsoft.EntityFrameworkCore.Analyzers
+i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:c:\users\adam-dom\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.6\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
+i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:c:\users\adam-dom\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.6\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:c:\users\adam-dom\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.6\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
+i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:c:\users\adam-dom\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.6\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:c:\users\adam-dom\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.7\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
+++Microsoft.Extensions.Logging.Generators
+i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.2\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
+i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:c:\users\adam-dom\.nuget\packages\microsoft.extensions.logging.abstractions\6.0.0\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:c:\users\adam-dom\.nuget\packages\microsoft.extensions.logging.abstractions\6.0.0\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
+i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:c:\users\adam-dom\.nuget\packages\microsoft.extensions.logging.abstractions\6.0.0\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.2\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
+++System.Text.Json.SourceGeneration
+i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.2\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
+i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.2\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.2\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
+i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.2\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.2\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
+++Microsoft.NETCore.App
+i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.application\microsoft.netcore.app
+i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\microsoft.netcore.app
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\microsoft.netcore.app
+i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.test\microsoft.netcore.app
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\microsoft.netcore.app
+++AutoMapper (11.0.1)
+i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:>2329
+i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:>2349
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:>2313
+i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:>2365
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:>2297
+++AutoMapper.Extensions.Microsoft.DependencyInjection (11.0.0)
+i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:>2325
+++FluentValidation (11.1.0)
+i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:>2327
+++FluentValidation.AspNetCore (11.1.2)
+i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:>2326
+++FluentValidation.DependencyInjectionExtensions (11.1.0)
+i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:>2323
+++Microsoft.AspNetCore.Identity.EntityFrameworkCore (6.0.6)
+i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:>2328
+i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:>2348
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:>2312
+i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:>2364
+++Microsoft.EntityFrameworkCore.SqlServer (6.0.6)
+i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:>2324
+i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:>2347
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:>2311
+i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:>2362
+++Microsoft.EntityFrameworkCore.Tools (6.0.6)
+i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:>2330
+i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:>2350
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:>2314
+i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:>2366
+++MedicaERPMVC.Domain
+i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\medicaerpmvc.domain.csproj
+i:{14c1258f-b6ac-42d5-8f6c-c16ac4fc753a}:MedicaERPMVC.Domain
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\medicaerpmvc.domain.csproj
 ++Domain
 i:{00000000-0000-0000-0000-000000000000}:Domain
+++IVisitRepository.cs
+i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\interfaces\visit\ivisitrepository.cs
 ++Model
 i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\model\
 ++Const
@@ -215,22 +184,24 @@ i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:d:\inżynierka mój projekt\medicaerp\m
 i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\model\info\
 ++Clinic.cs
 i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\model\clinic.cs
-++Patient.cs
-i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\model\patient.cs
+++Doctor.cs
+i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\model\doctor.cs
 ++SpecialitzationOfDoctor.cs
 i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\model\specialitzationofdoctor.cs
 ++Tag.cs
 i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\model\tag.cs
 ++UserContactInformation.cs
 i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\model\usercontactinformation.cs
+++UserOfClinic.cs
+i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\model\userofclinic.cs
 ++Visit.cs
 i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\model\visit.cs
 ++VisitType.cs
 i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\model\visittype.cs
+++IDoctorRepository.cs
+i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\interfaces\doctor\idoctorrepository.cs
 ++IPatientRepository.cs
 i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\interfaces\patient\ipatientrepository.cs
-++IVisitRepository.cs
-i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\interfaces\visit\ivisitrepository.cs
 ++DataConstProperty.cs
 i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\model\const\dataconstproperty.cs
 ++RoleOfUser.cs
@@ -241,6 +212,54 @@ i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:d:\inżynierka mój projekt\medicaerp\m
 i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\model\enums\typeofvisit.cs
 ++IDetailsInfoModel.cs
 i:{9f879bc0-adb8-4be0-8aea-7fa0617d0ce6}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.domain\model\info\idetailsinfomodel.cs
+++Infrastructure
+i:{00000000-0000-0000-0000-000000000000}:Infrastructure
+++Infrastructure.MedicaERPMVC
+i:{ff42f7e0-5693-4cc7-aa3d-1cae961d634b}:Infrastructure.MedicaERPMVC
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\infrastructure.medicaerpmvc.csproj
+++Migrations
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\migrations\
+++Models
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\models\
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\models\
+++Repositories
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\repositories\
+++DoctorRepository.cs
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\repositories\doctor\doctorrepository.cs
+++MedicalCenter
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\repositories\medicalcenter\
+++PatientRepository.cs
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\repositories\patient\patientrepository.cs
+++MedicaErpDbContext.cs
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\medicaerpdbcontext.cs
+++20220709205238_adamnjan.cs
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\migrations\20220709205238_adamnjan.cs
+++20220711191615_11-07.cs
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\migrations\20220711191615_11-07.cs
+++20220722125232_227.cs
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\migrations\20220722125232_227.cs
+++20220726215241_2607.cs
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\migrations\20220726215241_2607.cs
+++20220813205134_13082022.cs
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\migrations\20220813205134_13082022.cs
+++20220817203035_178.cs
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\migrations\20220817203035_178.cs
+++MedicaErpDbContextModelSnapshot.cs
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\migrations\medicaerpdbcontextmodelsnapshot.cs
+++IAdminRepository.cs
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\repositories\admin\iadminrepository.cs
+++20220709205238_adamnjan.Designer.cs
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\migrations\20220709205238_adamnjan.designer.cs
+++20220711191615_11-07.Designer.cs
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\migrations\20220711191615_11-07.designer.cs
+++20220722125232_227.Designer.cs
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\migrations\20220722125232_227.designer.cs
+++20220726215241_2607.Designer.cs
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\migrations\20220726215241_2607.designer.cs
+++20220813205134_13082022.Designer.cs
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\migrations\20220813205134_13082022.designer.cs
+++20220817203035_178.Designer.cs
+i:{82a5233a-4abb-45a8-9368-4a13baedad91}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\infrastructure.medicaerpmvc\migrations\20220817203035_178.designer.cs
 ++Test
 i:{00000000-0000-0000-0000-000000000000}:Test
 ++MedicaERPMVC.Test
@@ -248,41 +267,56 @@ i:{efb41873-7789-44cf-bba4-871c0a463fe2}:MedicaERPMVC.Test
 ++xunit.analyzers
 i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:c:\users\adam-dom\.nuget\packages\xunit.analyzers\0.10.0\analyzers\dotnet\cs\xunit.analyzers.dll
 ++coverlet.collector (3.1.2)
-i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:>2313
+i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:>2368
 ++Microsoft.NET.Test.Sdk (17.2.0)
-i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:>2306
+i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:>2361
 ++xunit (2.4.1)
-i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:>2308
+i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:>2363
 ++xunit.runner.visualstudio (2.4.5)
-i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:>2312
+i:{e9cecfa4-12dd-4335-8808-28a0bcb7b75d}:>2367
 ++UI
 i:{00000000-0000-0000-0000-000000000000}:UI
 ++MedicaERP.Web
 i:{587e26dc-56a2-4f61-8d05-3e0bdd647123}:MedicaERP.Web
 ++Connected Services 
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:>2261
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:>2280
 ++Properties
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\properties\
 ++wwwroot
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\wwwroot\
 ++Areas
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\
-++Identity
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\
 ++Controllers
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\controllers\
-++HomeController.cs
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\controllers\homecontroller.cs
-++PatientController.cs
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\controllers\patientcontroller.cs
 ++Filters
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\filters\
-++CheckUsersPermissions.cs
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\filters\checkuserspermissions.cs
-++ErrorViewModel.cs
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\models\errorviewmodel.cs
 ++Views
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\
+++Custom
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\custom\
+++Home
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\home\
+++Index.cshtml
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\home\index.cshtml
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\patient\index.cshtml
+++Moj.cshtml
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\home\moj.cshtml
+++Privacy.cshtml
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\home\privacy.cshtml
+++AddPatient.cshtml
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\patient\addpatient.cshtml
+++EditPatient.cshtml
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\patient\editpatient.cshtml
+++Shared
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\shared\
+++_ViewImports.cshtml
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\_viewimports.cshtml
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\_viewimports.cshtml
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\account\_viewimports.cshtml
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\account\manage\_viewimports.cshtml
+++_ViewStart.cshtml
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\_viewstart.cshtml
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\_viewstart.cshtml
 ++appsettings.json
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\appsettings.json
 ++Dockerfile
@@ -294,9 +328,9 @@ i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\m
 ++Startup.cs
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\startup.cs
 ++SQL Server Express LocalDB (Local) (ConnectionStrings:DefaultConnection)
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:>2364
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:>2392
 ++SQL Server Express LocalDB (Local) (ConnectionStrings:MedicaErpDbContextConnection)
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:>2363
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:>2391
 ++launchSettings.json
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\properties\launchsettings.json
 ++serviceDependencies.json
@@ -311,22 +345,25 @@ i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\m
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\wwwroot\lib\
 ++favicon.ico
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\wwwroot\favicon.ico
-++Pages
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\
-++Custom
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\custom\
-++Home
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\home\
-++Shared
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\shared\
-++_ViewImports.cshtml
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\_viewimports.cshtml
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\_viewimports.cshtml
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\account\_viewimports.cshtml
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\account\manage\_viewimports.cshtml
-++_ViewStart.cshtml
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\_viewstart.cshtml
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\_viewstart.cshtml
+++Identity
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\
+++HomeController.cs
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\controllers\homecontroller.cs
+++PatientController.cs
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\controllers\patientcontroller.cs
+++CheckUsersPermissions.cs
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\filters\checkuserspermissions.cs
+++ErrorViewModel.cs
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\models\errorviewmodel.cs
+++_Layout.cshtml
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\shared\_layout.cshtml
+++_LoginPartial.cshtml
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\shared\_loginpartial.cshtml
+++_ValidationScriptsPartial.cshtml
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\shared\_validationscriptspartial.cshtml
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\_validationscriptspartial.cshtml
+++Error.cshtml
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\shared\error.cshtml
 ++appsettings.Development.json
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\appsettings.development.json
 ++.dockerignore
@@ -350,23 +387,23 @@ i:{78f39111-e8ff-4828-ac84-3184d3552796}:c:\program files\dotnet\sdk\6.0.200\sdk
 ++Microsoft.AspNetCore.App
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\microsoft.aspnetcore.app
 ++Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore (6.0.6)
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:>2286
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:>2295
 ++Microsoft.AspNetCore.Identity.EntityFrameworkCore (6.0.7)
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:>2287
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:>2296
 ++Microsoft.AspNetCore.Identity.UI (6.0.7)
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:>2292
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:>2301
 ++Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation (6.0.6)
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:>2283
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:>2292
 ++Microsoft.EntityFrameworkCore.SqlServer (6.0.7)
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:>2284
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:>2293
 ++Microsoft.EntityFrameworkCore.Tools (6.0.7)
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:>2289
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:>2298
 ++Microsoft.VisualStudio.Azure.Containers.Tools.Targets (1.16.1)
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:>2290
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:>2299
 ++Microsoft.VisualStudio.Web.CodeGeneration.Design (6.0.7)
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:>2291
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:>2300
 ++Swashbuckle.AspNetCore (6.3.0)
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:>2285
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:>2294
 ++serviceDependencies.local.json
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\properties\servicedependencies.local.json
 ++site.css
@@ -381,28 +418,8 @@ i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\m
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\wwwroot\lib\jquery-validation\
 ++jquery-validation-unobtrusive
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\wwwroot\lib\jquery-validation-unobtrusive\
-++Account
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\account\
-++_ValidationScriptsPartial.cshtml
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\_validationscriptspartial.cshtml
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\shared\_validationscriptspartial.cshtml
-++Index.cshtml
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\home\index.cshtml
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\patient\index.cshtml
-++Moj.cshtml
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\home\moj.cshtml
-++Privacy.cshtml
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\home\privacy.cshtml
-++AddPatient.cshtml
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\patient\addpatient.cshtml
-++EditPatient.cshtml
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\patient\editpatient.cshtml
-++_Layout.cshtml
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\shared\_layout.cshtml
-++_LoginPartial.cshtml
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\shared\_loginpartial.cshtml
-++Error.cshtml
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\views\shared\error.cshtml
+++Pages
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\
 ++dist
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\wwwroot\lib\bootstrap\dist\
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\wwwroot\lib\jquery\dist\
@@ -416,12 +433,8 @@ i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\m
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\wwwroot\lib\jquery-validation\license.md
 ++jquery.validate.unobtrusive.js
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
-++Manage
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\account\manage\
-++Login.cshtml
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\account\login.cshtml
-++Register.cshtml
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\account\register.cshtml
+++Account
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\account\
 ++jquery.js
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\wwwroot\lib\jquery\dist\jquery.js
 ++additional-methods.js
@@ -430,16 +443,12 @@ i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\m
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\wwwroot\lib\jquery-validation\dist\jquery.validate.js
 ++jquery.validate.unobtrusive.min.js
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
-++_ManageNav.cshtml
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\account\manage\_managenav.cshtml
-++ManageNavPages.cs
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\account\manage\managenavpages.cs
-++TwoFactorAuthentication.cshtml
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\account\manage\twofactorauthentication.cshtml
-++Login.cshtml.cs
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\account\login.cshtml.cs
-++Register.cshtml.cs
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\account\register.cshtml.cs
+++Manage
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\account\manage\
+++Login.cshtml
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\account\login.cshtml
+++Register.cshtml
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\account\register.cshtml
 ++bootstrap.css
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\wwwroot\lib\bootstrap\dist\css\bootstrap.css
 ++bootstrap-grid.css
@@ -454,8 +463,16 @@ i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\m
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
 ++jquery.validate.min.js
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
-++TwoFactorAuthentication.cshtml.cs
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\account\manage\twofactorauthentication.cshtml.cs
+++_ManageNav.cshtml
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\account\manage\_managenav.cshtml
+++ManageNavPages.cs
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\account\manage\managenavpages.cs
+++TwoFactorAuthentication.cshtml
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\account\manage\twofactorauthentication.cshtml
+++Login.cshtml.cs
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\account\login.cshtml.cs
+++Register.cshtml.cs
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\account\register.cshtml.cs
 ++bootstrap.css.map
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
 ++bootstrap.min.css
@@ -476,6 +493,8 @@ i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\m
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
 ++jquery.min.map
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\wwwroot\lib\jquery\dist\jquery.min.map
+++TwoFactorAuthentication.cshtml.cs
+i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\areas\identity\pages\account\manage\twofactorauthentication.cshtml.cs
 ++bootstrap.min.css.map
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
 ++bootstrap-grid.min.css.map
@@ -490,7 +509,5 @@ i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\m
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
 ++bootstrap.bundle.min.js.map
 i:{78f39111-e8ff-4828-ac84-3184d3552796}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerp.web\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
-++Secrets.json (Local)
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:>2369
-++Secrets.json (Local) dependency is detected
-i:{78f39111-e8ff-4828-ac84-3184d3552796}:>2370
+++VisitService.cs
+i:{775ec0c5-738e-4b40-ad67-e77bd7604747}:d:\inżynierka mój projekt\medicaerp\medicaerpmvc\medicaerpmvc.application\services\visit\visitrepository.cs

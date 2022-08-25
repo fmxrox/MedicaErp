@@ -37,11 +37,6 @@ namespace MedicaERPMVC.Application.Services
             _patientRepository.DeletePatient(patientId);
         }
 
-        public bool EditPatient(int patientId)
-        {
-            throw new NotImplementedException();
-        }
-
         public ListPatientsForListViewModel GetAllPatientsForList(int pageSize, int pageNumber, string stringToFind)
         {
             var patients = _patientRepository.GetAllPatients()
