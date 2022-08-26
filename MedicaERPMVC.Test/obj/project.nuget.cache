@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "SGbHsPkpJplut6a3N0BwKrekYojJDLE9C7oTsZ0EEwe+iWcMSUFnUnZg1C8bUyURDdWi/QrrSnvhydfp/Iy6qA==",
+  "dgSpecHash": "r4PkfLqA1kyoL2ssCIuRMtqmYR8rw6CflqeAXj0sZvemMf4npiD/mwDwcbbz/R98vPVeUYIr4Wfem19oAhZWwA==",
   "success": true,
   "projectFilePath": "D:\\INŻYNIERKA MÓJ PROJEKT\\MedicaERP\\MedicaERPMVC\\MedicaERPMVC.Test\\MedicaERPMVC.Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Adam-Dom\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
+    "C:\\Users\\Adam-Dom\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\Adam-Dom\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\Adam-Dom\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Adam-Dom\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.6\\microsoft.aspnetcore.cryptography.internal.6.0.6.nupkg.sha512",

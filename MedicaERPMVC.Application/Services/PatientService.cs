@@ -53,7 +53,7 @@ namespace MedicaERPMVC.Application.Services
             };
             return patientsForListViewModel;
         }
-
+   
         public PatientDetailsViewModel GetPaitentById(string PatientId)
         {
             throw new NotImplementedException();

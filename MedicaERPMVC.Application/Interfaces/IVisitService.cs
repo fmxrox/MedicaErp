@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicaERPMVC.Application.ViewModels.Visits;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,8 @@ namespace MedicaERPMVC.Application.Services.Visit
 {
     public interface IVisitService
     {
-      
+
+        //IQueryable GetAllVisitsForList(int pageSize, int pageNumber, string stringToFind);
         //Task<T> GetByIdAsync<T>(string id);
 
         //Task<IEnumerable<T>> GetAllAsync<T>();

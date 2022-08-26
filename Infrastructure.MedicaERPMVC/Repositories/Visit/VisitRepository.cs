@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.MedicaERPMVC.Repositories
 {
-    public class VisitRepository : IVisitRepository
+    public class VisitRepository 
     {// todo GetVisitByDoctorId or Something, po nr pesel
      //edit visit, update exception, Async wszędzie
      // po pesel whehe visit inprogress- something like that
@@ -75,10 +75,10 @@ namespace Infrastructure.MedicaERPMVC.Repositories
                 .ToListAsync();
             return visits;
         }
-        public async Task<IEnumerable<Visit>> GetAllVisits()
+        public async Task<IQueryable<Visit>> GetAllVisits()
         {
-            return await _medicaErpDbContext.Visits
-                .ToListAsync();
+            var visits =  await _medicaErpDbContext.Visits.ToListAsync();
+            return visits.AsQueryable();
         }
 
     }

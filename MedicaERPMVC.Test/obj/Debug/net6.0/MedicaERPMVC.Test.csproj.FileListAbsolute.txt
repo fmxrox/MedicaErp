@@ -244,3 +244,4 @@ D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Test\obj\Debug\n
 D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Test\obj\Debug\net6.0\MedicaERPMVC.Test.pdb
 D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Test\obj\Debug\net6.0\MedicaERPMVC.Test.genruntimeconfig.cache
 D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Test\obj\Debug\net6.0\ref\MedicaERPMVC.Test.dll
+D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Test\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
