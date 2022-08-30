@@ -44,11 +44,11 @@ namespace MedicaERPMVC.Application.Services.Visit
             return (IQueryable<VisitViewModel>)visitsForListVM;
 
         }
-        public async Task<ListVisitsViewModel> GetAllVisitsForDoctor(string doCtorId,int pageSize, int pageNumber, string stringToFind)
+        public async Task<ListVisitsViewModel> GetAllVisitsForDoctor(string doCtorId, int pageSize, int pageNumber, string stringToFind)
         {
             var visitsFromRepository = await _visitRepository.GetVisitsToDo(doCtorId);
             var visits = visitsFromRepository.ProjectTo<VisitViewModel>(_mapper.ConfigurationProvider)
-                .OrderByDescending(x=>x.Date).ToList();
+                .OrderByDescending(x => x.Date).ToList();
             var visitFinally = visits.Skip(pageNumber).Take(pageSize).ToList();
             var visitsForListVM = new ListVisitsViewModel()
             {
@@ -64,7 +64,7 @@ namespace MedicaERPMVC.Application.Services.Visit
         public async Task<ListVisitsViewModel> GetNextVisitsForDoctorUpcoming(string doCtorId, int pageSize, int pageNumber, string stringToFind)
         {
             var visitsFromRepository = await _visitRepository.GetVisitsToDo(doCtorId);
-            var visits = visitsFromRepository.Where(x=>x.DoctorId==doCtorId
+            var visits = visitsFromRepository.Where(x => x.DoctorId == doCtorId
             && x.Date.Date < DateTime.UtcNow.Date
             && x.IsDone == false)
                 .ProjectTo<VisitViewModel>(_mapper.ConfigurationProvider)

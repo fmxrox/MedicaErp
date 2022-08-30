@@ -1,17 +1,13 @@
 using FluentValidation;
-using FluentValidation.AspNetCore;
-using FluentValidation.Validators;
-using FluentValidation.Internal;
-using FluentValidation.Resources;
-using FluentValidation.Results;
-using FluentValidation.TestHelper;
 using Infrastructure.MedicaERPMVC;
+using Infrastructure.MedicaERPMVC.Repositories;
 using Infrastructure.MedicaERPMVC.Repositories.User;
 using MedicaERPMVC.Application.Interfaces;
 using MedicaERPMVC.Application.Services;
+using MedicaERPMVC.Application.Services.Visit;
 using MedicaERPMVC.Application.ViewModels.Patient;
 using MedicaERPMVC.Domain.Interface;
-using MedicaERPMVC.Domain.Model;
+using MedicaERPMVC.Domain.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -58,10 +54,13 @@ namespace MedicaERP.Web
                     policy.RequireRole("Admin");
                 });
             });
-            //services.AddTransient<IPatientRepository, PatientRepository>();
-            //services.AddTransient<IPatientService, PatientService>();
 
-   
+            services.AddTransient<IPatientService, PatientService>();
+            services.AddTransient<IVisitRepository, VisitRepository>();
+            services.AddTransient<IVisitService, VisitService>();
+            services.AddTransient<IPatientService, PatientService>();
+            services.AddTransient<IPatientRepository, PatientRepository>();
+
             services.AddControllersWithViews();
             //services.AddControllersWithViews().AddFluentValidation(/*fv => ffv.RunDefaultMvcValidationAfterFluentValidationExecutes = false*/);
             services.AddRazorPages();

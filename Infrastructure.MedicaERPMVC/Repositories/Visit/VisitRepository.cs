@@ -1,10 +1,11 @@
 ﻿using MedicaERPMVC.Domain.Interface;
+using MedicaERPMVC.Domain.Interfaces.Doctor;
 using MedicaERPMVC.Domain.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.MedicaERPMVC.Repositories
 {
-    public class VisitRepository 
+    public class VisitRepository : IVisitRepository
     {// todo GetVisitByDoctorId or Something, po nr pesel
      //edit visit, update exception, Async wszędzie
      // po pesel whehe visit inprogress- something like that
@@ -66,18 +67,18 @@ namespace Infrastructure.MedicaERPMVC.Repositories
             _medicaErpDbContext.SaveChanges();
         }
 
-        public async Task<IEnumerable<Visit>> GetVisitsToDo(string doctorId)
+        public async Task<IQueryable<Visit>> GetVisitsToDo(string doctorId)
         {
             var presentDay = DateTime.Now.Date;
             var visits = await _medicaErpDbContext.Visits
                 .Where(x => x.DoctorId == doctorId && x.Date.Date >= presentDay
             && x.IsDone == false)
                 .ToListAsync();
-            return visits;
+            return visits.AsQueryable();
         }
         public async Task<IQueryable<Visit>> GetAllVisits()
         {
-            var visits =  await _medicaErpDbContext.Visits.ToListAsync();
+            var visits = await _medicaErpDbContext.Visits.ToListAsync();
             return visits.AsQueryable();
         }
 
