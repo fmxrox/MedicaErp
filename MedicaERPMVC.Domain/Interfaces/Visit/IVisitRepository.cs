@@ -10,7 +10,7 @@ namespace MedicaERPMVC.Domain.Interface
     public interface IVisitRepository
     {
         int AddVisit(Visit visit);
-        void DeleteVisit(int idVisit);
+        void DeleteVisit(string idVisit);
         Task<IQueryable<Visit>> GetAllVisits();
         Task<Visit> GetVisitById(string name);
         IQueryable<Visit> GetVisitsByTypeId(int typeId);

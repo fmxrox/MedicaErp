@@ -23,8 +23,14 @@ namespace MedicaERPMVC.Application.Services.Visit
             return id;
 
         }
-
-        public void DeleteVisit(int id)
+        public async Task<VisitViewModel> GetVisitId(string id)
+            
+        {
+            var visit = await _visitRepository.GetVisitById(id);
+            var visitVm = _mapper.Map<VisitViewModel>(visit);
+            return visitVm;
+        }
+        public void DeleteVisit(string id)
         {
             _visitRepository.DeleteVisit(id);
         }
@@ -44,7 +50,7 @@ namespace MedicaERPMVC.Application.Services.Visit
             return (IQueryable<VisitViewModel>)visitsForListVM;
 
         }
-        public async Task<ListVisitsViewModel> GetAllVisitsForDoctor(string doCtorId, int pageSize, int pageNumber, string stringToFind)
+        public async Task<ListVisitsViewModel> GetAllVisitsForDoctor(string doCtorId, int pageSize, int pageNumber, string? stringToFind)
         {
             var visitsFromRepository = await _visitRepository.GetVisitsToDo(doCtorId);
             var visits = visitsFromRepository.ProjectTo<VisitViewModel>(_mapper.ConfigurationProvider)
@@ -61,7 +67,7 @@ namespace MedicaERPMVC.Application.Services.Visit
 
         }
 
-        public async Task<ListVisitsViewModel> GetNextVisitsForDoctorUpcoming(string doCtorId, int pageSize, int pageNumber, string stringToFind)
+        public async Task<ListVisitsViewModel> GetNextVisitsForDoctorUpcoming(string doCtorId, int pageSize, int pageNumber, string? stringToFind)
         {
             var visitsFromRepository = await _visitRepository.GetVisitsToDo(doCtorId);
             var visits = visitsFromRepository.Where(x => x.DoctorId == doCtorId
