@@ -1,12 +1,13 @@
-﻿using MedicaERPMVC.Domain.Model.Enums;
+﻿using MedicaERPMVC.Domain.Model.Const;
+using MedicaERPMVC.Domain.Model.Enums;
+using MedicaERPMVC.Domain.Model.Info;
 using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
-using MedicaERPMVC.Domain.Model.Const;
-using MedicaERPMVC.Domain.Model.Info;
 
 namespace MedicaERPMVC.Domain.Model
 {
     using static DataConstProperty;
+    //USEROFCLINIC MOZE ZROBIER TYLKO PACJENTA I TYLE 
     public class UserOfClinic : IdentityUser, IDetailsInfoModel
     {   [Required]
         [MinLength(MinRequiredName)]
@@ -29,7 +30,7 @@ namespace MedicaERPMVC.Domain.Model
         public int SpecializationId { get; set; }
         public SpecialitzationOfDoctor SpecialitzationOfDoctor { get; set; }
         public int ClinicId { get; set; }
-        public  Clinic Clinic { get; set; }
+        public virtual Clinic Clinic { get; set; }
         //public UserContactInformation? UserContactInformation { get; set; }
         public IQueryable<Visit> PatientVisits { get; set; }
         public IQueryable<Visit> DoctorVisits { get; set; }

@@ -23,12 +23,12 @@ namespace Infrastructure.MedicaERPMVC
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder
-                .Entity<Visit>()
-                .HasOne(d=>d.Doctor)
-                .WithMany(v=>v.DoctorVisits)
-                .HasForeignKey(d => d.DoctorId)
-                .OnDelete(DeleteBehavior.Restrict);
+            //builder
+            //    .Entity<Visit>()
+            //    .HasOne(d=>d.Doctor)
+            //    .WithMany(v=>v.DoctorVisits)
+            //    .HasForeignKey(d => d.DoctorId)
+            //    .OnDelete(DeleteBehavior.Restrict);
 
             builder
                 .Entity<SpecialitzationOfDoctor>()

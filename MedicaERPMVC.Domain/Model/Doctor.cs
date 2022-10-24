@@ -37,10 +37,9 @@ namespace MedicaERPMVC.Domain.Model
         public int ClinicId { get; set; }
         public Clinic Clinic { get; set; }
         //public UserContactInformation? UserContactInformation { get; set; }
-        public IQueryable<Visit> PatientVisits { get; set; }
-        public IQueryable<Visit> DoctorVisits { get; set; }
         public DateTime DateOfCreation { get; set; }
         public DateTime? DateOfModification { get; set; }
+        public virtual ICollection<Visit> DoctorVisits { get; set; }
     }
 }
 
