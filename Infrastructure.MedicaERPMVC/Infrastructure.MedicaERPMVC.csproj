@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="Repositories\Admin\" />
     <Folder Include="Repositories\MedicalCenter\" />
   </ItemGroup>
 

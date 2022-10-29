@@ -57,12 +57,12 @@ namespace MedicaERP.Web.Controllers
         public async Task<IActionResult> AddVisit(NewVisitViewModel newvisitViewModel)
         {
             var patient = await _usersClinic.GetUserAsync(HttpContext.User);
-            var patientId= await _usersClinic.GetUserIdAsync(patient);
+            var patientId = await _usersClinic.GetUserIdAsync(patient);
             if (!ModelState.IsValid)
             {
                 return RedirectToAction("AddVisit");
             }
-             _visitService.AddVisitAsync(newvisitViewModel);
+            _visitService.AddVisitAsync(newvisitViewModel);
             return RedirectToAction("Index");
 
         }
@@ -70,7 +70,7 @@ namespace MedicaERP.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> VisitToCancel(string id)
         {
-            var visitCancel =_visitService.GetVisitId(id);
+            var visitCancel = _visitService.GetVisitId(id);
 
             if (visitCancel == null)
             {
@@ -80,7 +80,7 @@ namespace MedicaERP.Web.Controllers
             return this.View(visitCancel);
         }
         [HttpPost]
-        public async Task<IActionResult>VisitToCancelPost(string id)
+        public async Task<IActionResult> VisitToCancelPost(string id)
         {
             _visitService.DeleteVisit(id);
 
@@ -89,13 +89,13 @@ namespace MedicaERP.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> GetVisitForDoctor(string doCtorId, int pageSize, int pageNumber, string? stringToFind)
         {
-            var visits = _visitService.GetNextVisitsForDoctorUpcoming( doCtorId,  pageSize,  pageNumber,  stringToFind);
+            var visits = _visitService.GetNextVisitsForDoctorUpcoming(doCtorId, pageSize, pageNumber, stringToFind);
             return View(visits);
 
         }
         public async Task<IActionResult> GetUpcomingVisitForDoctor(string doCtorId, int pageSize, int pageNumber, string? stringToFind)
         {
-            var visits = _visitService.GetNextVisitsForDoctorUpcoming( doCtorId, pageSize,  pageNumber, stringToFind);
+            var visits = _visitService.GetNextVisitsForDoctorUpcoming(doCtorId, pageSize, pageNumber, stringToFind);
             return View(visits);
 
         }

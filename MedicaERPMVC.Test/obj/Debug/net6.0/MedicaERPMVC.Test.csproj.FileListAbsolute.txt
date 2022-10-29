@@ -108,6 +108,7 @@ D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Test\bin\Debug\n
 D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Test\bin\Debug\net6.0\MedicaERPMVC.Test.dll
 D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Test\bin\Debug\net6.0\MedicaERPMVC.Test.pdb
 D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Test\bin\Debug\net6.0\AutoMapper.dll
+D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Test\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Test\bin\Debug\net6.0\Humanizer.dll
 D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Test\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Test\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
@@ -244,4 +245,3 @@ D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Test\obj\Debug\n
 D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Test\obj\Debug\net6.0\MedicaERPMVC.Test.pdb
 D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Test\obj\Debug\net6.0\MedicaERPMVC.Test.genruntimeconfig.cache
 D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Test\obj\Debug\net6.0\ref\MedicaERPMVC.Test.dll
-D:\INŻYNIERKA MÓJ PROJEKT\MedicaERP\MedicaERPMVC\MedicaERPMVC.Test\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
