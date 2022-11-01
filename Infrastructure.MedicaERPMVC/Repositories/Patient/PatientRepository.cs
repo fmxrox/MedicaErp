@@ -14,37 +14,37 @@ namespace Infrastructure.MedicaERPMVC.Repositories.User
             _medicaDbContext = medicaErpDbContext;
         }
 
-        public string AddPatient(UserOfClinic patient)
+        public string AddPatient(global::MedicaERPMVC.Domain.Model.User patient)
         {
-          _medicaDbContext.UserOfClinic.Add(patient);
+          _medicaDbContext.Users.Add(patient);
            _medicaDbContext.SaveChanges();
             return patient.Id;
         }
 
         public void DeletePatient(string patientId)
         {
-            var patientToDelete = _medicaDbContext.UserOfClinic.Find(patientId);
+            var patientToDelete = _medicaDbContext.Users.Find(patientId);
             if (patientToDelete != null)
             {
-                _medicaDbContext.UserOfClinic.Remove(patientToDelete);
+                _medicaDbContext.Users.Remove(patientToDelete);
                 _medicaDbContext.SaveChanges();
             }
         }
 
-        public IQueryable<UserOfClinic> GetAllPatients()
+        public IQueryable<global::MedicaERPMVC.Domain.Model.User> GetAllPatients()
         {
-            return _medicaDbContext.UserOfClinic.Where(x => x.IsPatient);
+            return _medicaDbContext.Users.Where(x => x.IsPatient);
         }
 
-        public UserOfClinic GetPatient(string id)
+        public global::MedicaERPMVC.Domain.Model.User GetPatient(string id)
         {
-            var patientToFind = _medicaDbContext.UserOfClinic.Find(id);
+            var patientToFind = _medicaDbContext.Users.Find(id);
             if (patientToFind == null)
                 throw new Exception("User not found");
              return patientToFind;
         }
 
-        public void UpdatePatient(UserOfClinic patient)
+        public void UpdatePatient(global::MedicaERPMVC.Domain.Model.User patient)
         {
            _medicaDbContext.Attach(patient);
             _medicaDbContext.Entry(patient).Property("FirstName").IsModified=true;

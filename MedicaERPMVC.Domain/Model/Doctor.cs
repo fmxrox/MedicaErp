@@ -12,8 +12,9 @@ using System.Threading.Tasks;
 namespace MedicaERPMVC.Domain.Model
 {
     using static DataConstProperty;
-    public class Doctor : IdentityUser, IDetailsInfoModel
+    public class Doctor : IDetailsInfoModel
     {
+        public int Id { get; set; }
         [Required]
         [MinLength(MinRequiredName)]
         [MaxLength(MaxRequiredName)]
@@ -33,9 +34,7 @@ namespace MedicaERPMVC.Domain.Model
         public byte[]? OwnPicture { get; set; }
         public string Pesel { get; set; }
         public int SpecializationId { get; set; }
-        public SpecialitzationOfDoctor SpecialitzationOfDoctor { get; set; }
-        public int ClinicId { get; set; }
-        public Clinic Clinic { get; set; }
+        //public SpecialitzationOfDoctor SpecialitzationOfDoctor { get; set; }
         //public UserContactInformation? UserContactInformation { get; set; }
         public DateTime DateOfCreation { get; set; }
         public DateTime? DateOfModification { get; set; }

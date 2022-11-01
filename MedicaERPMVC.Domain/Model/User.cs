@@ -8,7 +8,7 @@ namespace MedicaERPMVC.Domain.Model
 {
     using static DataConstProperty;
     //USEROFCLINIC MOZE ZROBIER TYLKO PACJENTA I TYLE 
-    public class UserOfClinic : IdentityUser, IDetailsInfoModel
+    public class User : IdentityUser, IDetailsInfoModel
     {   [Required]
         [MinLength(MinRequiredName)]
         [MaxLength(MaxRequiredName)]
@@ -27,10 +27,6 @@ namespace MedicaERPMVC.Domain.Model
         public bool isActivate { get; set; }
         public byte[]? OwnPicture { get; set; }
         public string Pesel { get; set; }
-        public int SpecializationId { get; set; }
-        public SpecialitzationOfDoctor SpecialitzationOfDoctor { get; set; }
-        public int ClinicId { get; set; }
-        public virtual Clinic Clinic { get; set; }
         //public UserContactInformation? UserContactInformation { get; set; }
         public IQueryable<Visit> PatientVisits { get; set; }
         public IQueryable<Visit> DoctorVisits { get; set; }

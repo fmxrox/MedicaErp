@@ -51,7 +51,7 @@ namespace Infrastructure.MedicaERPMVC.Repositories
             string name,
             string lastName,
             string? pesel,
-            UserOfClinic Patient,
+            global::MedicaERPMVC.Domain.Model.User Patient,
             Clinic Clinic,
             string description,
             bool isDone
@@ -67,7 +67,7 @@ namespace Infrastructure.MedicaERPMVC.Repositories
             _medicaErpDbContext.SaveChanges();
         }
 
-        public async Task<IQueryable<Visit>> GetVisitsToDo(string doctorId)
+        public async Task<IQueryable<Visit>> GetVisitsToDo(int doctorId)
         {
             var presentDay = DateTime.Now.Date;
             var visits = await _medicaErpDbContext.Visits

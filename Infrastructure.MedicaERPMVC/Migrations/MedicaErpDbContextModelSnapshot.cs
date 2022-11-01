@@ -17,7 +17,7 @@ namespace Infrastructure.MedicaERPMVC.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.7")
+                .HasAnnotation("ProductVersion", "6.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -51,6 +51,69 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                     b.ToTable("Clinics");
                 });
 
+            modelBuilder.Entity("MedicaERPMVC.Domain.Model.Doctor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Adnotations")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateOfCreation")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateOfModification")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(65)
+                        .HasColumnType("nvarchar(65)");
+
+                    b.Property<bool>("IsPatient")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(65)
+                        .HasColumnType("nvarchar(65)");
+
+                    b.Property<byte[]>("OwnPicture")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("Pesel")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RoleOfUser")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Sex")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SpecializationId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("isActivate")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("isDoctor")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Doctors");
+                });
+
             modelBuilder.Entity("MedicaERPMVC.Domain.Model.SpecialitzationOfDoctor", b =>
                 {
                     b.Property<int>("Id")
@@ -74,6 +137,120 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                     b.ToTable("SpecializationOfDoctors");
                 });
 
+            modelBuilder.Entity("MedicaERPMVC.Domain.Model.User", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Adnotations")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateOfCreation")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateOfModification")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(65)
+                        .HasColumnType("nvarchar(65)");
+
+                    b.Property<bool>("IsPatient")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(65)
+                        .HasColumnType("nvarchar(65)");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<byte[]>("OwnPicture")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Pesel")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("RoleOfUser")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Sex")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SpecialitzationOfDoctorId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("isActivate")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("isDoctor")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.HasIndex("SpecialitzationOfDoctorId");
+
+                    b.ToTable("AspNetUsers", (string)null);
+                });
+
             modelBuilder.Entity("MedicaERPMVC.Domain.Model.Visit", b =>
                 {
                     b.Property<int>("Id")
@@ -82,7 +259,7 @@ namespace Infrastructure.MedicaERPMVC.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("ClinicId")
+                    b.Property<int?>("ClinicId")
                         .HasColumnType("int");
 
                     b.Property<bool?>("Confirmed")
@@ -95,16 +272,9 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DoctorId")
+                    b.Property<int?>("DoctorId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("DoctorId1")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("DoctorId3")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("int");
 
                     b.Property<TimeSpan>("EndTime")
                         .HasColumnType("time");
@@ -119,6 +289,9 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                     b.Property<TimeSpan>("StartTime")
                         .HasColumnType("time");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<int>("VisitTypeId")
                         .HasColumnType("int");
 
@@ -128,11 +301,9 @@ namespace Infrastructure.MedicaERPMVC.Migrations
 
                     b.HasIndex("DoctorId");
 
-                    b.HasIndex("DoctorId1");
-
-                    b.HasIndex("DoctorId3");
-
                     b.HasIndex("PatientId");
+
+                    b.HasIndex("UserId");
 
                     b.HasIndex("VisitTypeId");
 
@@ -206,77 +377,6 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetRoleClaims", (string)null);
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedEmail")
-                        .HasDatabaseName("EmailIndex");
-
-                    b.HasIndex("NormalizedUserName")
-                        .IsUnique()
-                        .HasDatabaseName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.ToTable("AspNetUsers", (string)null);
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -364,175 +464,34 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("MedicaERPMVC.Domain.Model.Doctor", b =>
+            modelBuilder.Entity("MedicaERPMVC.Domain.Model.User", b =>
                 {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
-
-                    b.Property<string>("Adnotations")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Doctor_Adnotations");
-
-                    b.Property<int>("ClinicId")
-                        .HasColumnType("int")
-                        .HasColumnName("Doctor_ClinicId");
-
-                    b.Property<DateTime>("DateOfBirth")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("Doctor_DateOfBirth");
-
-                    b.Property<DateTime>("DateOfCreation")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("Doctor_DateOfCreation");
-
-                    b.Property<DateTime?>("DateOfModification")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("Doctor_DateOfModification");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(65)
-                        .HasColumnType("nvarchar(65)")
-                        .HasColumnName("Doctor_FirstName");
-
-                    b.Property<bool>("IsPatient")
-                        .HasColumnType("bit")
-                        .HasColumnName("Doctor_IsPatient");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(65)
-                        .HasColumnType("nvarchar(65)")
-                        .HasColumnName("Doctor_LastName");
-
-                    b.Property<byte[]>("OwnPicture")
-                        .HasColumnType("varbinary(max)")
-                        .HasColumnName("Doctor_OwnPicture");
-
-                    b.Property<string>("Pesel")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Doctor_Pesel");
-
-                    b.Property<int>("RoleOfUser")
-                        .HasColumnType("int")
-                        .HasColumnName("Doctor_RoleOfUser");
-
-                    b.Property<int>("Sex")
-                        .HasColumnType("int")
-                        .HasColumnName("Doctor_Sex");
-
-                    b.Property<int>("SpecialitzationOfDoctorId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SpecializationId")
-                        .HasColumnType("int")
-                        .HasColumnName("Doctor_SpecializationId");
-
-                    b.Property<bool>("isActivate")
-                        .HasColumnType("bit")
-                        .HasColumnName("Doctor_isActivate");
-
-                    b.Property<bool>("isDoctor")
-                        .HasColumnType("bit")
-                        .HasColumnName("Doctor_isDoctor");
-
-                    b.HasIndex("ClinicId");
-
-                    b.HasIndex("SpecialitzationOfDoctorId");
-
-                    b.HasDiscriminator().HasValue("Doctor");
-                });
-
-            modelBuilder.Entity("MedicaERPMVC.Domain.Model.UserOfClinic", b =>
-                {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
-
-                    b.Property<string>("Adnotations")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ClinicId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("DateOfBirth")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateOfCreation")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DateOfModification")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(65)
-                        .HasColumnType("nvarchar(65)");
-
-                    b.Property<bool>("IsPatient")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(65)
-                        .HasColumnType("nvarchar(65)");
-
-                    b.Property<byte[]>("OwnPicture")
-                        .HasColumnType("varbinary(max)");
-
-                    b.Property<string>("Pesel")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("RoleOfUser")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Sex")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SpecializationId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("isActivate")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("isDoctor")
-                        .HasColumnType("bit");
-
-                    b.HasIndex("ClinicId");
-
-                    b.HasIndex("SpecializationId");
-
-                    b.HasDiscriminator().HasValue("UserOfClinic");
+                    b.HasOne("MedicaERPMVC.Domain.Model.SpecialitzationOfDoctor", null)
+                        .WithMany("Doctors")
+                        .HasForeignKey("SpecialitzationOfDoctorId");
                 });
 
             modelBuilder.Entity("MedicaERPMVC.Domain.Model.Visit", b =>
                 {
                     b.HasOne("MedicaERPMVC.Domain.Model.Clinic", "Clinic")
                         .WithMany()
-                        .HasForeignKey("ClinicId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ClinicId");
 
-                    b.HasOne("MedicaERPMVC.Domain.Model.UserOfClinic", "Doctor")
+                    b.HasOne("MedicaERPMVC.Domain.Model.Doctor", "Doctor")
                         .WithMany("DoctorVisits")
                         .HasForeignKey("DoctorId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("MedicaERPMVC.Domain.Model.Doctor", null)
-                        .WithMany("PatientVisits")
-                        .HasForeignKey("DoctorId1");
-
-                    b.HasOne("MedicaERPMVC.Domain.Model.Doctor", null)
-                        .WithMany("DoctorVisits")
-                        .HasForeignKey("DoctorId3")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MedicaERPMVC.Domain.Model.UserOfClinic", "Patient")
+                    b.HasOne("MedicaERPMVC.Domain.Model.User", "Patient")
                         .WithMany("PatientVisits")
                         .HasForeignKey("PatientId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
+
+                    b.HasOne("MedicaERPMVC.Domain.Model.User", null)
+                        .WithMany("DoctorVisits")
+                        .HasForeignKey("UserId");
 
                     b.HasOne("MedicaERPMVC.Domain.Model.VisitType", "VisitType")
                         .WithMany("Visits")
@@ -560,7 +519,7 @@ namespace Infrastructure.MedicaERPMVC.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("MedicaERPMVC.Domain.Model.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -569,7 +528,7 @@ namespace Infrastructure.MedicaERPMVC.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("MedicaERPMVC.Domain.Model.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -584,7 +543,7 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("MedicaERPMVC.Domain.Model.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -593,7 +552,7 @@ namespace Infrastructure.MedicaERPMVC.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("MedicaERPMVC.Domain.Model.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -602,45 +561,7 @@ namespace Infrastructure.MedicaERPMVC.Migrations
 
             modelBuilder.Entity("MedicaERPMVC.Domain.Model.Doctor", b =>
                 {
-                    b.HasOne("MedicaERPMVC.Domain.Model.Clinic", "Clinic")
-                        .WithMany()
-                        .HasForeignKey("ClinicId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MedicaERPMVC.Domain.Model.SpecialitzationOfDoctor", "SpecialitzationOfDoctor")
-                        .WithMany()
-                        .HasForeignKey("SpecialitzationOfDoctorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Clinic");
-
-                    b.Navigation("SpecialitzationOfDoctor");
-                });
-
-            modelBuilder.Entity("MedicaERPMVC.Domain.Model.UserOfClinic", b =>
-                {
-                    b.HasOne("MedicaERPMVC.Domain.Model.Clinic", "Clinic")
-                        .WithMany("Employees")
-                        .HasForeignKey("ClinicId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MedicaERPMVC.Domain.Model.SpecialitzationOfDoctor", "SpecialitzationOfDoctor")
-                        .WithMany("Doctors")
-                        .HasForeignKey("SpecializationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Clinic");
-
-                    b.Navigation("SpecialitzationOfDoctor");
-                });
-
-            modelBuilder.Entity("MedicaERPMVC.Domain.Model.Clinic", b =>
-                {
-                    b.Navigation("Employees");
+                    b.Navigation("DoctorVisits");
                 });
 
             modelBuilder.Entity("MedicaERPMVC.Domain.Model.SpecialitzationOfDoctor", b =>
@@ -648,23 +569,16 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                     b.Navigation("Doctors");
                 });
 
+            modelBuilder.Entity("MedicaERPMVC.Domain.Model.User", b =>
+                {
+                    b.Navigation("DoctorVisits");
+
+                    b.Navigation("PatientVisits");
+                });
+
             modelBuilder.Entity("MedicaERPMVC.Domain.Model.VisitType", b =>
                 {
                     b.Navigation("Visits");
-                });
-
-            modelBuilder.Entity("MedicaERPMVC.Domain.Model.Doctor", b =>
-                {
-                    b.Navigation("DoctorVisits");
-
-                    b.Navigation("PatientVisits");
-                });
-
-            modelBuilder.Entity("MedicaERPMVC.Domain.Model.UserOfClinic", b =>
-                {
-                    b.Navigation("DoctorVisits");
-
-                    b.Navigation("PatientVisits");
                 });
 #pragma warning restore 612, 618
         }

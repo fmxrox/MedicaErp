@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Infrastructure.MedicaERPMVC.Migrations
 {
-    public partial class adamnjan : Migration
+    public partial class without_ClinicRelation : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -31,11 +31,40 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Adress = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DateOfCreation = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateOfModification = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Clinics", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Doctors",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FirstName = table.Column<string>(type: "nvarchar(65)", maxLength: 65, nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(65)", maxLength: 65, nullable: false),
+                    DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Sex = table.Column<int>(type: "int", nullable: false),
+                    IsPatient = table.Column<bool>(type: "bit", nullable: false),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Adnotations = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    isDoctor = table.Column<bool>(type: "bit", nullable: false),
+                    RoleOfUser = table.Column<int>(type: "int", nullable: false),
+                    isActivate = table.Column<bool>(type: "bit", nullable: false),
+                    OwnPicture = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
+                    Pesel = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SpecializationId = table.Column<int>(type: "int", nullable: false),
+                    DateOfCreation = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateOfModification = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Doctors", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -44,7 +73,9 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DateOfCreation = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateOfModification = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -90,18 +121,21 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(65)", maxLength: 65, nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(65)", maxLength: 65, nullable: false),
                     DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Sex = table.Column<int>(type: "int", nullable: false),
+                    IsPatient = table.Column<bool>(type: "bit", nullable: false),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Adnotations = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    isPatient = table.Column<bool>(type: "bit", nullable: false),
+                    isDoctor = table.Column<bool>(type: "bit", nullable: false),
                     RoleOfUser = table.Column<int>(type: "int", nullable: false),
                     isActivate = table.Column<bool>(type: "bit", nullable: false),
                     OwnPicture = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
+                    Pesel = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DateOfCreation = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateOfModification = table.Column<DateTime>(type: "datetime2", nullable: true),
                     SpecialitzationOfDoctorId = table.Column<int>(type: "int", nullable: true),
-                    Pesel = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ClinicId = table.Column<int>(type: "int", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -110,7 +144,6 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                     PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SecurityStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PhoneNumberConfirmed = table.Column<bool>(type: "bit", nullable: false),
                     TwoFactorEnabled = table.Column<bool>(type: "bit", nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
@@ -120,11 +153,6 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_AspNetUsers_Clinics_ClinicId",
-                        column: x => x.ClinicId,
-                        principalTable: "Clinics",
-                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_AspNetUsers_SpecializationOfDoctors_SpecialitzationOfDoctorId",
                         column: x => x.SpecialitzationOfDoctorId,
@@ -218,28 +246,6 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "UserContactInformation",
-                columns: table => new
-                {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Adress = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserContactInformation", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_UserContactInformation_AspNetUsers_Id",
-                        column: x => x.Id,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Visits",
                 columns: table => new
                 {
@@ -249,25 +255,36 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     StartTime = table.Column<TimeSpan>(type: "time", nullable: false),
                     EndTime = table.Column<TimeSpan>(type: "time", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    PatientNameId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ClinicId = table.Column<int>(type: "int", nullable: false),
+                    PatientId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    DoctorId = table.Column<int>(type: "int", nullable: false),
+                    ClinicId = table.Column<int>(type: "int", nullable: true),
                     VisitTypeId = table.Column<int>(type: "int", nullable: false),
-                    Confirmed = table.Column<bool>(type: "bit", nullable: true)
+                    Confirmed = table.Column<bool>(type: "bit", nullable: true),
+                    IsDone = table.Column<bool>(type: "bit", nullable: true),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Visits", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Visits_AspNetUsers_PatientNameId",
-                        column: x => x.PatientNameId,
+                        name: "FK_Visits_AspNetUsers_PatientId",
+                        column: x => x.PatientId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Visits_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Visits_Clinics_ClinicId",
                         column: x => x.ClinicId,
                         principalTable: "Clinics",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Visits_Doctors_DoctorId",
+                        column: x => x.DoctorId,
+                        principalTable: "Doctors",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -311,11 +328,6 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                 column: "NormalizedEmail");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AspNetUsers_ClinicId",
-                table: "AspNetUsers",
-                column: "ClinicId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_AspNetUsers_SpecialitzationOfDoctorId",
                 table: "AspNetUsers",
                 column: "SpecialitzationOfDoctorId");
@@ -333,9 +345,19 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                 column: "ClinicId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Visits_PatientNameId",
+                name: "IX_Visits_DoctorId",
                 table: "Visits",
-                column: "PatientNameId");
+                column: "DoctorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Visits_PatientId",
+                table: "Visits",
+                column: "PatientId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Visits_UserId",
+                table: "Visits",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Visits_VisitTypeId",
@@ -361,9 +383,6 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "UserContactInformation");
-
-            migrationBuilder.DropTable(
                 name: "Visits");
 
             migrationBuilder.DropTable(
@@ -373,10 +392,13 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "VisitTypes");
+                name: "Clinics");
 
             migrationBuilder.DropTable(
-                name: "Clinics");
+                name: "Doctors");
+
+            migrationBuilder.DropTable(
+                name: "VisitTypes");
 
             migrationBuilder.DropTable(
                 name: "SpecializationOfDoctors");

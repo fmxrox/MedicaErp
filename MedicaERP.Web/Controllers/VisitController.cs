@@ -10,9 +10,9 @@ namespace MedicaERP.Web.Controllers
 {
     public class VisitController : Controller
     {
-        private readonly UserManager<UserOfClinic> _usersClinic;
+        private readonly UserManager<User> _usersClinic;
         private readonly IVisitService _visitService;
-        public VisitController(UserManager<UserOfClinic> usersClinic, IVisitService visitService)
+        public VisitController(UserManager<User> usersClinic, IVisitService visitService)
         {
             _usersClinic = usersClinic;
             _visitService = visitService;
@@ -87,13 +87,13 @@ namespace MedicaERP.Web.Controllers
             return RedirectToAction("Index");
         }
         [HttpGet]
-        public async Task<IActionResult> GetVisitForDoctor(string doCtorId, int pageSize, int pageNumber, string? stringToFind)
+        public async Task<IActionResult> GetVisitForDoctor(int doCtorId, int pageSize, int pageNumber, string? stringToFind)
         {
             var visits = _visitService.GetNextVisitsForDoctorUpcoming(doCtorId, pageSize, pageNumber, stringToFind);
             return View(visits);
 
         }
-        public async Task<IActionResult> GetUpcomingVisitForDoctor(string doCtorId, int pageSize, int pageNumber, string? stringToFind)
+        public async Task<IActionResult> GetUpcomingVisitForDoctor(int doCtorId, int pageSize, int pageNumber, string? stringToFind)
         {
             var visits = _visitService.GetNextVisitsForDoctorUpcoming(doCtorId, pageSize, pageNumber, stringToFind);
             return View(visits);

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MedicaERPMVC.Application.ViewModels.Patient
 {
-    public class ListPatientsForListViewModel : IMapFrom<Domain.Model.UserOfClinic>
+    public class ListPatientsForListViewModel : IMapFrom<Domain.Model.User>
     {
         public List<PatientForListViewModel> Patients { get; set; }
         public int Count { get; set; }
@@ -18,7 +18,7 @@ namespace MedicaERPMVC.Application.ViewModels.Patient
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Domain.Model.UserOfClinic, PatientForListViewModel>()
+            profile.CreateMap<Domain.Model.User, PatientForListViewModel>()
                 .ForMember(d => d.Id, p => p.MapFrom(s => s.Id))
                 .ForMember(d => d.Name, p => p.MapFrom(s => s.FirstName))
                 .ForMember(d => d.LastName, p => p.MapFrom(s => s.LastName))
