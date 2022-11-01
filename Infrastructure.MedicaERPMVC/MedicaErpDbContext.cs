@@ -1,4 +1,5 @@
 ﻿using MedicaERPMVC.Domain.Model;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,12 +14,22 @@ namespace Infrastructure.MedicaERPMVC
         //public DbSet<UserContactInformation> UserContactInformation { get; set; }
         public DbSet<VisitType> VisitTypes { get; set; }
         public DbSet<Doctor> Doctors { get; set; }
+        public MedicaErpDbContext()
+        {
+
+        }
         public MedicaErpDbContext(DbContextOptions<MedicaErpDbContext> options)
             : base(options)
         {
 
         }
-
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        {
+            if (!options.IsConfigured)
+            {
+                options.UseSqlServer("Server=localhost\\SQLExpress;Database=MedicaERPMVC;Integrated Security=True;Trusted_Connection=True;MultipleActiveResultSets=true");
+            }
+        }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             //builder
@@ -40,7 +51,7 @@ namespace Infrastructure.MedicaERPMVC
                 .HasOne(p => p.Patient)
                 .WithMany(v => v.PatientVisits)
                 .HasForeignKey(p => p.PatientId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Restrict);
        
 
             base.OnModelCreating(builder);
