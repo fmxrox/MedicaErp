@@ -4,6 +4,7 @@ using Infrastructure.MedicaERPMVC;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.MedicaERPMVC.Migrations
 {
     [DbContext(typeof(MedicaErpDbContext))]
-    partial class MedicaErpDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221102203622_VisitToCLinicRelation")]
+    partial class VisitToCLinicRelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,9 +63,6 @@ namespace Infrastructure.MedicaERPMVC.Migrations
 
                     b.Property<string>("Adnotations")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ClinicId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
@@ -114,8 +113,6 @@ namespace Infrastructure.MedicaERPMVC.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ClinicId");
-
                     b.ToTable("Doctors");
                 });
 
@@ -152,9 +149,6 @@ namespace Infrastructure.MedicaERPMVC.Migrations
 
                     b.Property<string>("Adnotations")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("ClinicId")
-                        .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -245,8 +239,6 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ClinicId");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -470,28 +462,11 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("MedicaERPMVC.Domain.Model.Doctor", b =>
-                {
-                    b.HasOne("MedicaERPMVC.Domain.Model.Clinic", "Clinic")
-                        .WithMany("Doctors")
-                        .HasForeignKey("ClinicId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Clinic");
-                });
-
             modelBuilder.Entity("MedicaERPMVC.Domain.Model.User", b =>
                 {
-                    b.HasOne("MedicaERPMVC.Domain.Model.Clinic", "Clinic")
-                        .WithMany("Users")
-                        .HasForeignKey("ClinicId");
-
                     b.HasOne("MedicaERPMVC.Domain.Model.SpecialitzationOfDoctor", null)
                         .WithMany("Doctors")
                         .HasForeignKey("SpecialitzationOfDoctorId");
-
-                    b.Navigation("Clinic");
                 });
 
             modelBuilder.Entity("MedicaERPMVC.Domain.Model.Visit", b =>
@@ -584,10 +559,6 @@ namespace Infrastructure.MedicaERPMVC.Migrations
 
             modelBuilder.Entity("MedicaERPMVC.Domain.Model.Clinic", b =>
                 {
-                    b.Navigation("Doctors");
-
-                    b.Navigation("Users");
-
                     b.Navigation("Visits");
                 });
 

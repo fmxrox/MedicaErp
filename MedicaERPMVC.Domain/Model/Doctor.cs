@@ -25,6 +25,8 @@ namespace MedicaERPMVC.Domain.Model
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
         public Sex Sex { get; set; }
+        public int ClinicId { get; set; }
+        public virtual Clinic Clinic { get; set; }
         public bool IsPatient { get; set; }
         public string? PhoneNumber { get; set; }
         public string? Adnotations { get; set; }

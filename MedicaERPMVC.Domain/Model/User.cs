@@ -28,6 +28,8 @@ namespace MedicaERPMVC.Domain.Model
         public byte[]? OwnPicture { get; set; }
         public string Pesel { get; set; }
         //public UserContactInformation? UserContactInformation { get; set; }
+        public int? ClinicId { get; set; }
+        public virtual Clinic Clinic { get; set; }
         public IQueryable<Visit> PatientVisits { get; set; }
         public IQueryable<Visit> DoctorVisits { get; set; }
         public DateTime DateOfCreation { get; set; }

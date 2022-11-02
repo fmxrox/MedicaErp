@@ -4,6 +4,7 @@ using Infrastructure.MedicaERPMVC;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.MedicaERPMVC.Migrations
 {
     [DbContext(typeof(MedicaErpDbContext))]
-    partial class MedicaErpDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221102205212_UserToClinic")]
+    partial class UserToClinic
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,9 +63,6 @@ namespace Infrastructure.MedicaERPMVC.Migrations
 
                     b.Property<string>("Adnotations")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ClinicId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
@@ -114,8 +113,6 @@ namespace Infrastructure.MedicaERPMVC.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ClinicId");
-
                     b.ToTable("Doctors");
                 });
 
@@ -153,7 +150,7 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                     b.Property<string>("Adnotations")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ClinicId")
+                    b.Property<int>("ClinicId")
                         .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -470,22 +467,13 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("MedicaERPMVC.Domain.Model.Doctor", b =>
-                {
-                    b.HasOne("MedicaERPMVC.Domain.Model.Clinic", "Clinic")
-                        .WithMany("Doctors")
-                        .HasForeignKey("ClinicId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Clinic");
-                });
-
             modelBuilder.Entity("MedicaERPMVC.Domain.Model.User", b =>
                 {
                     b.HasOne("MedicaERPMVC.Domain.Model.Clinic", "Clinic")
                         .WithMany("Users")
-                        .HasForeignKey("ClinicId");
+                        .HasForeignKey("ClinicId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("MedicaERPMVC.Domain.Model.SpecialitzationOfDoctor", null)
                         .WithMany("Doctors")
@@ -584,8 +572,6 @@ namespace Infrastructure.MedicaERPMVC.Migrations
 
             modelBuilder.Entity("MedicaERPMVC.Domain.Model.Clinic", b =>
                 {
-                    b.Navigation("Doctors");
-
                     b.Navigation("Users");
 
                     b.Navigation("Visits");
