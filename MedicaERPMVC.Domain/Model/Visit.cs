@@ -20,7 +20,7 @@ namespace MedicaERPMVC.Domain.Model
         public TimeSpan EndTime { get; set; }
         [Required]
         public string PatientId { get; set; }
-        public  User Patient { get; set; }
+        public  UserOfClinic Patient { get; set; }
         [Required]
         public int? DoctorId { get; set; }
         public virtual Doctor Doctor { get; set; }

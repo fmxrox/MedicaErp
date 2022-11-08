@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="ViewModels\Admin\" />
-    <Folder Include="ViewModels\Doctor\" />
   </ItemGroup>
 
   <ItemGroup>

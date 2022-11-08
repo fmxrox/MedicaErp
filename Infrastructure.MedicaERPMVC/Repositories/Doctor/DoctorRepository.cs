@@ -33,6 +33,8 @@ public class DoctorRepository : IDoctorRepository
     public IQueryable<Doctor> GetAllDoctors()
     {
         var doctors = _medicaErpDbContext.Doctors.Where(x => x.isDoctor);
+        if (doctors == null)
+            throw new Exception("List doctors is empty");
         return doctors;      
     }
 
@@ -40,7 +42,7 @@ public class DoctorRepository : IDoctorRepository
     {
         var doctorToFind = _medicaErpDbContext.Doctors.Find(id);
         if (doctorToFind == null)
-            throw new Exception("User not found");
+            throw new Exception("UserOfClinic not found");
         return doctorToFind;
     }
 

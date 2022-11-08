@@ -11,29 +11,26 @@ using System.Threading.Tasks;
 
 namespace MedicaERPMVC.Application.ViewModels.Patient
 {
-    public class NewPatientViewModel : IMapFrom<Domain.Model.UserOfClinic>
+    public class NewDoctorViewModel : IMapFrom<Domain.Model.Doctor>
     {
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
         public string LastName { get; set; }
-        public string Mail { get; set; }
         public string Adress { get; set; }
-        public string Sex { get; set; }
-        [StringLength(11)]
         public string Pesel { get; set; }
        
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<NewPatientViewModel, Domain.Model.UserOfClinic>().ReverseMap();      
+            profile.CreateMap<NewDoctorViewModel, Domain.Model.Doctor>().ReverseMap();      
         }
 
-        public class NewCustomerValidation : AbstractValidator<NewPatientViewModel>
+        public class NewCustomerValidation : AbstractValidator<NewDoctorViewModel>
         {
             public NewCustomerValidation()
             {            
                 RuleFor(x => x.Pesel).Length(11);
-                RuleFor(x => x.Mail).EmailAddress();
+                //RuleFor(x => x.Mail).EmailAddress();
             }
         }
     }

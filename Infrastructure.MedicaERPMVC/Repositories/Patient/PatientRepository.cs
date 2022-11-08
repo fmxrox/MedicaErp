@@ -14,7 +14,7 @@ namespace Infrastructure.MedicaERPMVC.Repositories.User
             _medicaDbContext = medicaErpDbContext;
         }
 
-        public string AddPatient(global::MedicaERPMVC.Domain.Model.User patient)
+        public string AddPatient(global::MedicaERPMVC.Domain.Model.UserOfClinic patient)
         {
           _medicaDbContext.Users.Add(patient);
            _medicaDbContext.SaveChanges();
@@ -31,20 +31,20 @@ namespace Infrastructure.MedicaERPMVC.Repositories.User
             }
         }
 
-        public IQueryable<global::MedicaERPMVC.Domain.Model.User> GetAllPatients()
+        public IQueryable<global::MedicaERPMVC.Domain.Model.UserOfClinic> GetAllPatients()
         {
             return _medicaDbContext.Users.Where(x => x.IsPatient);
         }
 
-        public global::MedicaERPMVC.Domain.Model.User GetPatient(string id)
+        public global::MedicaERPMVC.Domain.Model.UserOfClinic GetPatient(string id)
         {
             var patientToFind = _medicaDbContext.Users.Find(id);
             if (patientToFind == null)
-                throw new Exception("User not found");
+                throw new Exception("UserOfClinic not found");
              return patientToFind;
         }
 
-        public void UpdatePatient(global::MedicaERPMVC.Domain.Model.User patient)
+        public void UpdatePatient(global::MedicaERPMVC.Domain.Model.UserOfClinic patient)
         {
            _medicaDbContext.Attach(patient);
             _medicaDbContext.Entry(patient).Property("FirstName").IsModified=true;

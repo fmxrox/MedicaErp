@@ -51,7 +51,7 @@ namespace Infrastructure.MedicaERPMVC.Repositories
             string name,
             string lastName,
             string? pesel,
-            global::MedicaERPMVC.Domain.Model.User Patient,
+            global::MedicaERPMVC.Domain.Model.UserOfClinic Patient,
             Clinic Clinic,
             string description,
             bool isDone

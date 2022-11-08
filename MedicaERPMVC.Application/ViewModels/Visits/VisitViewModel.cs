@@ -22,7 +22,7 @@ namespace MedicaERPMVC.Application.ViewModels.Visits
         public TimeSpan EndTime { get; set; }
         [Required]
         public string PatientId { get; set; }
-        public User Patient { get; set; }
+        public UserOfClinic Patient { get; set; }
         [Required]
         public string DoctorId { get; set; }
         public IEnumerable<Doctor> Doctors { get; set; }
