@@ -39,10 +39,32 @@ namespace MedicaERPMVC.Application.Services
 
         public ListPatientsForListViewModel GetAllPatientsForList(int pageSize, int pageNumber, string stringToFind)
         {
-            var patients = _patientRepository.GetAllPatients()
-                .ProjectTo<PatientForListViewModel>(_mapper.ConfigurationProvider).ToList();/*||p.FirstName.StartsWith(stringToFind)|| p.Pesel.StartsWith(stringToFind))*/// PROJECT DO IQeryable do pojedynczyc <Map>
 
-            var patientsFinally = patients.Skip(pageSize*(pageNumber-1)).Take(pageSize).ToList();
+            //var patients = _patientRepository.GetAllPatients();
+            //ListPatientsForListViewModel patientsListVM = new ListPatientsForListViewModel();
+            //patientsListVM.Patients = new List<PatientForListViewModel>();
+            //foreach (var pat in patients)
+            //{
+            //    var patientVm = new PatientForListViewModel()
+            //    {
+            //        Name = pat.FirstName,
+            //        LastName = pat.LastName,
+            //        Pesel = pat.Pesel,
+            //        PhoneNumber = pat.PhoneNumber
+            //    };
+            //    patientsListVM.Patients.Add(patientVm);
+            //}
+            //patientsListVM.Count=patientsListVM.Patients.Count;
+            //return patientsListVM;
+
+
+
+            var patients = _patientRepository.GetAllPatients().ProjectTo<PatientForListViewModel>(_mapper.ConfigurationProvider).ToList();/*||p.FirstName.StartsWith(stringToFind)|| p.Pesel.StartsWith(stringToFind))*/// PROJECT DO IQeryable do pojedynczyc <Map>
+            if (patients == null)
+            {
+                throw new Exception("Empty list");
+            }
+            var patientsFinally = patients.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
             var patientsForListViewModel = new ListPatientsForListViewModel()
             {
                 Patients = patients,

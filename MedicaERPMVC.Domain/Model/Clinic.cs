@@ -8,15 +8,13 @@ using System.Threading.Tasks;
 
 namespace MedicaERPMVC.Domain.Model
 {
-    public class Clinic : IDetailsInfoModel
+    public class Clinic 
     {
 
         public int Id { get; set; }
         public string Name { get; set; }
         public string? Adress { get; set; }
         public string? Description { get; set; }
-        public DateTime DateOfCreation { get; set; }
-        public DateTime? DateOfModification { get ; set; }
         public virtual ICollection<UserOfClinic> Users { get; set; }
         public virtual ICollection<Visit> Visits { get; set; }
         public virtual ICollection<Doctor> Doctors { get; set; }

@@ -13,8 +13,8 @@ namespace MedicaERPMVC.Domain.Model
 
         public string Description { get; set; }
 
-        [DataType(DataType.Date)]
         [Required]
+        [DataType(DataType.Date)]
         public DateTime Date { get; set; }
         public TimeSpan StartTime { get; set; }
         public TimeSpan EndTime { get; set; }

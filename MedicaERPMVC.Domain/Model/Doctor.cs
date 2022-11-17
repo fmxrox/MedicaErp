@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace MedicaERPMVC.Domain.Model
 {
     using static DataConstProperty;
-    public class Doctor : IDetailsInfoModel
+    public class Doctor 
     {
         public int Id { get; set; }
         [Required]
@@ -23,23 +23,18 @@ namespace MedicaERPMVC.Domain.Model
         [MinLength(MinRequiredName)]
         [MaxLength(MaxRequiredName)]
         public string LastName { get; set; }
-        public DateTime DateOfBirth { get; set; }
-        public Sex Sex { get; set; }
+        public Sex? Sex { get; set; }
         public int ClinicId { get; set; }
         public virtual Clinic Clinic { get; set; }
         public bool IsPatient { get; set; }
         public string? PhoneNumber { get; set; }
         public string? Adnotations { get; set; }
         public bool isDoctor { get; set; }
-        public RoleOfUser RoleOfUser { get; set; }
-        public bool isActivate { get; set; }
-        public byte[]? OwnPicture { get; set; }
-        public string Pesel { get; set; }
-        public int SpecializationId { get; set; }
+        //public RoleOfUser RoleOfUser { get; set; }
+        public bool? isActivate { get; set; }
+        public string? Pesel { get; set; }
         //public SpecialitzationOfDoctor SpecialitzationOfDoctor { get; set; }
-        //public UserContactInformation? UserContactInformation { get; set; }
-        public DateTime DateOfCreation { get; set; }
-        public DateTime? DateOfModification { get; set; }
+        //public UserContactInformation? UserContactInformation { get; set; }}
         public virtual ICollection<Visit> DoctorVisits { get; set; }
     }
 }

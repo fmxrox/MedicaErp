@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Infrastructure.MedicaERPMVC
 {
     
-    public class MedicaErpDbContext : IdentityDbContext<UserOfClinic>
+    public class MedicaErpDbContext : IdentityDbContext
     {
         public DbSet<Visit> Visits { get; set; }
         public DbSet<Clinic> Clinics { get; set; }
@@ -19,7 +19,7 @@ namespace Infrastructure.MedicaERPMVC
         {
 
         }
-        public MedicaErpDbContext(DbContextOptions<MedicaErpDbContext> options)
+        public MedicaErpDbContext(DbContextOptions options)
             : base(options)
         {
 

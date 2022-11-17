@@ -16,7 +16,7 @@ namespace Infrastructure.MedicaERPMVC.Repositories.User
 
         public string AddPatient(global::MedicaERPMVC.Domain.Model.UserOfClinic patient)
         {
-          _medicaDbContext.Users.Add(patient);
+          _medicaDbContext.UserOfClinics.Add(patient);
            _medicaDbContext.SaveChanges();
             return patient.Id;
         }
@@ -33,12 +33,15 @@ namespace Infrastructure.MedicaERPMVC.Repositories.User
 
         public IQueryable<global::MedicaERPMVC.Domain.Model.UserOfClinic> GetAllPatients()
         {
-            return _medicaDbContext.Users.Where(x => x.IsPatient);
+            var patients = _medicaDbContext.UserOfClinics.Where(x=>x.IsPatient==true);
+            if (patients == null)
+                throw new Exception("Patienst not found");
+            return patients;
         }
 
         public global::MedicaERPMVC.Domain.Model.UserOfClinic GetPatient(string id)
         {
-            var patientToFind = _medicaDbContext.Users.Find(id);
+            var patientToFind = _medicaDbContext.UserOfClinics.Find(id);
             if (patientToFind == null)
                 throw new Exception("UserOfClinic not found");
              return patientToFind;

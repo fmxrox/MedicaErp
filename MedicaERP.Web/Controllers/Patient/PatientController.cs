@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 namespace MedicaERP.Web.Controllers
-{   [Authorize]
+{   [AllowAnonymous]
     public class PatientController : Controller
     {        //Pierwsza walidacja i przekazanie żadania do innej warstwy 
              // widok dla akcji
@@ -21,7 +21,7 @@ namespace MedicaERP.Web.Controllers
             _logger = logger;
             _patientService = patientService;
         }
-        [CheckPermissions("Read")]
+        //[CheckPermissions("Read")]
         [HttpGet]
         public IActionResult Index()
         {

@@ -11,7 +11,7 @@ using AutoMapper.QueryableExtensions;
 
 namespace MedicaERPMVC.Application.Services.Doctor
 {
-    public class DoctorService : IDoctorService
+    public class DoctorService /*: IDoctorService*/
     {
         //wszystkie polaczena caly kod odp za reagowanie na zadania uzytkownika
         //w repozytorium oczekujemy konkretnego przedmiotu(ty tylko check czy null)

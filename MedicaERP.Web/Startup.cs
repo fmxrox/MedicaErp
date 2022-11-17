@@ -3,6 +3,7 @@ using Infrastructure.MedicaERPMVC;
 using Infrastructure.MedicaERPMVC.Repositories;
 using Infrastructure.MedicaERPMVC.Repositories.User;
 using MedicaERPMVC.Application.Interfaces;
+using MedicaERPMVC.Application.Mapping;
 using MedicaERPMVC.Application.Services;
 using MedicaERPMVC.Application.Services.Visit;
 using MedicaERPMVC.Application.ViewModels.Patient;
@@ -35,7 +36,7 @@ namespace MedicaERP.Web
             services.AddDbContext<MedicaErpDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddAutoMapper(typeof(MappingProfile));
             services.AddDefaultIdentity<IdentityUser>(options=>options.SignIn.RequireConfirmedAccount=false).AddRoles<IdentityRole>().AddEntityFrameworkStores<MedicaErpDbContext>();
             services.Configure<IdentityOptions>(options =>
             {
@@ -57,8 +58,7 @@ namespace MedicaERP.Web
 
             services.AddTransient<IPatientService, PatientService>();
             services.AddTransient<IVisitRepository, VisitRepository>();
-            services.AddTransient<IVisitService, VisitService>();
-            services.AddTransient<IPatientService, PatientService>();
+            services.AddTransient<IVisitService, VisitService>();      
             services.AddTransient<IPatientRepository, PatientRepository>();
 
             services.AddControllersWithViews();

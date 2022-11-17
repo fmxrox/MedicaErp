@@ -139,7 +139,7 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                     b.ToTable("SpecializationOfDoctors");
                 });
 
-            modelBuilder.Entity("MedicaERPMVC.Domain.Model.UserOfClinic", b =>
+            modelBuilder.Entity("MedicaERPMVC.Domain.Model.User", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -467,7 +467,7 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("MedicaERPMVC.Domain.Model.UserOfClinic", b =>
+            modelBuilder.Entity("MedicaERPMVC.Domain.Model.User", b =>
                 {
                     b.HasOne("MedicaERPMVC.Domain.Model.Clinic", "Clinic")
                         .WithMany("Users")
@@ -494,13 +494,13 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MedicaERPMVC.Domain.Model.UserOfClinic", "Patient")
+                    b.HasOne("MedicaERPMVC.Domain.Model.User", "Patient")
                         .WithMany("PatientVisits")
                         .HasForeignKey("PatientId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("MedicaERPMVC.Domain.Model.UserOfClinic", null)
+                    b.HasOne("MedicaERPMVC.Domain.Model.User", null)
                         .WithMany("DoctorVisits")
                         .HasForeignKey("UserId");
 
@@ -530,7 +530,7 @@ namespace Infrastructure.MedicaERPMVC.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("MedicaERPMVC.Domain.Model.UserOfClinic", null)
+                    b.HasOne("MedicaERPMVC.Domain.Model.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -539,7 +539,7 @@ namespace Infrastructure.MedicaERPMVC.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("MedicaERPMVC.Domain.Model.UserOfClinic", null)
+                    b.HasOne("MedicaERPMVC.Domain.Model.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -554,7 +554,7 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MedicaERPMVC.Domain.Model.UserOfClinic", null)
+                    b.HasOne("MedicaERPMVC.Domain.Model.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -563,7 +563,7 @@ namespace Infrastructure.MedicaERPMVC.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("MedicaERPMVC.Domain.Model.UserOfClinic", null)
+                    b.HasOne("MedicaERPMVC.Domain.Model.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -587,7 +587,7 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                     b.Navigation("Doctors");
                 });
 
-            modelBuilder.Entity("MedicaERPMVC.Domain.Model.UserOfClinic", b =>
+            modelBuilder.Entity("MedicaERPMVC.Domain.Model.User", b =>
                 {
                     b.Navigation("DoctorVisits");
 

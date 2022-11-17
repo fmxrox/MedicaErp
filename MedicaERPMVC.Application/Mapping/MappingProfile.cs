@@ -14,7 +14,7 @@ namespace MedicaERPMVC.Application.Mapping
         {
               ApplyMappingsFromAssembly(Assembly.GetExecutingAssembly());
         }
-        private void ApplyMappingsFromAssembly(Assembly assembly)
+        public void ApplyMappingsFromAssembly(Assembly assembly)
         {
             var types = assembly.GetExportedTypes()
                 .Where(t => t.GetInterfaces().Any(i =>
