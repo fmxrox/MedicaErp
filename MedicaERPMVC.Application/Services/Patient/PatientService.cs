@@ -59,7 +59,7 @@ namespace MedicaERPMVC.Application.Services
 
 
 
-            var patients = _patientRepository.GetAllPatients().ProjectTo<PatientForListViewModel>(_mapper.ConfigurationProvider).ToList();/*||p.FirstName.StartsWith(stringToFind)|| p.Pesel.StartsWith(stringToFind))*/// PROJECT DO IQeryable do pojedynczyc <Map>
+            var patients = _patientRepository.GetAllPatients().Where(x=>x.LastName.StartsWith(stringToFind)).ProjectTo<PatientForListViewModel>(_mapper.ConfigurationProvider).ToList();/*||p.FirstName.StartsWith(stringToFind)|| p.Pesel.StartsWith(stringToFind))*/// PROJECT DO IQeryable do pojedynczyc <Map>
             if (patients == null)
             {
                 throw new Exception("Empty list");
@@ -78,7 +78,9 @@ namespace MedicaERPMVC.Application.Services
    
         public PatientDetailsViewModel GetPaitentById(string PatientId)
         {
-            throw new NotImplementedException();
+            var patient = _patientRepository.GetPatient(PatientId);
+            var patientDetailsViewModel = _mapper.Map<PatientDetailsViewModel>(patient);
+            return patientDetailsViewModel;
         }
 
         public PatientDetailsViewModel GetPatientDetails(string PatientId)

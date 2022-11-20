@@ -25,7 +25,7 @@ namespace MedicaERP.Web.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var model = _patientService.GetAllPatientsForList(2, 1, "");
+            var model = _patientService.GetAllPatientsForList(1, 1, "");
             return View(model);
         }
         [HttpPost]
@@ -33,7 +33,7 @@ namespace MedicaERP.Web.Controllers
         {
             if (!numberOfPage.HasValue)
             {
-                pageSize = 1;
+                numberOfPage = 1;
             }
             if (stringToSearch==null)
             {
