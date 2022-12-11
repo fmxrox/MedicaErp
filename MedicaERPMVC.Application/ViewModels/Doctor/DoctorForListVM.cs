@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace MedicaERPMVC.Application.ViewModels.Patient
 {
-    public class DoctorForListVM : IMapFrom<Domain.Model.Doctor>
+    public class DoctorForListVM : IMapFrom<Domain.Model.UserOfClinic>
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         public string? LastName { get; set; }
         public string? Pesel{ get; set; }
@@ -19,7 +19,7 @@ namespace MedicaERPMVC.Application.ViewModels.Patient
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Domain.Model.Doctor, DoctorForListVM>();
+            profile.CreateMap<Domain.Model.UserOfClinic, DoctorForListVM>();
         }
     }
 }

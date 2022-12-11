@@ -9,12 +9,13 @@ namespace MedicaERPMVC.Application.Interfaces
 {
    public interface IDoctorService
     {
-        ListPatientsForListViewModel GetAllDoctorsForList(int pageSize, int pageNumber, string stringToFind);
-        int AddDoctor(NewDoctorViewModel newPatientViewModel);
-        DoctorDetailsViewModel GetDoctorById(string doctorId);
-        NewDoctorViewModel GetDoctorForEdit(string doctorId);
+        int AddPatient(NewDoctorViewModel newPatientViewModel);
+        void DeletePatient(string doctorId);
+        ListDoctorsForListViewModel GetAllPatientsForList(int pageSize, int pageNumber, string stringToFind);
+        List<DoctorForListVM> GetAllDoctorsAll();
+        DoctorDetailsViewModel GetDoctorById(string DoctorId);
         DoctorDetailsViewModel GetDoctorDetails(string doctorId);
-        void UpdateDoctor(NewDoctorViewModel doctorViewModel);
-        void DeleteDoctor(string doctorId);
+        NewDoctorViewModel GetPatientForEdit(string doctorId);
+        void UpdatePatient(NewDoctorViewModel doctorViewModel);
     }
 }

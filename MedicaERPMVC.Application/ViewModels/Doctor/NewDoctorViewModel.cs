@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace MedicaERPMVC.Application.ViewModels.Patient
 {
-    public class NewDoctorViewModel : IMapFrom<Domain.Model.Doctor>
+    public class NewDoctorViewModel : IMapFrom<Domain.Model.UserOfClinic>
     {
         public int Id { get; set; }
         [Required]
@@ -19,10 +19,13 @@ namespace MedicaERPMVC.Application.ViewModels.Patient
         public string LastName { get; set; }
         public string Adress { get; set; }
         public string Pesel { get; set; }
-       
+
+        public bool isDoctor { get; set; }
+        public IQueryable<Visit> PatientVisits { get; set; }
+        public IQueryable<Visit> DoctorVisits { get; set; }
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<NewDoctorViewModel, Domain.Model.Doctor>().ReverseMap();      
+            profile.CreateMap<NewDoctorViewModel, Domain.Model.UserOfClinic>().ReverseMap();      
         }
 
         public class NewCustomerValidation : AbstractValidator<NewDoctorViewModel>

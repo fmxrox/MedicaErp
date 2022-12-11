@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MedicaERPMVC.Application.Mapping;
+using MedicaERPMVC.Domain.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace MedicaERPMVC.Application.ViewModels.Patient
 {
-    public class ListDoctorsForListViewModel : IMapFrom<Domain.Model.Doctor>
+    public class ListDoctorsForListViewModel : IMapFrom<Domain.Model.UserOfClinic>
     {
-        public List<DoctorForListVM> Doctors { get; set; }
+        public IQueryable<UserOfClinic> Doctors { get; set; }
         public int Count { get; set; }
         public int ActualPage { get; set; }
         public int PageSize { get; set; }
@@ -18,7 +19,7 @@ namespace MedicaERPMVC.Application.ViewModels.Patient
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Domain.Model.Doctor, PatientForListViewModel>();
+            profile.CreateMap<Domain.Model.UserOfClinic, PatientForListViewModel>();
         }
     }
 }

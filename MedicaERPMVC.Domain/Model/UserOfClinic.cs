@@ -8,7 +8,7 @@ namespace MedicaERPMVC.Domain.Model
 {
     using static DataConstProperty;
     //USEROFCLINIC MOZE ZROBIER TYLKO PACJENTA I TYLE 
-    public class UserOfClinic 
+    public class UserOfClinic : IdentityUser
     {
         public string Id { get; set; }
         [Required]
@@ -19,14 +19,15 @@ namespace MedicaERPMVC.Domain.Model
         [MinLength(MinRequiredName)]
         [MaxLength(MaxRequiredName)]
         public string LastName { get; set; }
-        public bool IsPatient { get; set; }
         public string? PhoneNumber { get; set; }
         public string? Adnotations { get; set; }
         public bool isDoctor { get; set; }
+         public bool isEmployee { get; set; }
         public bool? isActivate { get; set; }
         public string? Pesel { get; set; }
         //public UserContactInformation? UserContactInformation { get; set; }
         public int? ClinicId { get; set; }
+        public string Descritpion { get; set; }
         public virtual Clinic Clinic { get; set; }
         public IQueryable<Visit> PatientVisits { get; set; }
         public IQueryable<Visit> DoctorVisits { get; set; }

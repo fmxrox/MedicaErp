@@ -1,4 +1,5 @@
 using FluentValidation;
+using FluentValidation.AspNetCore;
 using Infrastructure.MedicaERPMVC;
 using Infrastructure.MedicaERPMVC.Repositories;
 using Infrastructure.MedicaERPMVC.Repositories.User;
@@ -60,9 +61,7 @@ namespace MedicaERP.Web
             services.AddTransient<IVisitRepository, VisitRepository>();
             services.AddTransient<IVisitService, VisitService>();      
             services.AddTransient<IPatientRepository, PatientRepository>();
-
-            services.AddControllersWithViews();
-            //services.AddControllersWithViews().AddFluentValidation(/*fv => ffv.RunDefaultMvcValidationAfterFluentValidationExecutes = false*/);
+            services.AddControllersWithViews().AddFluentValidation(/*fv => fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false*/);
             services.AddRazorPages();
             services.AddTransient<IValidator<NewPatientViewModel>, NewCustomerValidation>();
         }

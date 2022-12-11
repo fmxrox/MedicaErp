@@ -24,7 +24,7 @@ namespace MedicaERPMVC.Application.ViewModels.Visits
         public UserOfClinic Patient { get; set; }
         [Required]
         public string DoctorId { get; set; }
-        public IEnumerable<Doctor> Doctors { get; set; }
+        public IEnumerable<Domain.Model.Doctor> Doctors { get; set; }
         public int ClinicId { get; set; }
         public Clinic Clinic { get; set; }
 

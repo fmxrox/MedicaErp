@@ -13,9 +13,9 @@ public class DoctorRepository : IDoctorRepository
     {
         _medicaErpDbContext = medicaErpDbContext;
     }
-    public int AddDoctor(Doctor doctor)
+    public int AddDoctor(UserOfClinic doctor)
     {
-      _medicaErpDbContext.Doctors.Add(doctor);
+      _medicaErpDbContext.UserOfClinics.Add(doctor);
         _medicaErpDbContext.SaveChanges();
         return 1;
     }
@@ -30,23 +30,25 @@ public class DoctorRepository : IDoctorRepository
         }
     }
 
-    public IQueryable<Doctor> GetAllDoctors()
+    public IQueryable<UserOfClinic> GetAllDoctors()
     {
-        var doctors = _medicaErpDbContext.Doctors.Where(x => x.isDoctor);
+        var doctors = _medicaErpDbContext.UserOfClinics.Where(x => x.isDoctor);
         if (doctors == null)
             throw new Exception("List doctors is empty");
         return doctors;      
     }
 
-    public Doctor GetDoctor(string id)
+    public UserOfClinic GetDoctor(string id)
     {
-        var doctorToFind = _medicaErpDbContext.Doctors.Find(id);
+        var doctorToFind = _medicaErpDbContext.UserOfClinics
+            .Where(x => x.isDoctor == true && x.Id == id);
+       
         if (doctorToFind == null)
             throw new Exception("UserOfClinic not found");
-        return doctorToFind;
+        return (UserOfClinic)doctorToFind;
     }
 
-    public void UpdateDoctor(Doctor doctor)
+    public void UpdateDoctor(UserOfClinic doctor)
     {
         _medicaErpDbContext.Attach(doctor);
         _medicaErpDbContext.Entry(doctor).Property("FirstName").IsModified = true;
@@ -55,6 +57,7 @@ public class DoctorRepository : IDoctorRepository
         _medicaErpDbContext.Entry(doctor).Property("PhoneNumber").IsModified = true;
         _medicaErpDbContext.Entry(doctor).Property("RoleOfUser").IsModified = true;
         _medicaErpDbContext.Entry(doctor).Property("isDoctor").IsModified = true;
-        _medicaErpDbContext.SaveChanges();
+        _medicaErpDbContext.Entry(doctor).Property("Descritpion").IsModified = true;
+    _medicaErpDbContext.SaveChanges();
     }
 }

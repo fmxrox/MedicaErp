@@ -25,7 +25,7 @@ namespace MedicaERP.Web.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var model = _patientService.GetAllPatientsForList(1, 1, "");
+            var model = _patientService.GetAllPatientsForList(2, 1, "");
             return View(model);
         }
         [HttpPost]
@@ -41,20 +41,6 @@ namespace MedicaERP.Web.Controllers
             }
             var model = _patientService.GetAllPatientsForList(pageSize, numberOfPage.Value, stringToSearch);
             return View(model);
-        }
-
- 
-        [HttpGet]
-        public IActionResult AddAdress(int patientId)
-        {
-          
-            return View();
-        }
-        [HttpPost]
-        public IActionResult AddAdress(UserContactInformationForViewModel modelPatientAdress)
-        {
-            
-            return View();// po wypelnieniu
         }
 
         public IActionResult ViewPatient(string patientId)

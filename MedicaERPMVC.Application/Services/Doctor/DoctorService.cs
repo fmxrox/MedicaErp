@@ -8,10 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using MedicaERPMVC.Domain.Model;
 using AutoMapper.QueryableExtensions;
+using MedicaERPMVC.Application.Interfaces;
 
 namespace MedicaERPMVC.Application.Services.Doctor
 {
-    public class DoctorService /*: IDoctorService*/
+    public class DoctorService : IDoctorService
     {
         //wszystkie polaczena caly kod odp za reagowanie na zadania uzytkownika
         //w repozytorium oczekujemy konkretnego przedmiotu(ty tylko check czy null)
@@ -22,10 +23,11 @@ namespace MedicaERPMVC.Application.Services.Doctor
             _doctorRepository = doctorRepository;
             _mapper = mapper;
         }
+
         public int AddPatient(NewDoctorViewModel newPatientViewModel)
         {
 
-            var doctor = _mapper.Map<MedicaERPMVC.Domain.Model.Doctor>(newPatientViewModel);
+            var doctor = _mapper.Map<MedicaERPMVC.Domain.Model.UserOfClinic>(newPatientViewModel);
             var id = _doctorRepository.AddDoctor(doctor);
             return id;
         }
@@ -35,7 +37,7 @@ namespace MedicaERPMVC.Application.Services.Doctor
             _doctorRepository.DeleteDoctor(doctorId);
         }
 
-        public ListDoctorsForListViewModel GetAllPatientsForList(int pageSize, int pageNumber, string stringToFind)
+        public ListDoctorsForListViewModel GetAllDoctorsForList(int pageSize, int pageNumber, string stringToFind)
         {
             var doctors = _doctorRepository.GetAllDoctors()
                 .ProjectTo<DoctorForListVM>(_mapper.ConfigurationProvider).ToList();/*||p.FirstName.StartsWith(stringToFind)|| p.Pesel.StartsWith(stringToFind))*/// PROJECT DO IQeryable do pojedynczyc <Map>
@@ -43,13 +45,20 @@ namespace MedicaERPMVC.Application.Services.Doctor
             var patientsFinally = doctors.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
             var doctorsForListViewModel = new ListDoctorsForListViewModel()
             {
-                Doctors = doctors,
+                Doctors = (IQueryable<UserOfClinic>)doctors,
                 Count = doctors.Count(),
                 PageSize = pageSize,
                 ActualPage = pageNumber,
                 StringToSearch = stringToFind
             };
             return doctorsForListViewModel;
+        }
+        public List<DoctorForListVM> GetAllDoctorsAll()
+        {
+            var doctors = _doctorRepository.GetAllDoctors()
+                .ProjectTo<DoctorForListVM>(_mapper.ConfigurationProvider).ToList();/*||p.FirstName.StartsWith(stringToFind)|| p.Pesel.StartsWith(stringToFind))*/// PROJECT DO IQeryable do pojedynczyc <Map>
+          
+            return doctors;
         }
 
         public DoctorDetailsViewModel GetDoctorById(string DoctorId)
@@ -75,7 +84,7 @@ namespace MedicaERPMVC.Application.Services.Doctor
 
         public void UpdatePatient(NewDoctorViewModel doctorViewModel)
         {
-            var doctor = _mapper.Map<MedicaERPMVC.Domain.Model.Doctor>(doctorViewModel);
+            var doctor = _mapper.Map<MedicaERPMVC.Domain.Model.UserOfClinic>(doctorViewModel);
             _doctorRepository.UpdateDoctor(doctor);
         }
     }

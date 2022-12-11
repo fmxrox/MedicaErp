@@ -6,10 +6,10 @@ namespace MedicaERPMVC.Domain.Interfaces.Doctor
     public interface IDoctorRepository
     {
      
-            IQueryable<Doctor> GetAllDoctors();
-            Doctor GetDoctor(string id);
-            int AddDoctor(Doctor doctor);
-            void UpdateDoctor(Doctor patient);
+            IQueryable<UserOfClinic> GetAllDoctors();
+            UserOfClinic GetDoctor(string id);
+            int AddDoctor(UserOfClinic doctor);
+            void UpdateDoctor(UserOfClinic patient);
             void DeleteDoctor(string patientId);
         
     }

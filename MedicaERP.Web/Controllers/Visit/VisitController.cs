@@ -1,20 +1,24 @@
 ﻿using MedicaERP.Web.Filters;
+using MedicaERPMVC.Application.Interfaces;
 using MedicaERPMVC.Application.Services.Visit;
 using MedicaERPMVC.Application.ViewModels.Visits;
 using MedicaERPMVC.Domain.Model;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MedicaERP.Web.Controllers
 {
     public class VisitController : Controller
     {
-        private readonly UserManager<UserOfClinic> _usersClinic;
+        //private readonly UserManager<UserOfClinic> _usersClinic;
         private readonly IVisitService _visitService;
-        public VisitController(UserManager<UserOfClinic> usersClinic, IVisitService visitService)
+        private readonly IDoctorService _doctorService;
+        public VisitController(IDoctorService doctorService, IVisitService visitService)
         {
-            _usersClinic = usersClinic;
+            _doctorService = doctorService;
             _visitService = visitService;
         }
         public IActionResult Index()
@@ -44,25 +48,28 @@ namespace MedicaERP.Web.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> AddVisit(string id)
+        public IActionResult AddVisit()
         {
-            var visit = new NewVisitViewModel
+            var doctorsiSavaiable = _doctorService.GetAllDoctorsAll();
+            var selectedDoctors = doctorsiSavaiable.Select(drs=> new SelectListItem
             {
-                Id = id,
+                Text = $"Dr. {drs.Name+" "+ drs.LastName}",
+                Value = drs.Id
 
-            };
-            return View(visit);
+            })
+           .ToList();
+
+            return View(new NewVisitViewModel
+            {
+                Date = System.DateTime.Now,
+                Doctors = selectedDoctors
+            });
+
         }
         [HttpPost]
         public async Task<IActionResult> AddVisit(NewVisitViewModel newvisitViewModel)
         {
-            var patient = await _usersClinic.GetUserAsync(HttpContext.User);
-            var patientId = await _usersClinic.GetUserIdAsync(patient);
-            if (!ModelState.IsValid)
-            {
-                return RedirectToAction("AddVisit");
-            }
-            _visitService.AddVisitAsync(newvisitViewModel);
+            var visit = _visitService.AddVisitAsync(newvisitViewModel);
             return RedirectToAction("Index");
 
         }
@@ -87,13 +94,13 @@ namespace MedicaERP.Web.Controllers
             return RedirectToAction("Index");
         }
         [HttpGet]
-        public async Task<IActionResult> GetVisitForDoctor(int doCtorId, int pageSize, int pageNumber, string? stringToFind)
+        public async Task<IActionResult> GetVisitForDoctor(string doCtorId, int pageSize, int pageNumber, string? stringToFind)
         {
             var visits = _visitService.GetNextVisitsForDoctorUpcoming(doCtorId, pageSize, pageNumber, stringToFind);
             return View(visits);
 
         }
-        public async Task<IActionResult> GetUpcomingVisitForDoctor(int doCtorId, int pageSize, int pageNumber, string? stringToFind)
+        public async Task<IActionResult> GetUpcomingVisitForDoctor(string doCtorId, int pageSize, int pageNumber, string? stringToFind)
         {
             var visits = _visitService.GetNextVisitsForDoctorUpcoming(doCtorId, pageSize, pageNumber, stringToFind);
             return View(visits);

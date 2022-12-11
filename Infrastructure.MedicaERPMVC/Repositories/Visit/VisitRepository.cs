@@ -28,7 +28,9 @@ namespace Infrastructure.MedicaERPMVC.Repositories
         }
         public IQueryable<Visit> GetVisitsByTypeId(int typeId)
         {
-            var visits = _medicaErpDbContext.Visits.Where(x => x.VisitTypeId == typeId);
+            var visits = _medicaErpDbContext.Visits.Where(x => x.VisitTypeId == typeId)
+                 .OrderByDescending(x => x.Date)
+                .ThenByDescending(x => x.StartTime);
             return visits;
         }
         public async Task<Visit> GetVisitById(string name)
@@ -67,12 +69,14 @@ namespace Infrastructure.MedicaERPMVC.Repositories
             _medicaErpDbContext.SaveChanges();
         }
 
-        public async Task<IQueryable<Visit>> GetVisitsToDo(int doctorId)
+        public async Task<IQueryable<Visit>> GetVisitsToDo(string doctorId)
         {
             var presentDay = DateTime.Now.Date;
             var visits = await _medicaErpDbContext.Visits
                 .Where(x => x.DoctorId == doctorId && x.Date.Date >= presentDay
             && x.IsDone == false)
+                .OrderByDescending(x => x.Date)
+                .ThenByDescending(x=>x.StartTime)
                 .ToListAsync();
             return visits.AsQueryable();
         }
@@ -81,6 +85,8 @@ namespace Infrastructure.MedicaERPMVC.Repositories
             var visits = await _medicaErpDbContext.Visits.ToListAsync();
             return visits.AsQueryable();
         }
+
+    
 
     }
 }

@@ -33,7 +33,7 @@ namespace Infrastructure.MedicaERPMVC.Repositories.User
 
         public IQueryable<global::MedicaERPMVC.Domain.Model.UserOfClinic> GetAllPatients()
         {
-            var patients = _medicaDbContext.UserOfClinics.Where(x=>x.IsPatient==true);
+            var patients = _medicaDbContext.UserOfClinics;
             if (patients == null)
                 throw new Exception("Patienst not found");
             return patients;
@@ -53,7 +53,11 @@ namespace Infrastructure.MedicaERPMVC.Repositories.User
             _medicaDbContext.Entry(patient).Property("FirstName").IsModified=true;
             _medicaDbContext.Entry(patient).Property("LastName").IsModified=true;
             _medicaDbContext.Entry(patient).Property("Pesel").IsModified=true;        
-            _medicaDbContext.Entry(patient).Property("PhoneNumber").IsModified=true;        
+            _medicaDbContext.Entry(patient).Property("PhoneNumber").IsModified=true;
+            _medicaDbContext.Entry(patient).Property("isDoctor").IsModified = true;
+            _medicaDbContext.Entry(patient).Property("isEmployee").IsModified = true;
+            _medicaDbContext.Entry(patient).Property("isActivate").IsModified = true;
+            _medicaDbContext.Entry(patient).Property("isEmployee").IsModified = true;
             _medicaDbContext.SaveChanges();
         }
     }

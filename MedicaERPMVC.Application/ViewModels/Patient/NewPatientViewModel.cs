@@ -34,6 +34,7 @@ namespace MedicaERPMVC.Application.ViewModels.Patient
             {            
                 RuleFor(x => x.Pesel).Length(11);
                 RuleFor(x => x.Mail).EmailAddress();
+                RuleFor(x => x.Pesel).Length(11);
             }
         }
     }

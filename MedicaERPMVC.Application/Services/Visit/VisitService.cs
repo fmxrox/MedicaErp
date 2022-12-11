@@ -18,9 +18,11 @@ namespace MedicaERPMVC.Application.Services.Visit
 
         public int AddVisitAsync(NewVisitViewModel newVisitViewModel)
         {
-            var visit = _mapper.Map<Domain.Model.Visit>(newVisitViewModel);
-            var id = _visitRepository.AddVisit(visit);
-            return id;
+            
+                var visit = _mapper.Map<Domain.Model.Visit>(newVisitViewModel);
+                var id = _visitRepository.AddVisit(visit);
+                return id;
+           
 
         }
         public async Task<VisitViewModel> GetVisitId(string id)
@@ -50,10 +52,11 @@ namespace MedicaERPMVC.Application.Services.Visit
             return (IQueryable<VisitViewModel>)visitsForListVM;
 
         }
-        public async Task<ListVisitsViewModel> GetAllVisitsForDoctor(int doCtorId, int pageSize, int pageNumber, string? stringToFind)
+        public async Task<ListVisitsViewModel> GetAllVisitsForDoctor(string doCtorId, int pageSize, int pageNumber, string? stringToFind, DateTime date)
         {
             var visitsFromRepository = await _visitRepository.GetVisitsToDo(doCtorId);
             var visits = visitsFromRepository.ProjectTo<VisitViewModel>(_mapper.ConfigurationProvider)
+                .Where(x => x.DoctorId == doCtorId && x.Date == date)
                 .OrderByDescending(x => x.Date).ToList();
             var visitFinally = visits.Skip(pageNumber).Take(pageSize).ToList();
             var visitsForListVM = new ListVisitsViewModel()
@@ -67,7 +70,7 @@ namespace MedicaERPMVC.Application.Services.Visit
 
         }
 
-        public async Task<ListVisitsViewModel> GetNextVisitsForDoctorUpcoming(int doCtorId, int pageSize, int pageNumber, string? stringToFind)
+        public async Task<ListVisitsViewModel> GetNextVisitsForDoctorUpcoming(string doCtorId, int pageSize, int pageNumber, string? stringToFind)
         {
             var visitsFromRepository = await _visitRepository.GetVisitsToDo(doCtorId);
             var visits = visitsFromRepository.Where(x => x.DoctorId == doCtorId
@@ -85,7 +88,16 @@ namespace MedicaERPMVC.Application.Services.Visit
             };
             return visitsForListVM;
         }
-
+        public async Task<bool> IsVisitPossible(string doctorId, DateTime date, TimeSpan timeStart)
+        {
+            var result = await _visitRepository
+            .GetAllVisits();
+            var isPossibleToBook = result.Any((a => a.DoctorId == doctorId
+               && a.Date.Date == date.Date
+              && a.StartTime == timeStart));
+            return isPossibleToBook;
+        
+        }
     }
 }
 

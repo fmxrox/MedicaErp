@@ -12,9 +12,9 @@ using System.Threading.Tasks;
 namespace MedicaERPMVC.Domain.Model
 {
     using static DataConstProperty;
-    public class Doctor 
+    public class Doctor
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         [Required]
         [MinLength(MinRequiredName)]
         [MaxLength(MaxRequiredName)]

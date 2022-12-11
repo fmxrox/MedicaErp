@@ -22,7 +22,7 @@ namespace MedicaERPMVC.Domain.Model
         public string PatientId { get; set; }
         public  UserOfClinic Patient { get; set; }
         [Required]
-        public int? DoctorId { get; set; }
+        public string DoctorId { get; set; }
         public virtual Doctor Doctor { get; set; }
         public int? ClinicId { get; set; }
         public virtual Clinic Clinic { get; set; }
