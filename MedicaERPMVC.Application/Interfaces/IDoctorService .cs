@@ -11,7 +11,7 @@ namespace MedicaERPMVC.Application.Interfaces
     {
         int AddPatient(NewDoctorViewModel newPatientViewModel);
         void DeletePatient(string doctorId);
-        ListDoctorsForListViewModel GetAllPatientsForList(int pageSize, int pageNumber, string stringToFind);
+        ListDoctorsForListViewModel GetAllDoctorsForList(int pageSize, int pageNumber, string stringToFind);
         List<DoctorForListVM> GetAllDoctorsAll();
         DoctorDetailsViewModel GetDoctorById(string DoctorId);
         DoctorDetailsViewModel GetDoctorDetails(string doctorId);

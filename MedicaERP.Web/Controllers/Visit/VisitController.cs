@@ -6,20 +6,24 @@ using MedicaERPMVC.Domain.Model;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using System.Collections.Generic;
 
 namespace MedicaERP.Web.Controllers
 {
     public class VisitController : Controller
-    {
-        //private readonly UserManager<UserOfClinic> _usersClinic;
+    {       
         private readonly IVisitService _visitService;
         private readonly IDoctorService _doctorService;
-        public VisitController(IDoctorService doctorService, IVisitService visitService)
+        private readonly UserManager<UserOfClinic> _userOfClinic;
+        public VisitController(IDoctorService doctorService, IVisitService visitService, UserManager<UserOfClinic> UserOfClinic)
         {
             _doctorService = doctorService;
             _visitService = visitService;
+            _userOfClinic = UserOfClinic;
         }
         public IActionResult Index()
         {
@@ -71,12 +75,52 @@ namespace MedicaERP.Web.Controllers
         {
             var visit = _visitService.AddVisitAsync(newvisitViewModel);
             return RedirectToAction("Index");
+            if(ModelState.IsValid==false)
+            {
+                var doctors =await SelectedDoctorsList();
+                newvisitViewModel.Doctors = (System.Collections.Generic.IEnumerable<SelectListItem>)doctors;
+                return View(newvisitViewModel);
+            }
 
+
+            var isPossibleMakeVisit =await  _visitService.IsVisitPossible(
+                newvisitViewModel.DoctorId,
+                newvisitViewModel.Date,
+                newvisitViewModel.StartTime);
+
+
+            if (isPossibleMakeVisit == false)
+            {
+                var doctorsav =await SelectedDoctorsList();
+                newvisitViewModel.Doctors = doctorsav;
+                return View(newvisitViewModel);
+            }
+            var user = await this._userOfClinic.GetUserAsync(HttpContext.User);
+            _visitService.AddVisitAsync(newvisitViewModel);
+
+            TempData["Sucess"] = "You added new appoitment";
+            return RedirectToAction("Index");
+           
+            //var isThisDoctorWorkinThisTime = 
         }
 
+        private async Task<IEnumerable<SelectListItem>> SelectedDoctorsList()
+        {
+            var doctorsiSavaiable = _doctorService.GetAllDoctorsAll();
+            var selectedDoctors = doctorsiSavaiable.Select(drs => new SelectListItem
+            {
+                Text = $"Dr. {drs.Name + " " + drs.LastName}",
+                Value = drs.Id
+
+            })
+           .ToList();
+
+            return selectedDoctors;
+        }
         [HttpGet]
         public async Task<IActionResult> VisitToCancel(string id)
         {
+            
             var visitCancel = _visitService.GetVisitId(id);
 
             if (visitCancel == null)

@@ -10,5 +10,6 @@ namespace MedicaERPMVC.Application.Services.Visit
         Task<IQueryable<VisitViewModel>> GetAllVisitsForList(int pageSize, int pageNumber, string stringToFind);
         Task<ListVisitsViewModel> GetNextVisitsForDoctorUpcoming(string doCtorId, int pageSize, int pageNumber, string stringToFind);
         Task<VisitViewModel> GetVisitId(string id);
+        Task<bool> IsVisitPossible(string doctorId, DateTime date, TimeSpan timeStart);
     }
 }

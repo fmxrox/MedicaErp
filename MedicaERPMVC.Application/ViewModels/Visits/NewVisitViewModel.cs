@@ -25,14 +25,14 @@ namespace MedicaERPMVC.Application.ViewModels.Visits
         public string PatientId { get; set; }
         public UserOfClinic Patient { get; set; }
         [Required]
-        public int? DoctorId { get; set; }
-        public virtual Domain.Model.Doctor Doctor { get; set; }
         public int? ClinicId { get; set; }
         public virtual Clinic Clinic { get; set; }
         public int VisitTypeId { get; set; }
         public virtual VisitType VisitType { get; set; }
         public bool Confirmed { get; set; }
         public bool IsDone { get; set; }
+        [Required]
+        public string DoctorId { get; set; }
         public IEnumerable<SelectListItem> Doctors { get; set; }
         public void Mapping(Profile profile)
         {
