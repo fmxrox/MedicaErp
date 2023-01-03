@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MedicaERPMVC.Application.Mapping;
 using MedicaERPMVC.Domain.Model;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -25,7 +26,7 @@ namespace MedicaERPMVC.Application.ViewModels.Visits
         public UserOfClinic Patient { get; set; }
         [Required]
         public string DoctorId { get; set; }
-        public IEnumerable<Domain.Model.Doctor> Doctors { get; set; }
+        public IEnumerable<SelectListItem> Doctors { get; set; }
         public int ClinicId { get; set; }
         public Clinic Clinic { get; set; }
 

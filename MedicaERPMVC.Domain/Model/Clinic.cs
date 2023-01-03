@@ -17,7 +17,6 @@ namespace MedicaERPMVC.Domain.Model
         public string? Description { get; set; }
         public virtual ICollection<UserOfClinic> Users { get; set; }
         public virtual ICollection<Visit> Visits { get; set; }
-        public virtual ICollection<UserOfClinic> Doctors { get; set; }
     
     }
 }

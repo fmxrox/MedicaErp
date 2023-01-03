@@ -1,20 +1,19 @@
 ﻿using MedicaERPMVC.Domain.Model;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.MedicaERPMVC
 {
-    
-    public class MedicaErpDbContext : IdentityDbContext
+
+    public class MedicaErpDbContext : IdentityDbContext<UserOfClinic>
     {
         public DbSet<Visit> Visits { get; set; }
         public DbSet<Clinic> Clinics { get; set; }
-        public DbSet<UserOfClinic> UserOfClinics { get; set; }
+        //public DbSet<UserOfClinic> UserOfClinics { get; set; }
         public DbSet<SpecialitzationOfDoctor> SpecializationOfDoctors { get; set; }
         //public DbSet<UserContactInformation> UserContactInformation { get; set; }
         public DbSet<VisitType> VisitTypes { get; set; }
-        public DbSet<Doctor> Doctors { get; set; }
+        public DbSet<UserOfClinic> Doctors { get; set; }
         public MedicaErpDbContext()
         {
 

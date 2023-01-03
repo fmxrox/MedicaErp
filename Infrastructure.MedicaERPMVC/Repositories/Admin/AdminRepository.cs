@@ -32,7 +32,7 @@ namespace Infrastructure.MedicaERPMVC.Repositories.Admin
             _medicaDbContext.Entry(patient).Property("PhoneNumber").IsModified = true;
             _medicaDbContext.SaveChanges();
         }
-        public int AddDoctor(Doctor doctor)
+        public int AddDoctor(UserOfClinic doctor)
         {
             _medicaDbContext.Doctors.Add(doctor);
             _medicaDbContext.SaveChanges();
@@ -49,7 +49,7 @@ namespace Infrastructure.MedicaERPMVC.Repositories.Admin
             }
         }
 
-        public void UpdateDoctor(Doctor doctor)
+        public void UpdateDoctor(UserOfClinic doctor)
         {
             _medicaDbContext.Attach(doctor);
             _medicaDbContext.Entry(doctor).Property("FirstName").IsModified = true;

@@ -6,10 +6,13 @@ using Infrastructure.MedicaERPMVC.Repositories.User;
 using MedicaERPMVC.Application.Interfaces;
 using MedicaERPMVC.Application.Mapping;
 using MedicaERPMVC.Application.Services;
+using MedicaERPMVC.Application.Services.Doctor;
 using MedicaERPMVC.Application.Services.Visit;
 using MedicaERPMVC.Application.ViewModels.Patient;
 using MedicaERPMVC.Domain.Interface;
 using MedicaERPMVC.Domain.Interfaces;
+using MedicaERPMVC.Domain.Interfaces.Doctor;
+using MedicaERPMVC.Domain.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -38,30 +41,48 @@ namespace MedicaERP.Web
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddAutoMapper(typeof(MappingProfile));
-            services.AddDefaultIdentity<IdentityUser>(options=>options.SignIn.RequireConfirmedAccount=false).AddRoles<IdentityRole>().AddEntityFrameworkStores<MedicaErpDbContext>();
-            services.Configure<IdentityOptions>(options =>
+
+            services.AddIdentity<UserOfClinic, IdentityRole>(options =>
             {
                 options.Password.RequireDigit = false;
-                options.Password.RequiredLength = 5;
                 options.Password.RequireLowercase = false;
-                options.SignIn.RequireConfirmedEmail = false;
-                options.User.RequireUniqueEmail = true;
-            });
-            services.AddAuthorization(options =>
-            {
-                options.AddPolicy("CanEditPatient", policy =>
-                {
-                    policy.RequireClaim("EditPatient");
-                    policy.RequireClaim("ShowPatient");
-                    policy.RequireRole("Admin");
-                });
-            });
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+            })
+                .AddEntityFrameworkStores<MedicaErpDbContext>()
+                .AddDefaultTokenProviders();
 
+
+
+
+
+            //    services.AddIdentity<UserOfClinic, IdentityRole>()
+            //.AddEntityFrameworkStores<MedicaErpDbContext>();
+            //    services.AddDefaultIdentity<IdentityUser>(options=>options.SignIn.RequireConfirmedAccount=false).AddRoles<IdentityRole>().AddEntityFrameworkStores<MedicaErpDbContext>();
+            //    services.Configure<IdentityOptions>(options =>
+            //    {
+            //        options.Password.RequireDigit = false;
+            //        options.Password.RequiredLength = 5;
+            //        options.Password.RequireLowercase = false;
+            //        options.SignIn.RequireConfirmedEmail = false;
+            //        options.User.RequireUniqueEmail = true;
+            //    });
+            //services.AddAuthorization(options =>
+            //{
+            //    options.AddPolicy("CanEditPatient", policy =>
+            //    {
+            //        policy.RequireClaim("EditPatient");
+            //        policy.RequireClaim("ShowPatient");
+            //        policy.RequireRole("Admin");
+            //    });
+            //});
             services.AddTransient<IPatientService, PatientService>();
             services.AddTransient<IVisitRepository, VisitRepository>();
-            services.AddTransient<IVisitService, VisitService>();      
+            services.AddTransient<IVisitService, VisitService>();          
             services.AddTransient<IPatientRepository, PatientRepository>();
-            services.AddControllersWithViews().AddFluentValidation(/*fv => fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false*/);
+            services.AddTransient<IDoctorRepository, DoctorRepository>();
+            services.AddTransient<IDoctorService, DoctorService>();
+            //services.AddControllersWithViews().AddFluentValidation(/*fv => fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false*/);
             services.AddRazorPages();
             services.AddTransient<IValidator<NewPatientViewModel>, NewCustomerValidation>();
         }

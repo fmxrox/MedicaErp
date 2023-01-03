@@ -15,7 +15,7 @@ public class DoctorRepository : IDoctorRepository
     }
     public int AddDoctor(UserOfClinic doctor)
     {
-      _medicaErpDbContext.UserOfClinics.Add(doctor);
+      _medicaErpDbContext.Users.Add(doctor);
         _medicaErpDbContext.SaveChanges();
         return 1;
     }
@@ -32,7 +32,7 @@ public class DoctorRepository : IDoctorRepository
 
     public IQueryable<UserOfClinic> GetAllDoctors()
     {
-        var doctors = _medicaErpDbContext.UserOfClinics.Where(x => x.isDoctor);
+        var doctors = _medicaErpDbContext.Users.Where(x => x.isDoctor==true);
         if (doctors == null)
             throw new Exception("List doctors is empty");
         return doctors;      
@@ -40,7 +40,7 @@ public class DoctorRepository : IDoctorRepository
 
     public UserOfClinic GetDoctor(string id)
     {
-        var doctorToFind = _medicaErpDbContext.UserOfClinics
+        var doctorToFind = _medicaErpDbContext.Users
             .Where(x => x.isDoctor == true && x.Id == id);
        
         if (doctorToFind == null)

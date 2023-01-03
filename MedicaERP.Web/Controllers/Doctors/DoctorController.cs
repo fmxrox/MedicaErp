@@ -13,12 +13,10 @@ namespace MedicaERP.Web.Controllers.Doctors
     public class DoctorController : Controller
     {
         private readonly IVisitService _visitService;
-        private readonly IDoctorService _doctorService;
         private readonly UserManager<UserOfClinic> _userManager;
-        public DoctorController(IVisitService visitService, IDoctorService doctorService, UserManager<UserOfClinic> userManager)
+        public DoctorController(IVisitService visitService, UserManager<UserOfClinic> userManager)
         {
             _visitService = visitService;
-            _doctorService = doctorService;
             _userManager = userManager;
         }
         [HttpGet]

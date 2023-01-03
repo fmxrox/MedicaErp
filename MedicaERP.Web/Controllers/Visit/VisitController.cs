@@ -63,7 +63,7 @@ namespace MedicaERP.Web.Controllers
             })
            .ToList();
 
-            return View(new NewVisitViewModel
+            return View(new VisitViewModel
             {
                 Date = System.DateTime.Now,
                 Doctors = selectedDoctors
