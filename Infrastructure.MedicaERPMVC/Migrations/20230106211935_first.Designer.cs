@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.MedicaERPMVC.Migrations
 {
     [DbContext(typeof(MedicaErpDbContext))]
-    [Migration("20230106184906_06012023")]
-    partial class _06012023
+    [Migration("20230106211935_first")]
+    partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -88,10 +88,6 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Descritpion")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -148,9 +144,6 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
-
-                    b.Property<bool?>("isActivate")
-                        .HasColumnType("bit");
 
                     b.Property<bool>("isDoctor")
                         .HasColumnType("bit");

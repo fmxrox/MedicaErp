@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Infrastructure.MedicaERPMVC.Migrations
 {
-    public partial class _06012023 : Migration
+    public partial class first : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -98,10 +98,8 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                     Adnotations = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     isDoctor = table.Column<bool>(type: "bit", nullable: false),
                     isEmployee = table.Column<bool>(type: "bit", nullable: false),
-                    isActivate = table.Column<bool>(type: "bit", nullable: true),
                     Pesel = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ClinicId = table.Column<int>(type: "int", nullable: true),
-                    Descritpion = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SpecialitzationOfDoctorId = table.Column<int>(type: "int", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),

@@ -42,15 +42,16 @@ namespace MedicaERP.Web
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddAutoMapper(typeof(MappingProfile));
 
-            services.AddDefaultIdentity<UserOfClinic>(options =>
+            services.AddIdentity<IdentityUser, IdentityRole>(options =>
             {
                 options.Password.RequireDigit = false;
                 options.Password.RequireLowercase = false;
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
                 options.User.RequireUniqueEmail = false;
+                options.Tokens.EmailConfirmationTokenProvider = null;
             })
-                .AddRoles<IdentityRole>()            
+                .AddDefaultUI()
                 .AddEntityFrameworkStores<MedicaErpDbContext>()
                 .AddDefaultTokenProviders();
 

@@ -22,7 +22,6 @@ namespace MedicaERPMVC.Domain.Model
         public string? Adnotations { get; set; }
         public bool isDoctor { get; set; }
          public bool isEmployee { get; set; }
-        public bool? isActivate { get; set; }
         public string Pesel { get; set; }
         //public UserContactInformation? UserContactInformation { get; set; }
         public int? ClinicId { get; set; }

@@ -18,8 +18,8 @@ namespace MedicaERP.Web.Controllers
     {       
         private readonly IVisitService _visitService;
         private readonly IDoctorService _doctorService;
-        private readonly UserManager<UserOfClinic> _userOfClinic;
-        public VisitController(IDoctorService doctorService, IVisitService visitService, UserManager<UserOfClinic> UserOfClinic)
+        private readonly UserManager<IdentityUser> _userOfClinic;
+        public VisitController(IDoctorService doctorService, IVisitService visitService, UserManager<IdentityUser> UserOfClinic)
         {
             _doctorService = doctorService;
             _visitService = visitService;
