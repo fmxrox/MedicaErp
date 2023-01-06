@@ -10,7 +10,6 @@ namespace MedicaERPMVC.Domain.Model
     //USEROFCLINIC MOZE ZROBIER TYLKO PACJENTA I TYLE 
     public class UserOfClinic : IdentityUser
     {
-        public string Id { get; set; }
         [Required]
         [MinLength(MinRequiredName)]
         [MaxLength(MaxRequiredName)]
@@ -27,7 +26,6 @@ namespace MedicaERPMVC.Domain.Model
         public string Pesel { get; set; }
         //public UserContactInformation? UserContactInformation { get; set; }
         public int? ClinicId { get; set; }
-        public string Descritpion { get; set; }
         public virtual Clinic Clinic { get; set; }
         public IQueryable<Visit> PatientVisits { get; set; }
         public IQueryable<Visit> DoctorVisits { get; set; }
