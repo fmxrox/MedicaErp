@@ -41,7 +41,8 @@ namespace MedicaERP.Web
             //    options.UseSqlServer(
             //        Configuration.GetConnectionString("DefaultConnection")));
             services.AddAutoMapper(typeof(MappingProfile));
-            services.AddDbContext<MedicaErpDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+            services.AddDbContext<MedicaErpDbContext>(options => options
+            .UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<UserOfClinic, IdentityRole>().AddEntityFrameworkStores<MedicaErpDbContext>()
                 .AddDefaultUI().AddDefaultTokenProviders();
             services.AddMvc();
