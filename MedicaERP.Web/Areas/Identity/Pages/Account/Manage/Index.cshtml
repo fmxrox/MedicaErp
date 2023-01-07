@@ -1,0 +1,60 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Profile";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+<h3>@ViewData["Title"]</h3>
+<partial name="_StatusMessage" for="StatusMessage" />
+<div class="row">
+    <div class="col-md-6">
+        <form id="profile-form" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-floating">
+                <input asp-for="Username" class="form-control" disabled />
+                <label asp-for="Username" class="form-label"></label>
+            </div>
+              <div class="form-group">
+                <label asp-for="Input.FirstName" class="form-control">Imię</label>
+                <input asp-for="Input.FirstName" class="form-label" />
+            </div>
+             <div class="form-group">
+                <label asp-for="Input.LastName" class="form-control">Nazwisko</label>
+                <input asp-for="Input.LastName" class="form-label" />
+            </div>
+               <div class="form-group">
+                <label asp-for="Input.Adnotations" class="form-control">Nazwisko</label>
+                <input asp-for="Input.Adnotations" class="form-label" />
+            </div>
+                <div class="form-group">
+                <label asp-for="Input.Pesel" class="form-control">Nazwisko</label>
+                <input asp-for="Input.Pesel" class="form-label" />
+            </div>
+            <div class="form-floating">
+                <input asp-for="Input.PhoneNumber" class="form-control" />
+                <label asp-for="Input.PhoneNumber" class="form-label"></label>
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>
+              <div class="form-group">
+                <label asp-for="Input.isDoctor"></label>
+                <br />
+                @Html.RadioButtonFor(m => m.Input.isDoctor, true) Tak
+                @Html.RadioButtonFor(m => m.Input.isDoctor, false) Nie
+                <span asp-validation-for="Input.isDoctor" class="form-text text-muted text-danger"></span>
+            </div>
+                          <div class="form-group">
+                <label asp-for="Input.isEmployee"></label>
+                <br />
+                @Html.RadioButtonFor(m => m.Input.isEmployee, true) Tak
+                @Html.RadioButtonFor(m => m.Input.isEmployee, false) Nie
+                <span asp-validation-for="Input.isEmployee" class="form-text text-muted text-danger"></span>
+            </div>
+            <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">Save</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

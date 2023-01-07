@@ -121,7 +121,6 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Pesel")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
@@ -143,10 +142,10 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.Property<bool>("isDoctor")
+                    b.Property<bool?>("isDoctor")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("isEmployee")
+                    b.Property<bool?>("isEmployee")
                         .HasColumnType("bit");
 
                     b.HasKey("Id");

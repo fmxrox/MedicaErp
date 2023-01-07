@@ -37,24 +37,28 @@ namespace MedicaERP.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<MedicaErpDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDbContext<MedicaErpDbContext>(options =>
+            //    options.UseSqlServer(
+            //        Configuration.GetConnectionString("DefaultConnection")));
             services.AddAutoMapper(typeof(MappingProfile));
-
-            services.AddIdentity<IdentityUser, IdentityRole>(options =>
-            {
-                options.Password.RequireDigit = false;
-                options.Password.RequireLowercase = false;
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireUppercase = false;
-                options.User.RequireUniqueEmail = false;
-                options.Tokens.EmailConfirmationTokenProvider = null;
-            })
-                .AddDefaultUI()
-                .AddEntityFrameworkStores<MedicaErpDbContext>()
-                .AddDefaultTokenProviders();
-
+            services.AddDbContext<MedicaErpDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+            services.AddIdentity<UserOfClinic, IdentityRole>().AddEntityFrameworkStores<MedicaErpDbContext>()
+                .AddDefaultUI().AddDefaultTokenProviders();
+            services.AddMvc();
+            //services.AddDefaultIdentity<UserOfClinic>(options =>
+            //{
+            //    options.Password.RequireDigit = false;
+            //    options.Password.RequireLowercase = false;
+            //    options.Password.RequireNonAlphanumeric = false;
+            //    options.Password.RequireUppercase = false;
+            //    options.User.RequireUniqueEmail = false;
+            //    options.Tokens.EmailConfirmationTokenProvider = null;
+            //    options.SignIn.RequireConfirmedAccount = false;
+            //})
+            //    .AddDefaultUI()
+            //    .AddEntityFrameworkStores<MedicaErpDbContext>()
+            //    .AddDefaultTokenProviders();
+          
 
             //    services.AddIdentity<UserOfClinic, IdentityRole>()
             //.AddEntityFrameworkStores<MedicaErpDbContext>();
