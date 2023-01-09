@@ -11,15 +11,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MedicaERP.Web.Controllers
 {
+    [AllowAnonymous]
     public class VisitController : Controller
     {       
         private readonly IVisitService _visitService;
         private readonly IDoctorService _doctorService;
-        private readonly UserManager<IdentityUser> _userOfClinic;
-        public VisitController(IDoctorService doctorService, IVisitService visitService, UserManager<IdentityUser> UserOfClinic)
+        private readonly UserManager<UserOfClinic> _userOfClinic;
+        public VisitController(IDoctorService doctorService, IVisitService visitService, UserManager<UserOfClinic> UserOfClinic)
         {
             _doctorService = doctorService;
             _visitService = visitService;

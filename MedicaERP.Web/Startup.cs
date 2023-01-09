@@ -43,9 +43,13 @@ namespace MedicaERP.Web
             services.AddAutoMapper(typeof(MappingProfile));
             services.AddDbContext<MedicaErpDbContext>(options => options
             .UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddIdentity<UserOfClinic, IdentityRole>().AddEntityFrameworkStores<MedicaErpDbContext>()
-                .AddDefaultUI().AddDefaultTokenProviders();
+            services.AddIdentity<UserOfClinic, IdentityRole>(opt =>
+            opt.User.RequireUniqueEmail = false)
+                .AddEntityFrameworkStores<MedicaErpDbContext>()
+                .AddDefaultTokenProviders()
+                .AddDefaultUI();
             services.AddMvc();
+            services.AddIdentityCore<UserOfClinic>();
             //services.AddDefaultIdentity<UserOfClinic>(options =>
             //{
             //    options.Password.RequireDigit = false;
@@ -59,7 +63,7 @@ namespace MedicaERP.Web
             //    .AddDefaultUI()
             //    .AddEntityFrameworkStores<MedicaErpDbContext>()
             //    .AddDefaultTokenProviders();
-          
+
 
             //    services.AddIdentity<UserOfClinic, IdentityRole>()
             //.AddEntityFrameworkStores<MedicaErpDbContext>();
