@@ -65,7 +65,7 @@ namespace MedicaERP.Web.Controllers
             })
            .ToList();
 
-            return View(new VisitViewModel
+            return View(new NewVisitViewModel
             {
                 Date = System.DateTime.Now,
                 Doctors = selectedDoctors
@@ -75,14 +75,13 @@ namespace MedicaERP.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> AddVisit(NewVisitViewModel newvisitViewModel)
         {
-            var visit = _visitService.AddVisitAsync(newvisitViewModel);
-            return RedirectToAction("Index");
-            if(ModelState.IsValid==false)
-            {
-                var doctors =await SelectedDoctorsList();
-                newvisitViewModel.Doctors = (System.Collections.Generic.IEnumerable<SelectListItem>)doctors;
-                return View(newvisitViewModel);
-            }
+           
+            //if(ModelState.IsValid==false)
+            //{
+            //    var doctors =await SelectedDoctorsList();
+            //    newvisitViewModel.Doctors = (System.Collections.Generic.IEnumerable<SelectListItem>)doctors;
+            //    return View(newvisitViewModel);
+            //}
 
 
             var isPossibleMakeVisit =await  _visitService.IsVisitPossible(
@@ -91,17 +90,20 @@ namespace MedicaERP.Web.Controllers
                 newvisitViewModel.StartTime);
 
 
-            if (isPossibleMakeVisit == false)
-            {
-                var doctorsav =await SelectedDoctorsList();
-                newvisitViewModel.Doctors = doctorsav;
-                return View(newvisitViewModel);
-            }
-            var user = await this._userOfClinic.GetUserAsync(HttpContext.User);
+            //if (isPossibleMakeVisit == false)
+            //{
+            //    var doctorsav =await SelectedDoctorsList();
+            //    newvisitViewModel.Doctors = doctorsav;
+            //    return View(newvisitViewModel);
+            //}
+            var userId =  this._userOfClinic.GetUserId(HttpContext.User);
+            newvisitViewModel.PatientId = userId;
+            newvisitViewModel.IsDone = false;
+            newvisitViewModel.Confirmed = false;
             _visitService.AddVisitAsync(newvisitViewModel);
 
             TempData["Sucess"] = "You added new appoitment";
-            return RedirectToAction("Index");
+            return RedirectToAction("AddVisit");
            
             //var isThisDoctorWorkinThisTime = 
         }

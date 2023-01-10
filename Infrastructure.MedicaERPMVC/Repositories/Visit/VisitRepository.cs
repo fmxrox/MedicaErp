@@ -63,7 +63,7 @@ namespace Infrastructure.MedicaERPMVC.Repositories
             if (visitToEdit == null)
                 throw new Exception("Patient not found");
             visitToEdit.Patient = Patient;
-            visitToEdit.Clinic = Clinic;
+            //visitToEdit.Clinic = Clinic;
             visitToEdit.Description = description;
             visitToEdit.IsDone = isDone;
             _medicaErpDbContext.SaveChanges();
