@@ -52,7 +52,7 @@ namespace Infrastructure.MedicaERPMVC.Repositories
         public void VisitEditAsync(Visit visit)           
         {
             _medicaErpDbContext.Attach(visit);
-            _medicaErpDbContext.Entry(visit).Property("Description").IsModified = true; _medicaErpDbContext.Entry(visit).Property("StartTime").IsModified = true; _medicaErpDbContext.Entry(visit).Property("EndTime").IsModified = true; _medicaErpDbContext.Entry(visit).Property("PatientId").IsModified = true; _medicaErpDbContext.Entry(visit).Property("DoctorId").IsModified = true; _medicaErpDbContext.Entry(visit).Property("VisitTypeId").IsModified = true; _medicaErpDbContext.Entry(visit).Property("Confirmed").IsModified = true;
+            _medicaErpDbContext.Entry(visit).Property("Description").IsModified = true; _medicaErpDbContext.Entry(visit).Property("StartTime").IsModified = true; _medicaErpDbContext.Entry(visit).Property("EndTime").IsModified = true; _medicaErpDbContext.Entry(visit).Property("PatientId").IsModified = true; _medicaErpDbContext.Entry(visit).Property("DoctorId").IsModified = true; /*_medicaErpDbContext.Entry(visit).Property("VisitTypeId").IsModified = true; */_medicaErpDbContext.Entry(visit).Property("Confirmed").IsModified = true;
               _medicaErpDbContext.Entry(visit).Property("IsDone").IsModified = true;
             _medicaErpDbContext.SaveChanges();         
     }

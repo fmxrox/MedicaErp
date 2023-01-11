@@ -1,5 +1,4 @@
-﻿@using MedicaERPMVC.Application.ViewModels.Visits
-@model MedicaERPMVC.Application.ViewModels.Visits.NewVisitViewModel
+﻿@model MedicaERPMVC.Application.ViewModels.Visits.NewVisitViewModel
 
 @{
     ViewData["Title"] = "VisitToEdit";
@@ -11,12 +10,10 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="VisitToEdit">
+        <form asp-action="VisitToEdit" asp-action="EditVisit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-           
-                <input asp-for="Id" type="hidden" class="form-control" />
-             
+             <div class="form-group">
+                <input type="hidden" asp-for="Id" class="form-control" />
             </div>
             <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>

@@ -154,7 +154,18 @@ namespace MedicaERP.Web.Controllers
             return View(visits);
 
         }
-
+        [HttpPost]
+        [Route("[controller]/EditVisit")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> VisitToEdit(NewVisitViewModel newVisitViewModel)
+        {
+            if (ModelState.IsValid==false)
+            {
+                _visitService.UpdateVisit(newVisitViewModel);
+                return Redirect("Index");
+            }
+            return View(newVisitViewModel);
+        }
         [HttpGet]
         public async Task<IActionResult> VisitToEdit(int id)
         {
@@ -166,18 +177,9 @@ namespace MedicaERP.Web.Controllers
                 return new StatusCodeResult(404);
             }
 
-            return this.View(visittoEdit);
+            return View(visittoEdit);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> VisitToEdit(NewVisitViewModel newVisitViewModel)
-        {
-            if (ModelState.IsValid)
-            {
-                _visitService.UpdateVisit(newVisitViewModel);
-                return RedirectToAction("Index");
-            }
-            return View(newVisitViewModel);
-        }
+       
     }
 }
