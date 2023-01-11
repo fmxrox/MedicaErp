@@ -33,7 +33,7 @@ namespace MedicaERPMVC.Application.ViewModels.Visits
         public IEnumerable<SelectListItem> Doctors { get; set; }
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<NewVisitViewModel, Visit>();
+            profile.CreateMap<NewVisitViewModel, Visit>().ReverseMap();
         }
     }
 

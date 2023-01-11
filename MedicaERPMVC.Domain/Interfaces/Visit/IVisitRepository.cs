@@ -12,9 +12,9 @@ namespace MedicaERPMVC.Domain.Interface
         int AddVisit(Visit visit);
         void DeleteVisit(string idVisit);
         Task<IQueryable<Visit>> GetAllVisits();
-        Task<Visit> GetVisitById(string name);
+        Task<Visit> GetVisitById(int name);
         IQueryable<Visit> GetVisitsByTypeId(int typeId);
         Task<IQueryable<Visit>> GetVisitsToDo(string doctorId);
-        Task VisitEditAsync(int userId, string name, string lastName, string? pesel, UserOfClinic Patient, Clinic Clinic, string description, bool isDone);
+        void VisitEditAsync(Visit visit);
     }
 }

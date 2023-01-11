@@ -122,7 +122,7 @@ namespace MedicaERP.Web.Controllers
             return selectedDoctors;
         }
         [HttpGet]
-        public async Task<IActionResult> VisitToCancel(string id)
+        public async Task<IActionResult> VisitToCancel(int id)
         {
             
             var visitCancel = _visitService.GetVisitId(id);
@@ -155,5 +155,29 @@ namespace MedicaERP.Web.Controllers
 
         }
 
+        [HttpGet]
+        public async Task<IActionResult> VisitToEdit(int id)
+        {
+
+            var visittoEdit =await _visitService.GetVisitId(id);
+
+            if (visittoEdit == null)
+            {
+                return new StatusCodeResult(404);
+            }
+
+            return this.View(visittoEdit);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> VisitToEdit(NewVisitViewModel newVisitViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                _visitService.UpdateVisit(newVisitViewModel);
+                return RedirectToAction("Index");
+            }
+            return View(newVisitViewModel);
+        }
     }
 }

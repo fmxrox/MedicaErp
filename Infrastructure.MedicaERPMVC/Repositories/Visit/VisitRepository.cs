@@ -33,7 +33,7 @@ namespace Infrastructure.MedicaERPMVC.Repositories
                 .ThenByDescending(x => x.StartTime);
             return visits;
         }
-        public async Task<Visit> GetVisitById(string name)
+        public async Task<Visit> GetVisitById(int name)
         {
             var visit = await _medicaErpDbContext.Visits.FindAsync(name);
             if (visit == null) throw new Exception("Visit not found");
@@ -49,25 +49,13 @@ namespace Infrastructure.MedicaERPMVC.Repositories
                 _medicaErpDbContext.SaveChanges();
             }
         }
-        public async Task VisitEditAsync(int userId,
-            string name,
-            string lastName,
-            string? pesel,
-            global::MedicaERPMVC.Domain.Model.UserOfClinic Patient,
-            Clinic Clinic,
-            string description,
-            bool isDone
-            )
+        public void VisitEditAsync(Visit visit)           
         {
-            var visitToEdit = await this._medicaErpDbContext.Visits.FindAsync(userId);
-            if (visitToEdit == null)
-                throw new Exception("Patient not found");
-            visitToEdit.Patient = Patient;
-            //visitToEdit.Clinic = Clinic;
-            visitToEdit.Description = description;
-            visitToEdit.IsDone = isDone;
-            _medicaErpDbContext.SaveChanges();
-        }
+            _medicaErpDbContext.Attach(visit);
+            _medicaErpDbContext.Entry(visit).Property("Description").IsModified = true; _medicaErpDbContext.Entry(visit).Property("StartTime").IsModified = true; _medicaErpDbContext.Entry(visit).Property("EndTime").IsModified = true; _medicaErpDbContext.Entry(visit).Property("PatientId").IsModified = true; _medicaErpDbContext.Entry(visit).Property("DoctorId").IsModified = true; _medicaErpDbContext.Entry(visit).Property("VisitTypeId").IsModified = true; _medicaErpDbContext.Entry(visit).Property("Confirmed").IsModified = true;
+              _medicaErpDbContext.Entry(visit).Property("IsDone").IsModified = true;
+            _medicaErpDbContext.SaveChanges();         
+    }
 
         public async Task<IQueryable<Visit>> GetVisitsToDo(string doctorId)
         {
