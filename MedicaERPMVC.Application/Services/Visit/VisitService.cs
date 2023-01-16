@@ -35,7 +35,7 @@ namespace MedicaERPMVC.Application.Services.Visit
             var visitVm = _mapper.Map<NewVisitViewModel>(visit);
             return visitVm;
         }
-        public void DeleteVisit(string id)
+        public void DeleteVisit(int id)
         {
             _visitRepository.DeleteVisit(id);
         }

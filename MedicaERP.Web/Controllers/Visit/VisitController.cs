@@ -125,22 +125,21 @@ namespace MedicaERP.Web.Controllers
         public async Task<IActionResult> VisitToCancel(int id)
         {
             
-            var visitCancel = _visitService.GetVisitId(id);
+            var visitCancel = await _visitService.GetVisitId(id);
 
             if (visitCancel == null)
             {
                 return new StatusCodeResult(404);
             }
-
-            return this.View(visitCancel);
-        }
-        [HttpPost]
-        public async Task<IActionResult> VisitToCancelPost(string id)
-        {
             _visitService.DeleteVisit(id);
 
             return RedirectToAction("Index");
         }
+        //[HttpPost]
+        //public async Task<IActionResult> VisitToCancel(int id)
+        //{
+            
+        //}
         [HttpGet]
         public async Task<IActionResult> GetVisitForDoctor(string doCtorId, int pageSize, int pageNumber, string? stringToFind)
         {

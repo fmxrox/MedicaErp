@@ -39,7 +39,7 @@ namespace Infrastructure.MedicaERPMVC.Repositories
             if (visit == null) throw new Exception("Visit not found");
             return visit;
         }
-        public void DeleteVisit(string idVisit)
+        public void DeleteVisit(int idVisit)
         {
 
             var visit = _medicaErpDbContext.Visits.Find(idVisit);
