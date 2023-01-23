@@ -26,35 +26,38 @@
                 <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
                 <label asp-for="Input.ConfirmPassword"></label>
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-              <div class="form-group">
-                <label asp-for="Input.FirstName" class="form-control">Imię</label>
-                <input asp-for="Input.FirstName" class="form-label" />
+                </div>
+              <div class="form-floating">
+                <input asp-for="Input.FirstName" class="form-control"/>
+                <label asp-for="Input.FirstName"></label>
+                 <span asp-validation-for="Input.FirstName" class="text-danger"></span>
             </div>
-             <div class="form-group">
-                <label asp-for="Input.LastName" class="form-control">Nazwisko</label>
-                <input asp-for="Input.LastName" class="form-label" />
+             <div class="form-floating">
+                 <input asp-for="Input.LastName" class="form-label" />
+                <label asp-for="Input.LastName"></label>
+                 <span asp-validation-for="Input.LastName" class="text-danger"></span>
             </div>
-               <div class="form-group">
-                <label asp-for="Input.Adnotations" class="form-control">Nazwisko</label>
+               <div class="form-floating">
+                <label asp-for="Input.Adnotations"></label>
                 <input asp-for="Input.Adnotations" class="form-label" />
             </div>
-                <div class="form-group">
-                <label asp-for="Input.Pesel" class="form-control">Nazwisko</label>
+                <div class="form-floating">
+                <label asp-for="Input.Pesel"></label>
                 <input asp-for="Input.Pesel" class="form-label" />
             </div>
             <div class="form-floating">
                 <input asp-for="Input.PhoneNumber" class="form-control" />
-                <label asp-for="Input.PhoneNumber" class="form-label"></label>
+                <label asp-for="Input.PhoneNumber"></label>
                 <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
             </div>
-              <div class="form-group">
+              <div class="form-floating">
                 <label asp-for="Input.isDoctor"></label>
                 <br />
                 @Html.RadioButtonFor(m => m.Input.isDoctor, true) Tak
                 @Html.RadioButtonFor(m => m.Input.isDoctor, false) Nie
                 <span asp-validation-for="Input.isDoctor" class="form-text text-muted text-danger"></span>
             </div>
-                          <div class="form-group">
+                          <div class="form-floating">
                 <label asp-for="Input.isEmployee"></label>
                 <br />
                 @Html.RadioButtonFor(m => m.Input.isEmployee, true) Tak
