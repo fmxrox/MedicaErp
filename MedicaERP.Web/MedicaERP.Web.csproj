@@ -49,6 +49,7 @@
 
   <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
+    <None Include="wwwroot\images\healthcare-technology-doctor-using-digital-tablet-icon-medical-network-hospital-background-162019727.jpg" />
   </ItemGroup>
 
 </Project>
