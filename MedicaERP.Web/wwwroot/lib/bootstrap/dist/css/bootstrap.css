@@ -6590,7 +6590,9 @@ button.bg-dark:focus {
 .bg-white {
   background-color: #fff !important;
 }
-
+.bg-navbar {
+    background-color: #42d7f5 !important;
+}
 .bg-transparent {
   background-color: transparent !important;
 }
