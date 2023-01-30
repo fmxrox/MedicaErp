@@ -40,7 +40,7 @@ namespace MedicaERPMVC.Application.Services.Visit
             _visitRepository.DeleteVisit(id);
         }
 
-        public async Task<IQueryable<VisitViewModel>> GetAllVisitsForList(int pageSize, int pageNumber, string stringToFind)
+        public async Task<ListVisitsViewModel> GetAllVisitsForList(int pageSize, int pageNumber, string stringToFind)
         {
             var visitsFromRepository = await _visitRepository.GetAllVisits();
             var visits = visitsFromRepository.ProjectTo<VisitViewModel>(_mapper.ConfigurationProvider).ToList();
@@ -52,7 +52,7 @@ namespace MedicaERPMVC.Application.Services.Visit
                 PageSize = pageSize,
                 ActualPage = pageNumber
             };
-            return (IQueryable<VisitViewModel>)visitsForListVM;
+            return visitsForListVM;
 
         }
         public async Task<ListVisitsViewModel> GetAllVisitsForDoctor(string doCtorId, int pageSize, int pageNumber, string? stringToFind, DateTime date)

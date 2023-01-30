@@ -31,7 +31,7 @@ namespace Infrastructure.MedicaERPMVC.Repositories
             var visits = _medicaErpDbContext.Visits.Where(x => x.VisitTypeId == typeId)
                  .OrderByDescending(x => x.Date)
                 .ThenByDescending(x => x.StartTime);
-            return visits;
+            return visits.AsQueryable();
         }
         public async Task<Visit> GetVisitById(int name)
         {

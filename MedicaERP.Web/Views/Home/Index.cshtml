@@ -5,11 +5,31 @@
 <div class="text-center">
     <h1 class="display-4">Witamy</h1>
     <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
     <p>Witamy w przychodni Medica Sp.Z.o.o.</p>
     <p>Zarejestruj się już dziś</p>
+
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+ <div class="centernbtn">  
+        <ul>
+             @{
+                  if (User.IsInRole(Constans.AdministratorRole))
+                            {
+       <li> <a class="btn btn-primary  text-center" asp-area="" asp-controller="Patient" asp-action="AddPatient">Umów wizytę</a></li>
+                            }
+          <li> <a class="btn btn-primary  text-center" asp-area="" asp-controller="Patient" asp-action="AddPatient">Umów wizytę</a></li>
+           <li>  <a class="btn btn-primary  text-center" asp-area="" asp-controller="Patient" asp-action="AddPatient">Umów wizytę</a></li>
+        <li>   <a class="btn btn-primary  text-center" asp-area="" asp-controller="Patient" asp-action="AddPatient">Umów wizytę</a></li>
+       <li>  <a class="btn btn-primary  text-center" asp-area="" asp-controller="Patient" asp-action="AddPatient">Umów wizytę</a></li>
+     <li>  <a class="btn btn-primary  text-center" asp-area="" asp-controller="Patient" asp-action="AddPatient">Umów wizytę</a></li>
+   <li>  <a class="btn btn-primary  text-center" asp-area="" asp-controller="Patient" asp-action="AddPatient">Umów wizytę</a></li>
+ <li>  <a class="btn btn-primary  text-center" asp-area="" asp-controller="Patient" asp-action="AddPatient">Umów wizytę</a></li>
+  <li> <a class="btn btn-primary  text-center" asp-area="" asp-controller="Patient" asp-action="AddPatient">Umów wizytę</a></li>
+ <li>  <a class="btn btn-primary  text-center" asp-area="" asp-controller="Patient" asp-action="AddPatient">Umów wizytę</a></li>
+    }
+  </ul>
 </div>

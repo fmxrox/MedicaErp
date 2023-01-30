@@ -32,11 +32,10 @@ namespace MedicaERP.Web.Controllers
             return View();
         }
 
-        [CheckPermissions("Read")]
         [HttpGet]
-        public IActionResult VisitList(int pageSize, int numberOfPage, string stringToSearch)
+        public async Task<IActionResult> VisitList(int pageSize, int numberOfPage, string stringToSearch)
         {
-            var model = _visitService.GetAllVisitsForList(pageSize, numberOfPage, stringToSearch);
+            var model = await _visitService.GetAllVisitsForList(pageSize, numberOfPage, stringToSearch);
             return View(model);
         }
         [HttpPost]
@@ -51,6 +50,7 @@ namespace MedicaERP.Web.Controllers
                 stringToSearch = string.Empty;
             }
             var model = _visitService.GetAllVisitsForList(pageSize, numberOfPage.Value, stringToSearch);
+           
             return View(model);
         }
 
