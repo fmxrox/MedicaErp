@@ -154,14 +154,12 @@ namespace MedicaERP.Web.Controllers
 
         }
         [HttpPost]
-        [Route("[controller]/EditVisit")]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> VisitToEdit(NewVisitViewModel newVisitViewModel)
         {
             if (ModelState.IsValid==false)
             {
                 _visitService.UpdateVisit(newVisitViewModel);
-                return Redirect("Index");
+                return RedirectToAction("VisitList");
             }
             return View(newVisitViewModel);
         }

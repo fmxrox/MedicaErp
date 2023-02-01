@@ -42,7 +42,7 @@ namespace MedicaERPMVC.Application.Services.Visit
 
         public async Task<ListVisitsViewModel> GetAllVisitsForList(int pageSize, int pageNumber, string stringToFind)
         {
-            var visitsFromRepository = await _visitRepository.GetAllVisits();
+            var visitsFromRepository =  _visitRepository.GetAllVisits();
             var visits = visitsFromRepository.ProjectTo<VisitViewModel>(_mapper.ConfigurationProvider).ToList();
             var visitFinally = visits.Skip(pageNumber).Take(pageSize).ToList();
             var visitsForListVM = new ListVisitsViewModel()
@@ -93,7 +93,7 @@ namespace MedicaERPMVC.Application.Services.Visit
         }
         public async Task<bool> IsVisitPossible(string doctorId, DateTime date, TimeSpan timeStart)
         {
-            var result = await _visitRepository
+            var result =  _visitRepository
             .GetAllVisits();
             var isPossibleToBook = result.Any((a => a
                  .DoctorId == doctorId

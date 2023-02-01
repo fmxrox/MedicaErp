@@ -23,13 +23,13 @@ namespace MedicaERPMVC.Application.ViewModels.Visits
         public TimeSpan EndTime { get; set; }
         [Required]
         public string? PatientId { get; set; }
+        public UserOfClinic Patient { get; set; }
         [Required]
-        public int? ClinicId { get; set; }
-        public int? VisitTypeId { get; set; }
-        public bool? Confirmed { get; set; }
         public bool? IsDone { get; set; }
         [Required]
-        public string? DoctorId { get; set; }
+        public string DoctorId { get; set; }
+        public UserOfClinic Doctor { get; set; }
+        public bool Confirmed { get; set; }
         public IEnumerable<SelectListItem> Doctors { get; set; }
         public void Mapping(Profile profile)
         {

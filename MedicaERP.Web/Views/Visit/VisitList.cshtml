@@ -13,40 +13,63 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Count)
+            <th> 
+                Imie               
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ActualPage)
+               Nazwisko
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PageSize)
+                Data
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.StringToSearch)
+               Rozpoczęcie
             </th>
-            <th></th>
+             <th>
+               Koniec
+            </th>
+            <th>
+               Opis
+            </th>
+             <th>
+            Imię lekarza
+            </th>
+              <th>
+             Nazwisko lekarza
+            </th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model.Visits) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DoctorId)
+            <td>               
+                 @Html.DisplayFor(modelItem => item.Patient.FirstName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Date)
+                @Html.DisplayFor(modelItem => item.Patient.LastName)
+            </td>
+                <td>               
+                 @Html.DisplayFor(modelItem => item.Date)
+            </td>
+               <td>               
+                 @Html.DisplayFor(modelItem => item.StartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndTime)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DoctorId)
+                @Html.DisplayFor(modelItem => item.Doctor.FirstName)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.Doctor.LastName)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Podejmij wizytę", "VisitToEdit", new { id=item.Id}) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Anuluj", "VisitToCancel", new { id=item.Id })
             </td>
         </tr>
 }

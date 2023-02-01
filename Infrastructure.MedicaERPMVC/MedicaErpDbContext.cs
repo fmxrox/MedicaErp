@@ -50,7 +50,7 @@ namespace Infrastructure.MedicaERPMVC
                 .WithMany(v => v.PatientVisits)
                 .HasForeignKey(p => p.PatientId)
                 .OnDelete(DeleteBehavior.Restrict);
-       
+
 
             base.OnModelCreating(builder);
         }

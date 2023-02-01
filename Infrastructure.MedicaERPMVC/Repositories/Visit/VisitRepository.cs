@@ -52,7 +52,13 @@ namespace Infrastructure.MedicaERPMVC.Repositories
         public void VisitEditAsync(Visit visit)           
         {
             _medicaErpDbContext.Attach(visit);
-            _medicaErpDbContext.Entry(visit).Property("Description").IsModified = true; _medicaErpDbContext.Entry(visit).Property("StartTime").IsModified = true; _medicaErpDbContext.Entry(visit).Property("EndTime").IsModified = true; _medicaErpDbContext.Entry(visit).Property("PatientId").IsModified = true; _medicaErpDbContext.Entry(visit).Property("DoctorId").IsModified = true; /*_medicaErpDbContext.Entry(visit).Property("VisitTypeId").IsModified = true; */_medicaErpDbContext.Entry(visit).Property("Confirmed").IsModified = true;
+            _medicaErpDbContext.Entry(visit).Property("Description").IsModified = true;
+            _medicaErpDbContext.Entry(visit).Property("StartTime").IsModified = true; 
+            _medicaErpDbContext.Entry(visit).Property("EndTime").IsModified = true;
+            _medicaErpDbContext.Entry(visit).Property("PatientId").IsModified = true;
+            _medicaErpDbContext.Entry(visit).Property("DoctorId").IsModified = true;
+            /*_medicaErpDbContext.Entry(visit).Property("VisitTypeId").IsModified = true; */
+            _medicaErpDbContext.Entry(visit).Property("Confirmed").IsModified = true;
               _medicaErpDbContext.Entry(visit).Property("IsDone").IsModified = true;
             _medicaErpDbContext.SaveChanges();         
     }
@@ -68,10 +74,21 @@ namespace Infrastructure.MedicaERPMVC.Repositories
                 .ToListAsync();
             return visits.AsQueryable();
         }
-        public async Task<IQueryable<Visit>> GetAllVisits()
+        public IQueryable<Visit> GetAllVisits()
         {
-            var visits = await _medicaErpDbContext.Visits.ToListAsync();
-            return visits.AsQueryable();
+            //var visits =  _medicaErpDbContext.Visits;
+            //foreach (var vis in visits)
+            //return visits.AsQueryable();
+            var visits= from c in _medicaErpDbContext.Visits.AsQueryable()
+                   join u in _medicaErpDbContext.UserOfClinics.AsQueryable() on
+                   c.DoctorId equals u.Id
+                   select c;
+            foreach (var vis in visits)
+            {
+                vis.Doctor = _medicaErpDbContext.UserOfClinics.Where(p=>p.Id == vis.DoctorId).FirstOrDefault();
+                vis.Patient = _medicaErpDbContext.UserOfClinics.Where(p=>p.Id == vis.PatientId).FirstOrDefault();
+            }
+            return visits;
         }
 
     

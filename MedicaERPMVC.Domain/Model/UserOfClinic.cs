@@ -26,8 +26,8 @@ namespace MedicaERPMVC.Domain.Model
         //public UserContactInformation? UserContactInformation { get; set; }
         public int? ClinicId { get; set; }
         public virtual Clinic Clinic { get; set; }
-        public IQueryable<Visit> PatientVisits { get; set; }
-        public IQueryable<Visit> DoctorVisits { get; set; }
+        public ICollection<Visit> PatientVisits { get; set; }
+        public ICollection<Visit> DoctorVisits { get; set; }
  
     }
 }
