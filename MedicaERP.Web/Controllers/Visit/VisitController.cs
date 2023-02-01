@@ -99,7 +99,7 @@ namespace MedicaERP.Web.Controllers
             var userId =  this._userOfClinic.GetUserId(HttpContext.User);
             newvisitViewModel.PatientId = userId;
             newvisitViewModel.IsDone = false;
-            newvisitViewModel.Confirmed = false;
+            newvisitViewModel.Confirmed = false;   
             _visitService.AddVisitAsync(newvisitViewModel);
 
             TempData["Sucess"] = "You added new appoitment";

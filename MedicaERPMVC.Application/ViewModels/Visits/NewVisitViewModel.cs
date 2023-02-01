@@ -27,7 +27,7 @@ namespace MedicaERPMVC.Application.ViewModels.Visits
         [Required]
         public bool? IsDone { get; set; }
         [Required]
-        public string DoctorId { get; set; }
+        public string? DoctorId { get; set; }
         public UserOfClinic Doctor { get; set; }
         public bool Confirmed { get; set; }
         public IEnumerable<SelectListItem> Doctors { get; set; }

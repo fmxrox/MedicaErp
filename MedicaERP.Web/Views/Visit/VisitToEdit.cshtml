@@ -1,12 +1,12 @@
 ﻿@model MedicaERPMVC.Application.ViewModels.Visits.NewVisitViewModel
 
 @{
-    ViewData["Title"] = "VisitToEdit";
+    ViewData["Title"] = "Wizyta";
 }
 
-<h1>VisitToEdit</h1>
+<h1>Rozpoczęta wizyta</h1>
 
-<h4>NewVisitViewModel</h4>
+<h4>Uzupełnij przebieg wizyty</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -38,6 +38,7 @@
                 <input type="hidden" asp-for="PatientId" class="form-control" />
             </div>
              <div class="form-group">
+                     <label asp-for="Description" class="control-label">Opis przebiegu wizyty</label>
                <textarea class="form-control" asp-for="Description" rows="2"></textarea>
                
             </div>

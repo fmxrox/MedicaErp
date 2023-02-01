@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.MedicaERPMVC.Migrations
 {
     [DbContext(typeof(MedicaErpDbContext))]
-    [Migration("20230110202936_1012023")]
-    partial class _1012023
+    [Migration("20230201022801_first")]
+    partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -374,7 +374,7 @@ namespace Infrastructure.MedicaERPMVC.Migrations
             modelBuilder.Entity("MedicaERPMVC.Domain.Model.UserOfClinic", b =>
                 {
                     b.HasOne("MedicaERPMVC.Domain.Model.Clinic", "Clinic")
-                        .WithMany("Users")
+                        .WithMany()
                         .HasForeignKey("ClinicId");
 
                     b.HasOne("MedicaERPMVC.Domain.Model.SpecialitzationOfDoctor", null)
@@ -386,7 +386,7 @@ namespace Infrastructure.MedicaERPMVC.Migrations
 
             modelBuilder.Entity("MedicaERPMVC.Domain.Model.Visit", b =>
                 {
-                    b.HasOne("MedicaERPMVC.Domain.Model.Clinic", "Clinic")
+                    b.HasOne("MedicaERPMVC.Domain.Model.Clinic", null)
                         .WithMany("Visits")
                         .HasForeignKey("ClinicId");
 
@@ -405,8 +405,6 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                     b.HasOne("MedicaERPMVC.Domain.Model.VisitType", "VisitType")
                         .WithMany("Visits")
                         .HasForeignKey("VisitTypeId");
-
-                    b.Navigation("Clinic");
 
                     b.Navigation("Doctor");
 
@@ -468,8 +466,6 @@ namespace Infrastructure.MedicaERPMVC.Migrations
 
             modelBuilder.Entity("MedicaERPMVC.Domain.Model.Clinic", b =>
                 {
-                    b.Navigation("Users");
-
                     b.Navigation("Visits");
                 });
 

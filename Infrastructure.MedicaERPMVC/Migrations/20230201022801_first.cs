@@ -96,9 +96,9 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                     LastName = table.Column<string>(type: "nvarchar(65)", maxLength: 65, nullable: false),
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Adnotations = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    isDoctor = table.Column<bool>(type: "bit", nullable: false),
-                    isEmployee = table.Column<bool>(type: "bit", nullable: false),
-                    Pesel = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    isDoctor = table.Column<bool>(type: "bit", nullable: true),
+                    isEmployee = table.Column<bool>(type: "bit", nullable: true),
+                    Pesel = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ClinicId = table.Column<int>(type: "int", nullable: true),
                     SpecialitzationOfDoctorId = table.Column<int>(type: "int", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -155,8 +155,8 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
-                    ProviderKey = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ProviderKey = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ProviderDisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
@@ -200,8 +200,8 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    LoginProvider = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -227,10 +227,10 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                     EndTime = table.Column<TimeSpan>(type: "time", nullable: false),
                     PatientId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     DoctorId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ClinicId = table.Column<int>(type: "int", nullable: true),
-                    VisitTypeId = table.Column<int>(type: "int", nullable: false),
+                    VisitTypeId = table.Column<int>(type: "int", nullable: true),
                     Confirmed = table.Column<bool>(type: "bit", nullable: true),
-                    IsDone = table.Column<bool>(type: "bit", nullable: true)
+                    IsDone = table.Column<bool>(type: "bit", nullable: true),
+                    ClinicId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -256,8 +256,7 @@ namespace Infrastructure.MedicaERPMVC.Migrations
                         name: "FK_Visits_VisitTypes_VisitTypeId",
                         column: x => x.VisitTypeId,
                         principalTable: "VisitTypes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
