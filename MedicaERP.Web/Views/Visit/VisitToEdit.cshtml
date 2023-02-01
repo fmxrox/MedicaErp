@@ -15,11 +15,7 @@
              <div class="form-group">
                 <input type="hidden" asp-for="Id" class="form-control" />
             </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
+
             <div class="form-group">
                 <label asp-for="Date" class="control-label"></label>
                 <input asp-for="Date" class="form-control" />
@@ -35,27 +31,24 @@
                 <input asp-for="EndTime" class="form-control" />
                 <span asp-validation-for="EndTime" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="PatientId" class="control-label"></label>
-                <input asp-for="PatientId" class="form-control" />
-                <span asp-validation-for="PatientId" class="text-danger"></span>
+           <div class="form-group">             
+                <input  type="hidden" asp-for="DoctorId" class="form-control" />         
             </div>
-          
-            <div class="form-group">
-                <label asp-for="Confirmed" class="control-label"></label>
-                <input asp-for="Confirmed" class="form-control" />
-                <span asp-validation-for="Confirmed" class="text-danger"></span>
+              <div class="form-group">              
+                <input type="hidden" asp-for="PatientId" class="form-control" />
             </div>
-            <div class="form-group">
-                <label asp-for="IsDone" class="control-label"></label>
-                <input asp-for="IsDone" class="form-control" />
-                <span asp-validation-for="IsDone" class="text-danger"></span>
+             <div class="form-group">
+               <textarea class="form-control" asp-for="Description" rows="2"></textarea>
+               
             </div>
-            <div class="form-group">
-                <label asp-for="DoctorId" class="control-label"></label>
-                <input asp-for="DoctorId" class="form-control" />
-                <span asp-validation-for="DoctorId" class="text-danger"></span>
+                        <div class="form-group">
+                <label asp-for="IsDone">Wykonano wizytę?</label>
+                <br />
+                @Html.RadioButtonFor(m => m.IsDone, true) Tak
+                @Html.RadioButtonFor(m => m.IsDone, false) Nie
+                <span asp-validation-for="IsDone" class="form-text text-muted text-danger"></span>
             </div>
+            
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
