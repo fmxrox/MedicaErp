@@ -64,24 +64,32 @@ namespace MedicaERP.Web.Areas.Identity.Pages.Account
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+            [Display(Name = "Hasło")]
             public string Password { get; set; }
 
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
+            [Display(Name = "Potwierdź hasło")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
             [Phone]
-            [Display(Name = "Phone number")]
+            [Display(Name = "Numer telefonu")]
             public string PhoneNumber { get; set; }
             [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "Imię")]
             public string FirstName { get; set; }
             [Required]
-
+            [DataType(DataType.Text)]
+            [Display(Name = "Nazwisko")]
             public string LastName { get; set; }
+            [Display(Name = "Dodatkowe informacje")]
+            [DataType(DataType.MultilineText)]
             public string? Adnotations { get; set; }
+            [Display(Name = "Zarejestrować jako lekarz")]
             public bool? isDoctor { get; set; }
+            [Display(Name = "Zarejestrować jako pracownik")]
             public bool? isEmployee { get; set; }
+            [Display(Name = "Pesel")]
             public string? Pesel { get; set; }
 
         }

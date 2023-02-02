@@ -103,7 +103,7 @@ namespace MedicaERP.Web.Controllers
             _visitService.AddVisitAsync(newvisitViewModel);
 
             TempData["Sucess"] = "You added new appoitment";
-            return RedirectToAction("AddVisit");
+            return RedirectToAction("VisitList");
            
             //var isThisDoctorWorkinThisTime = 
         }

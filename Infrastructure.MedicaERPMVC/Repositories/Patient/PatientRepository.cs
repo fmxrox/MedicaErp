@@ -54,8 +54,6 @@ namespace Infrastructure.MedicaERPMVC.Repositories.User
             _medicaDbContext.Entry(patient).Property("PhoneNumber").IsModified=true;
             _medicaDbContext.Entry(patient).Property("isDoctor").IsModified = true;
             _medicaDbContext.Entry(patient).Property("isEmployee").IsModified = true;
-            _medicaDbContext.Entry(patient).Property("isActivate").IsModified = true;
-            _medicaDbContext.Entry(patient).Property("isEmployee").IsModified = true;
             _medicaDbContext.SaveChanges();
         }
     }
