@@ -68,8 +68,8 @@
                 @Html.DisplayFor(modelItem => item.Doctor.LastName)
             </td>
             <td>
-                @Html.ActionLink("Podejmij wizytę","Visit", "VisitToEdit", new { id=item.Id},null) |
-                @Html.ActionLink("Anuluj","Visit", "VisitToCancel", new { id=item.Id },null)
+                @Html.ActionLink("Podejmij wizytę","VisitToEdit","Visit", new { id=item.Id},null) |
+                @Html.ActionLink("Anuluj", "VisitToCancel","Visit", new { id=item.Id },null)
             </td>
         </tr>
 }
