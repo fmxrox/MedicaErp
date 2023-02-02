@@ -67,8 +67,7 @@ namespace Infrastructure.MedicaERPMVC.Repositories
         {
             var presentDay = DateTime.Now.Date;
             var visits = await _medicaErpDbContext.Visits
-                .Where(x => x.DoctorId == doctorId && x.Date.Date >= presentDay
-            && x.IsDone == false)
+                .Where(x => x.DoctorId == doctorId)
                 .OrderByDescending(x => x.Date)
                 .ThenByDescending(x=>x.StartTime)
                 .ToListAsync();

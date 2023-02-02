@@ -37,7 +37,7 @@ namespace MedicaERP.Web.Controllers.Doctors
             var model = new DailySchemeDoctorViewModel
             {
                 Date = System.DateTime.Today,
-                Visits = (System.Collections.Generic.IEnumerable<MedicaERPMVC.Application.ViewModels.Visits.VisitViewModel>)visits
+                Visits = visits.Visits
             };
 
             return View(model);

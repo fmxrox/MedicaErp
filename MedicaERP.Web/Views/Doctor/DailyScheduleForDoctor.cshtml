@@ -1,29 +1,78 @@
-﻿@model IEnumerable<MedicaERPMVC.Application.ViewModels.Doctor.DailySchemeDoctorViewModel>
+﻿@using MedicaERPMVC.Application.ViewModels.Doctor
+@model DailySchemeDoctorViewModel
+
+
+@{
+    ViewData["Title"] = "Lista wizyt";
+}
+
+<h1>Wizyty</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-controller="Visit" asp-action="AddVisit">Dodaj nową wizytę</a>
 </p>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Date)
+            <th> 
+                Imie               
             </th>
-            <th></th>
+            <th>
+               Nazwisko
+            </th>
+            <th>
+                Data
+            </th>
+            <th>
+               Rozpoczęcie
+            </th>
+             <th>
+               Koniec
+            </th>
+            <th>
+               Opis
+            </th>
+             <th>
+            Imię lekarza
+            </th>
+              <th>
+             Nazwisko lekarza
+            </th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.Visits) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
+            <td>               
+                 @Html.DisplayFor(modelItem => item.Patient.FirstName)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.DisplayFor(modelItem => item.Patient.LastName)
+            </td>
+                <td>               
+                 @Html.DisplayFor(modelItem => item.Date)
+            </td>
+               <td>               
+                 @Html.DisplayFor(modelItem => item.StartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doctor.FirstName)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.Doctor.LastName)
+            </td>
+            <td>
+                @Html.ActionLink("Podejmij wizytę","Visit", "VisitToEdit", new { id=item.Id},null) |
+                @Html.ActionLink("Anuluj","Visit", "VisitToCancel", new { id=item.Id },null)
             </td>
         </tr>
 }
     </tbody>
 </table>
+

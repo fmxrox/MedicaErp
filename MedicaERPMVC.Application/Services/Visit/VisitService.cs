@@ -59,7 +59,7 @@ namespace MedicaERPMVC.Application.Services.Visit
         {
             var visitsFromRepository = await _visitRepository.GetVisitsToDo(doCtorId);
             var visits = visitsFromRepository.ProjectTo<VisitViewModel>(_mapper.ConfigurationProvider)
-                .Where(x => x.DoctorId == doCtorId && x.Date == date)
+                .Where(x => x.DoctorId == doCtorId)
                 .OrderByDescending(x => x.Date).ToList();
             var visitFinally = visits.Skip(pageNumber).Take(pageSize).ToList();
             var visitsForListVM = new ListVisitsViewModel()
