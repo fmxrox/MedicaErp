@@ -17,6 +17,10 @@ body {
     margin: 25px 5px 20px 20px;
     order:2;
 }
+.ulbtn {
+    display: flex;
+    justify-content: space-between;
+}
 li {
     list-style-type: none;
 }
