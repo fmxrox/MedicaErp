@@ -1,4 +1,8 @@
-﻿@{
+﻿@using MedicaERPMVC.Domain.Model
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<UserOfClinic> SignInManager
+@inject UserManager<UserOfClinic> userManager
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -7,27 +11,46 @@
     <br />
     <p>Witamy w przychodni Medica Sp.Z.o.o.</p>
     <p>Zarejestruj się już dziś</p>
-
+    @if (!SignInManager.IsSignedIn(User)){
+                            <a class="btn btn-primary" asp-area="Identity" asp-page="/Account/Register">Rejestracja</a>
+                            <a class="btn btn-primary" asp-area="Identity" asp-page="/Account/Login">Rejestracja</a>
+    }
+   
 </div>
 <br />
 <br />
 
  <div class="centernbtn">  
         <ul class="ulbtn">
-             @{
-                  if (User.IsInRole(Constans.AdministratorRole))
+@{
+                            if (User.IsInRole(Constans.AdministratorRole))
                             {
-       <li> <a class="btn btn-primary  text-center" asp-area="" asp-controller="Patient" asp-action="AddPatient">Umów wizytę</a></li>
+                           <li >
+                            <a class="btn btn-primary" asp-area="" asp-controller="Visit" asp-action="VisitList">Lista wizyt placówki</a>
+
+                        </li>
+                                             <li >
+                            <a class="btn btn-primary" asp-area="" asp-controller="Visit" asp-action="AddVisit">Dodaj ręcznie wizytę</a>
+
+                        </li>
+                         <li>
+                            <a class="btn btn-primary" asp-area="" asp-controller="Patient" asp-action="Index">Lista/Edycja użytkowników </a>
+
+                        </li>
                             }
-          <li> <a class="btn btn-primary  text-center" asp-area="" asp-controller="Patient" asp-action="AddPatient">Umów wizytę</a></li>
-           <li>  <a class="btn btn-primary  text-center" asp-area="" asp-controller="Patient" asp-action="AddPatient">Umów wizytę</a></li>
-        <li>   <a class="btn btn-primary  text-center" asp-area="" asp-controller="Patient" asp-action="AddPatient">Umów wizytę</a></li>
-       <li>  <a class="btn btn-primary  text-center" asp-area="" asp-controller="Patient" asp-action="AddPatient">Umów wizytę</a></li>
-     <li>  <a class="btn btn-primary  text-center" asp-area="" asp-controller="Patient" asp-action="AddPatient">Umów wizytę</a></li>
-   <li>  <a class="btn btn-primary  text-center" asp-area="" asp-controller="Patient" asp-action="AddPatient">Umów wizytę</a></li>
- <li>  <a class="btn btn-primary  text-center" asp-area="" asp-controller="Patient" asp-action="AddPatient">Umów wizytę</a></li>
-  <li> <a class="btn btn-primary  text-center" asp-area="" asp-controller="Patient" asp-action="AddPatient">Umów wizytę</a></li>
- <li>  <a class="btn btn-primary  text-center" asp-area="" asp-controller="Patient" asp-action="AddPatient">Umów wizytę</a></li>
-    }
-  </ul>
+                            @if (SignInManager.IsSignedIn(User)){
+                                             <li><a class="btn btn-primary" asp-area="" asp-controller="Visit" asp-action="AddVisit">Dodaj wizytę</a></li>
+                                             <li><a class="btn btn-primary" asp-area="" asp-controller="Visit" asp-action="VisitPatientList">Lista moich wizyt</a></li>
+                            }
+                     
+                          if (User.IsInRole(Constans.DoctorRole))
+                            {
+                                             <li> <a class="btn btn-primary" asp-area="" asp-controller="Doctor" asp-action="DailyScheduleForDoctor">Dzisiejszy plan wizyt</a></li>
+                                                                                          <li> <a class="nav-link text-dark" asp-area="" asp-controller="Visit" asp-action="VisitList">Lista wizyt</a></li>
+                                                                                                                                    <li> <a class="btn btn-primary" asp-area="" asp-controller="Visit" asp-action="AddVisit">Dodaj ręcznie wizytę</a></li>
+                            }
+                        
+                        
+                        }
+                    </ul>
 </div>

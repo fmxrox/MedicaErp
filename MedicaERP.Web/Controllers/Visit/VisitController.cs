@@ -38,19 +38,15 @@ namespace MedicaERP.Web.Controllers
             var model = await _visitService.GetAllVisitsForList(pageSize, numberOfPage, stringToSearch);
             return View(model);
         }
-        [HttpPost]
-        public IActionResult Index(int pageSize, int? numberOfPage, string stringToSearch)
-        {
-            if (!numberOfPage.HasValue)
-            {
-                pageSize = 1;
-            }
-            if (stringToSearch == null)
-            {
-                stringToSearch = string.Empty;
-            }
-            var model = _visitService.GetAllVisitsForList(pageSize, numberOfPage.Value, stringToSearch);
-           
+       
+
+
+        [HttpGet]
+        public async Task<IActionResult> VisitPatientList(int pageSize, int numberOfPage, string stringToSearch)
+        { 
+            var user = _userOfClinic.GetUserId(HttpContext.User);
+            var model = await _visitService.GetAllVisitsForList(pageSize, numberOfPage, stringToSearch);
+            model.Visits.Where(p => p.PatientId == user);
             return View(model);
         }
 

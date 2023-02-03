@@ -1,0 +1,76 @@
+﻿@using MedicaERPMVC.Application.ViewModels.Visits
+@model ListVisitsViewModel
+
+@{
+    ViewData["Title"] = "Lista wizyt";
+}
+
+<h1>Wizyty</h1>
+
+<p>
+    <a asp-action="AddVisit">Dodaj nową wizytę</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th> 
+                Imie               
+            </th>
+            <th>
+               Nazwisko
+            </th>
+            <th>
+                Data
+            </th>
+            <th>
+               Rozpoczęcie
+            </th>
+             <th>
+               Koniec
+            </th>
+            <th>
+               Opis
+            </th>
+             <th>
+            Imię lekarza
+            </th>
+              <th>
+             Nazwisko lekarza
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Visits) {
+        <tr>
+            <td>               
+                 @Html.DisplayFor(modelItem => item.Patient.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patient.LastName)
+            </td>
+                <td>               
+                 @Html.DisplayFor(modelItem => item.Date)
+            </td>
+               <td>               
+                 @Html.DisplayFor(modelItem => item.StartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doctor.FirstName)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.Doctor.LastName)
+            </td>
+            <td>
+                @Html.ActionLink("Podejmij wizytę", "VisitToEdit", new { id=item.Id}) |
+                @Html.ActionLink("Anuluj", "VisitToCancel", new { id=item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

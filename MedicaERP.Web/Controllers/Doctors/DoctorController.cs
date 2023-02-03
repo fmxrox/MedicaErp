@@ -31,8 +31,8 @@ namespace MedicaERP.Web.Controllers.Doctors
             {
                 stringToSearch = string.Empty;
             }
-        
-            var visits = await _visitService.GetAllVisitsForDoctor(currentDoctor.Id, pageSize, numberOfPage.Value, stringToSearch, date);
+        date = DateTime.Today;
+            var visits = await _visitService.GetAllVisitsForDoctorToday(currentDoctor.Id, pageSize, numberOfPage.Value, stringToSearch, date);
 
             var model = new DailySchemeDoctorViewModel
             {

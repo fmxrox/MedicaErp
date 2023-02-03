@@ -72,6 +72,23 @@ namespace MedicaERPMVC.Application.Services.Visit
             return visitsForListVM;
 
         }
+        public async Task<ListVisitsViewModel> GetAllVisitsForDoctorToday(string doCtorId, int pageSize, int pageNumber, string? stringToFind, DateTime date)
+        {
+            var visitsFromRepository = await _visitRepository.GetVisitsToDo(doCtorId);
+            var visits = visitsFromRepository.ProjectTo<VisitViewModel>(_mapper.ConfigurationProvider)
+                .Where(x => x.DoctorId == doCtorId && x.Date==date)
+                .OrderByDescending(x => x.Date).ToList();
+            var visitFinally = visits.Skip(pageNumber).Take(pageSize).ToList();
+            var visitsForListVM = new ListVisitsViewModel()
+            {
+                Visits = visits,
+                Count = visits.Count(),
+                PageSize = pageSize,
+                ActualPage = pageNumber
+            };
+            return visitsForListVM;
+
+        }
 
         public async Task<ListVisitsViewModel> GetNextVisitsForDoctorUpcoming(string doCtorId, int pageSize, int pageNumber, string? stringToFind)
         {
