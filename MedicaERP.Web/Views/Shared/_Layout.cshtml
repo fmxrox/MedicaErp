@@ -34,15 +34,15 @@
                         </li>
                             }
                             @if (SignInManager.IsSignedIn(User)){
-                                             <li><a class="nav-link text-dark" asp-area="" asp-controller="VisitPatientList" asp-action="Privacy">Moje wizyty</a></li>
-                                             <li><a class="nav-link text-dark" asp-area="" asp-controller="Visit" asp-action="AddVisit">Umów wizytę</a></li>
+                                             <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="VisitPatientList" asp-action="Privacy">Moje wizyty</a></li>
+                                             <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="Visit" asp-action="AddVisit">Umów wizytę</a></li>
                             }
                      
                           if (User.IsInRole(Constans.DoctorRole))
                             {
-                                             <li> <a class="nav-link text-dark" asp-area="" asp-controller="Doctor" asp-action="DailyScheduleForDoctor">Wizyty dzisiaj </a></li>
-                                             <li> <a class="nav-link text-dark" asp-area="" asp-controller="Visit" asp-action="VisitList">Wizyty</a></li>
-                                             <li> <a class="nav-link text-dark" asp-area="" asp-controller="Visit" asp-action="AddVisit">Dodaj wizytę</a></li>
+                                             <li class="nav-item"> <a class="nav-link text-dark" asp-area="" asp-controller="Doctor" asp-action="DailyScheduleForDoctor">Wizyty dzisiaj </a></li>
+                                             <li class="nav-item"> <a class="nav-link text-dark" asp-area="" asp-controller="Visit" asp-action="VisitList">Wizyty</a></li>
+                                             <li class="nav-item"> <a class="nav-link text-dark" asp-area="" asp-controller="Visit" asp-action="AddVisit">Dodaj wizytę</a></li>
                             }
                         
                         
