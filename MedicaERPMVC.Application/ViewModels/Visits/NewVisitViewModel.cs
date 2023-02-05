@@ -15,11 +15,15 @@ namespace MedicaERPMVC.Application.ViewModels.Visits
 
     {
         public int Id { get; set; }
+        [Display(Name ="Opis wizyty")]
        public string Description { get; set; }
         [Required]
         [DataType(DataType.Date)]
+        [Display(Name = "Dara")]
         public DateTime Date { get; set; }
+        [Display(Name = "Godzina rozpoczęcia")]
         public TimeSpan StartTime { get; set; }
+        [Display(Name = "Godzina zakończenia")]
         public TimeSpan EndTime { get; set; }
         [Required]
         public string? PatientId { get; set; }

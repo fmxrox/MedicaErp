@@ -71,27 +71,12 @@ namespace MedicaERP.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> AddVisit(NewVisitViewModel newvisitViewModel)
         {
-           
-            //if(ModelState.IsValid==false)
-            //{
-            //    var doctors =await SelectedDoctorsList();
-            //    newvisitViewModel.Doctors = (System.Collections.Generic.IEnumerable<SelectListItem>)doctors;
-            //    return View(newvisitViewModel);
-            //}
-
 
             var isPossibleMakeVisit =await  _visitService.IsVisitPossible(
                 newvisitViewModel.DoctorId,
                 newvisitViewModel.Date,
                 newvisitViewModel.StartTime);
 
-
-            //if (isPossibleMakeVisit == false)
-            //{
-            //    var doctorsav =await SelectedDoctorsList();
-            //    newvisitViewModel.Doctors = doctorsav;
-            //    return View(newvisitViewModel);
-            //}
             var userId =  this._userOfClinic.GetUserId(HttpContext.User);
             newvisitViewModel.PatientId = userId;
             newvisitViewModel.IsDone = false;
@@ -100,8 +85,6 @@ namespace MedicaERP.Web.Controllers
 
             TempData["Sucess"] = "You added new appoitment";
             return RedirectToAction("VisitList");
-           
-            //var isThisDoctorWorkinThisTime = 
         }
 
         private async Task<IEnumerable<SelectListItem>> SelectedDoctorsList()
@@ -131,11 +114,6 @@ namespace MedicaERP.Web.Controllers
 
             return RedirectToAction("Index");
         }
-        //[HttpPost]
-        //public async Task<IActionResult> VisitToCancel(int id)
-        //{
-            
-        //}
         [HttpGet]
         public async Task<IActionResult> GetVisitForDoctor(string doCtorId, int pageSize, int pageNumber, string? stringToFind)
         {

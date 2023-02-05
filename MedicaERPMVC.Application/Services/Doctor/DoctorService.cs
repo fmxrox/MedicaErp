@@ -14,8 +14,7 @@ namespace MedicaERPMVC.Application.Services.Doctor
 {
     public class DoctorService : IDoctorService
     {
-        //wszystkie polaczena caly kod odp za reagowanie na zadania uzytkownika
-        //w repozytorium oczekujemy konkretnego przedmiotu(ty tylko check czy null)
+      
         private readonly IDoctorRepository _doctorRepository;
         private readonly IMapper _mapper;
         public DoctorService(IDoctorRepository doctorRepository, IMapper mapper)
@@ -40,8 +39,7 @@ namespace MedicaERPMVC.Application.Services.Doctor
         public ListDoctorsForListViewModel GetAllDoctorsForList(int pageSize, int pageNumber, string stringToFind)
         {
             var doctors = _doctorRepository.GetAllDoctors()
-                .ProjectTo<DoctorForListVM>(_mapper.ConfigurationProvider).ToList();/*||p.FirstName.StartsWith(stringToFind)|| p.Pesel.StartsWith(stringToFind))*/// PROJECT DO IQeryable do pojedynczyc <Map>
-
+                .ProjectTo<DoctorForListVM>(_mapper.ConfigurationProvider).ToList();
             var patientsFinally = doctors.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
             var doctorsForListViewModel = new ListDoctorsForListViewModel()
             {
@@ -56,7 +54,7 @@ namespace MedicaERPMVC.Application.Services.Doctor
         public List<DoctorForListVM> GetAllDoctorsAll()
         {
             var doctors = _doctorRepository.GetAllDoctors()
-                .ProjectTo<DoctorForListVM>(_mapper.ConfigurationProvider).ToList();/*||p.FirstName.StartsWith(stringToFind)|| p.Pesel.StartsWith(stringToFind))*/// PROJECT DO IQeryable do pojedynczyc <Map>
+                .ProjectTo<DoctorForListVM>(_mapper.ConfigurationProvider).ToList();
           
             return doctors;
         }

@@ -7,7 +7,6 @@ using System.ComponentModel.DataAnnotations;
 namespace MedicaERPMVC.Domain.Model
 {
     using static DataConstProperty;
-    //USEROFCLINIC MOZE ZROBIER TYLKO PACJENTA I TYLE 
     public class UserOfClinic : IdentityUser
     {
         [Required]
@@ -23,7 +22,6 @@ namespace MedicaERPMVC.Domain.Model
         public bool? isDoctor { get; set; }
          public bool? isEmployee { get; set; }
         public string? Pesel { get; set; }
-        //public UserContactInformation? UserContactInformation { get; set; }
         public int? ClinicId { get; set; }
         public virtual Clinic Clinic { get; set; }
         public ICollection<Visit> PatientVisits { get; set; }

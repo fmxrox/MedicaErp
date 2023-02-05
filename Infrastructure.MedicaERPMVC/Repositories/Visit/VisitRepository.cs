@@ -6,12 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Infrastructure.MedicaERPMVC.Repositories
 {
     public class VisitRepository : IVisitRepository
-    {// todo GetVisitByDoctorId or Something, po nr pesel
-     //edit visit, update exception, Async wszędzie
-     // po pesel whehe visit inprogress- something like that
-     //Edit async
-     //RESX- tłumaczenie
-     //FIND VISITS
+    {
 
 
         private readonly MedicaErpDbContext _medicaErpDbContext;
@@ -57,7 +52,6 @@ namespace Infrastructure.MedicaERPMVC.Repositories
             _medicaErpDbContext.Entry(visit).Property("EndTime").IsModified = true;
             _medicaErpDbContext.Entry(visit).Property("PatientId").IsModified = true;
             _medicaErpDbContext.Entry(visit).Property("DoctorId").IsModified = true;
-            /*_medicaErpDbContext.Entry(visit).Property("VisitTypeId").IsModified = true; */
             _medicaErpDbContext.Entry(visit).Property("Confirmed").IsModified = true;
               _medicaErpDbContext.Entry(visit).Property("IsDone").IsModified = true;
             _medicaErpDbContext.SaveChanges();         
@@ -75,9 +69,6 @@ namespace Infrastructure.MedicaERPMVC.Repositories
         }
         public IQueryable<Visit> GetAllVisits()
         {
-            //var visits =  _medicaErpDbContext.Visits;
-            //foreach (var vis in visits)
-            //return visits.AsQueryable();
             var visits= from c in _medicaErpDbContext.Visits.AsQueryable()
                    join u in _medicaErpDbContext.UserOfClinics.AsQueryable() on
                    c.DoctorId equals u.Id

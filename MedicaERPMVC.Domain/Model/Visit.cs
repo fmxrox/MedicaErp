@@ -10,7 +10,6 @@ namespace MedicaERPMVC.Domain.Model
     public class Visit
     {
         public int Id { get; set; }
-
         public string Description { get; set; }
 
         [Required]
@@ -24,9 +23,6 @@ namespace MedicaERPMVC.Domain.Model
         [Required]
         public string? DoctorId { get; set; }
         public virtual UserOfClinic Doctor { get; set; }
-        //public int? ClinicId { get; set; }
-        //public virtual Clinic Clinic { get; set; }
-
         public int? VisitTypeId { get; set; }
         public virtual VisitType VisitType { get; set; }
         public bool? Confirmed { get; set; }

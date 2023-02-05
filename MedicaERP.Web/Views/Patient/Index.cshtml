@@ -4,7 +4,7 @@
     ViewData["Title"] = "Pacjent";
 }
 
-<h1>Index</h1>
+<h1>Lista Pacjentów</h1>
 
 <p>
     <a asp-action="AddPatient">Dodaj nowego pacjenta</a>
@@ -22,13 +22,13 @@
                Id
             </th>
             <th>
-               Name
+               Imię
             </th>
              <th>
-               LastName
+               Nazwisko
             </th>
              <th>
-               Phone Number
+              Numer telefonu
             </th>
              <th>
                Pesel
@@ -55,9 +55,8 @@
                 @Html.DisplayFor(modelItem => item.Pesel)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /*item.id=item.Id*/}) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.Id*/  }) |
-                @Html.ActionLink("Delete", "Delete", new { /*/ id=item.Id* */ })
+                @Html.ActionLink("Edycja", "EditPatient", new { id=item.Pesel}) |
+                @Html.ActionLink("Usuń użytkownika", "Delete", new { id=item.Pesel})
             </td>
         </tr>
         }

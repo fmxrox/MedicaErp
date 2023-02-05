@@ -91,7 +91,6 @@ namespace MedicaERP.Web
             services.AddTransient<IPatientRepository, PatientRepository>();
             services.AddTransient<IDoctorRepository, DoctorRepository>();
             services.AddTransient<IDoctorService, DoctorService>();
-            //services.AddControllersWithViews().AddFluentValidation(/*fv => fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false*/);
             services.AddRazorPages();
             services.AddTransient<IValidator<NewPatientViewModel>, NewCustomerValidation>();
         }
